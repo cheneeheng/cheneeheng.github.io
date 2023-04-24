@@ -70,11 +70,13 @@ body {
 
 .page__title {
   margin-top: 0;
+  margin-bottom: 0.75em;
   line-height: 1;
 
   a {
     color: $text-color;
     text-decoration: none;
+    font-size: 0.8em;
   }
 
   & + .page__meta {
@@ -113,7 +115,7 @@ body {
   p,
   li,
   dl {
-    font-size: 1em;
+    font-size: 0.75em;
   }
 
   /* paragraph indents */
@@ -247,7 +249,7 @@ body {
   padding: 2px 5px;
   color: #fff;
   font-family: $caption-font-family;
-  font-size: $type-size-7;
+  font-size: $type-size-8;
   background: #000;
   text-align: right;
   z-index: 5;
