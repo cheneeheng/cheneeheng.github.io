@@ -1,33 +1,33 @@
 ---
-title: "Journey"
+title: "My Blog"
 layout: splash
-permalink: /journey/
+permalink: /blog/
 date: 2016-03-23T11:48:41-04:00
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
   overlay_image: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
-  actions:
-    - label: "Learn More"
-      url: "/terms/"
+  # actions:
+  #   - label: "Learn More"
+  #     url: "/terms/"
   caption: "Photo by [Daniel Seßler](https://unsplash.com/@danielsessler?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [**Unsplash**](https://unsplash.com/photos/C6l894Q7wpI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
-excerpt: "Bacon ipsum dolor sit amet salami ham hock ham, hamburger corned beef short ribs kielbasa biltong t-bone drumstick tri-tip tail sirloin pork chop."
+excerpt: "A blog is a place where one goes to tell the world about something interesting. But usually it comes down to either complaints or achivements. And I choose to do the later."
 intro: 
-  - excerpt: 'Nullam suscipit et nam, tellus velit pellentesque at malesuada, enim eaque. Quis nulla, netus tempor in diam gravida tincidunt, *proin faucibus* voluptate felis id sollicitudin. Centered with `type="center"`'
+  - excerpt: "I have no idea what I am doing, but this blog thing still interests me, so I guess I will do something."
 feature_row:
-  - image_path: assets/images/unsplash-gallery-image-1-th.jpg
+  - image_path: assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
     image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
     alt: "placeholder image 1"
     title: "Placeholder 1"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
-  - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
+  - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
     alt: "placeholder image 2"
     title: "Placeholder 2"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: "#test-link"
+    url: /resume/
     btn_label: "Read More"
     btn_class: "btn--primary"
-  - image_path: /assets/images/unsplash-gallery-image-3-th.jpg
+  - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
     title: "Placeholder 3"
     excerpt: "This is some sample content that goes here with **Markdown** formatting."
 # feature_row2:
