@@ -12,13 +12,18 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# remote_theme: pages-themes/minimal@v0.2.0
+# minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+# minimal_mistakes_skin    : "air"
+# minimal_mistakes_skin    : "contrast"
+minimal_mistakes_skin    : "dark"
+# minimal_mistakes_skin    : "dirt"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "cheneeheng.github.io"
 title_separator          : "-"
-subtitle                 : "Yes this is my page !!!"
+subtitle                 : # "Work Work"
 name                     : "Chen Ee Heng"
 description              : "This website hosts stuffs that I did."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -59,7 +64,7 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : # true, false (default)
+search                   : true #, false (default)
 search_full_content      : # true, false (default)
 search_provider          : # lunr (default), algolia, google
 lunr:
@@ -105,8 +110,8 @@ analytics:
 # Site Author
 author:
   name             : "Chen Ee Heng"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
+  avatar           : "/assets/images/cropped-head-388.jpg"
+  bio              : "*Part time coder, computer vision researcher, making machines see and decide what to do for me.*"
   location         : "Munich, Germany"
   email            :
   links:
@@ -230,6 +235,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  # - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # mimic GitHub Pages with --safe
 whitelist:
