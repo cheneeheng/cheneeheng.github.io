@@ -3,7 +3,7 @@ author_profile: true
 layout: archive
 permalink: /publications/
 title: "Publications"
-excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
+excerpt: "List of publications."
 # layouts_gallery:
 #   - url: /assets/images/mm-layout-splash.png
 #     image_path: /assets/images/mm-layout-splash.png
@@ -14,63 +14,30 @@ excerpt: "Minimal Mistakes is a flexible two-column Jekyll theme."
 #   - url: /assets/images/mm-layout-archive.png
 #     image_path: /assets/images/mm-layout-archive.png
 #     alt: "archive layout example"
-last_modified_at: 2022-05-27T11:59:26-04:00
+last_modified_at: 2023-04-25T23:00:00-00:00
 toc: true
 ---
 
-Minimal Mistakes is a flexible two-column Jekyll theme. Perfect for hosting your personal site, blog, or portfolio on GitHub or self-hosting on your own server. As the name implies --- styling is purposely minimalistic to be enhanced and customized by you :smile:.
+This page lists all my publications where I am either the first author or as a co-author. They are listed by year of publication
 
-{% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
+# 2023
+- Kai Wu, Ee Heng Chen, Xing Hao, Felix Wirth, Keti Vitanova, Rüdiger Lange and Darius Burschka. "Continuous Risk Estimation of Acute Kidney Failure with Dense Temporal Data for ICU Patients". 2023 International Conference of the IEEE Engineering in Medicine and Biology Society. **\[Accepted\]**
+- Kai Wu, Ee Heng Chen, Xing Hao, Felix Wirth, Keti Vitanova, Rüdiger Lange and Darius Burschka. "Risk Estimation for ICU Patients with Personalized Anomaly-Encoded Bedside Patient Data". 2023 International Conference of the IEEE Engineering in Medicine and Biology Society. **\[Accepted\]**
 
-[Install the Theme]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
 
-## Notable Features
+## 2022
+- Kai Wu, Ee Heng Chen, Xing Hao, Felix Wirth, Keti Vitanova, Rüdiger Lange and Darius Burschka. "[Adaptable Action-Aware Vital Modelsfor Personalized Intelligent Patient Monitoring](https://ieeexplore.ieee.org/document/9812176)". 2022 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2022.
 
-- Bundled as a "theme gem" for easier install/upgrading.
-- Compatible with GitHub Pages.
-- Support for Jekyll's built-in Sass/SCSS preprocessor.
-- Nine different skins (color variations).
-- Several responsive layout options (single, archive index, search, splash, and paginated home page).
-- Optimized for search engines with support for [Twitter Cards](https://dev.twitter.com/cards/overview) and [Open Graph](http://ogp.me/) data
-- Optional [header images](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#headers), [custom sidebars](https://mmistakes.github.io/minimal-mistakes/docs/layouts/#sidebars), [table of contents](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#table-of-contents), [galleries](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#gallery), related posts, [breadcrumb links](https://mmistakes.github.io/minimal-mistakes/docs/configuration/#breadcrumb-navigation-beta), [navigation lists](https://mmistakes.github.io/minimal-mistakes/docs/helpers/#navigation-list), and more.
-- Commenting support (powered by [Disqus](https://disqus.com/), [Facebook](https://developers.facebook.com/docs/plugins/comments), [Discourse](https://www.discourse.org/), [utterances](https://utteranc.es/), [giscus](https://giscus.app/), static-based via [Staticman v1 and v2](https://staticman.net/), and custom).
-- [Google Analytics](https://www.google.com/analytics/) support.
-- UI localized text in English (default), Arabic (عربي), Brazilian Portuguese (Português brasileiro), Catalan, Chinese, Danish, Dutch, Finnish, French (Français), German (Deutsch), Greek, Hebrew, Hindi (हिंदी), Hungarian, Indonesian, Irish (Gaeilge), Italian (Italiano), Japanese, Kiswahili, Korean, Malayalam, Myanmar (Burmese), Nepali (Nepalese), Norwegian (Norsk), Persian (فارسی), Polish, Punjabi (ਪੰਜਾਬੀ), Romanian, Russian, Slovak, Spanish (Español), Swedish, Thai, Turkish (Türkçe), and Vietnamese.
+## 2021
+- Ee Heng Chen, Joeran Zeisler, and Darius Burschka. "[Direct Image Based Traffic Junction Crossing System for Autonomous Vehicles](https://ieeexplore.ieee.org/document/9564891)". In 2021 24th IEEE International Conference on Intelligent Transportation (ITSC), pages 334-340. IEEE, 2021.
+- Ee Heng Chen, Manoj Vemparala, Nael Fasfous, Alexander Frickenstein, Ahmed Mzid, Naveen Shankar Nagaraja, Joeran Zeisler, Walter Stechele. "[Investigating Binary Neural Networks for Traffic Sign Detection and Recognition](https://ieeexplore.ieee.org/document/9575557)". In 2021 32nd IEEE Intelligent Vehicles Symposium (IV), pages 1400-1405. IEEE, 2021.
+- Ee Heng Chen, Jöran Zeisler, and Darius Burschka. "[Estimating Dense Optical Flow of Objects for Autonomous Vehicles](https://ieeexplore.ieee.org/document/9575471)". In 2021 32nd IEEE Intelligent Vehicles Symposium (IV), pages 1393-1399. IEEE, 2021.
 
-## Demo Pages
+## 2020
+- Ee Heng Chen, Hanbo Hu, Jöran Zeisler, and Darius Burschka. "[Pixelwise Traffic Junction Segmentation for Urban Scene Understanding](https://ieeexplore.ieee.org/abstract/document/9294654)" . In 2020 IEEE 23rd International Conference on Intelligent Transportation Systems (ITSC), pages 1–8. IEEE, 2020.
 
-| Name                                        | Description                                           |
-| ------------------------------------------- | ----------------------------------------------------- |
-| [Post with Header Image][header-image-post] | A post with a large header image. |
-| [HTML Tags and Formatting Post][html-tags-post] | A variety of common markup showing how the theme styles them. |
-| [Syntax Highlighting Post][syntax-post] | Post displaying highlighted code. |
-| [Post with a Gallery][gallery-post] | A post showing several images wrapped in `<figure>` elements. |
-| [Sample Collection Page][sample-collection] | Single page from a collection. |
-| [Categories Archive][categories-archive] | Posts grouped by category. |
-| [Tags Archive][tags-archive] | Posts grouped by tag. |
+## 2019
+- Ee Heng Chen, Philipp Röthig, Jöran Zeisler, and Darius Burschka. "[Investigating Low Level Features in CNN for Traffic Sign Detection and Recognition](https://ieeexplore.ieee.org/abstract/document/8917340)" . In 2019 IEEE Intelligent Transportation Systems Conference (ITSC), pages 325–332. IEEE, 2019.
 
----
-
-## Credits
-
-### Icons + Demo Images:
-
-- [The Noun Project](https://thenounproject.com) -- Garrett Knoll, Arthur Shlain, and [tracy tam](https://thenounproject.com/tracytam)
-- [Font Awesome](http://fontawesome.io/)
-- [Unsplash](https://unsplash.com/)
-
-### Other:
-
-- [Jekyll](https://jekyllrb.com/)
-- [jQuery](https://jquery.com/)
-- [Susy](http://susy.oddbird.net/)
-- [Breakpoint](http://breakpoint-sass.com/)
-- [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/)
-- [FitVids.JS](http://fitvidsjs.com/)
-- Greedy Navigation - [lukejacksonn](https://codepen.io/lukejacksonn/pen/PwmwWV)
-- [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll)
-- [Lunr](http://lunrjs.com)
-
----
-
-Minimal Mistakes is designed, developed, and maintained by Michael Rose. Just another boring, tattooed, designer from Buffalo New York.
+## 2018
+- Ee Heng Chen, and Darius Burschka. "[Object-Centric Approach to Prediction and Labeling of Manipulation Tasks](https://ieeexplore.ieee.org/abstract/document/8462973)". In 2018 IEEE International Conference on Robotics and Automation (ICRA), pages 6931–6938. IEEE, 2018.

@@ -10,11 +10,11 @@ main:
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-  - title: "Journey"
-    url: /journey/
-  - title: "Publications"
-    url: /publications/
   - title: "Projects"
     url: /projects/
+  - title: "Publications"
+    url: /publications/
   - title: "Resume"
     url: /resume/
+  - title: "Journey"
+    url: /journey/
