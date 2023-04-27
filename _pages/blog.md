@@ -2,7 +2,7 @@
 title: "My Blog"
 layout: splash
 permalink: /blog/
-date: 2016-03-23T11:48:41-04:00
+date: 2023-04-27T22:36:00-00:00
 header:
   overlay_color: "#000"
   overlay_filter: "0.5"
@@ -15,21 +15,30 @@ excerpt: "A blog is a place where one goes to tell the world about something int
 intro: 
   - excerpt: "I have no idea what I am doing, but this blog thing still interests me, so I guess I will do something."
 feature_row:
-  - image_path: assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
+  - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
     image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
     alt: "placeholder image 1"
-    title: "Placeholder 1"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-  - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
-    alt: "placeholder image 2"
-    title: "Placeholder 2"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
-    url: /resume/
+    title: # " "
+    excerpt: # " "
+    url: # /.../
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
-    title: "Placeholder 3"
-    excerpt: "This is some sample content that goes here with **Markdown** formatting."
+    image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
+    alt: "placeholder image 2"
+    title: # " "
+    excerpt: # " "
+    url: # /.../
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
+    image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
+    alt: "placeholder image 3"
+    title: # " "
+    excerpt: # " "
+    url: # /.../
+    btn_label: "Read More"
+    btn_class: "btn--primary"
 # feature_row2:
 #   - image_path: /assets/images/unsplash-gallery-image-2-th.jpg
 #     alt: "placeholder image 2"
@@ -67,12 +76,8 @@ feature_row:
 ---
 
 {% include feature_row id="intro" type="center" %}
-
 {% include feature_row %}
-
 <!-- {% include feature_row id="feature_row2" type="left" %} -->
-
 <!-- {% include feature_row id="feature_row3" type="right" %} -->
-
 <!-- {% include feature_row id="feature_row4" type="center" %} -->
   
