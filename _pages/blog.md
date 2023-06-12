@@ -26,9 +26,9 @@ feature_row:
   - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
     image_caption: "Image courtesy of [Unsplash](https://unsplash.com/)"
     alt: "placeholder image 2"
-    title: # " "
-    excerpt: # " "
-    url: # /.../
+    title: "git"
+    excerpt: "All about git and how to use it."
+    url: /git/
     btn_label: "Read More"
     btn_class: "btn--primary"
   - image_path: /assets/images/jan-antonin-kolar-8QJSi37vhms-unsplash.jpg
