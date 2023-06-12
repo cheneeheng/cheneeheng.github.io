@@ -118,6 +118,10 @@ body {
     font-size: 0.75em;
   }
 
+  p {
+    text-align: justify;
+  }
+
   /* paragraph indents */
   p {
     margin: 0 0 $indent-var;
