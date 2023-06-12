@@ -10,7 +10,11 @@ toc: true
 \#TODO: INSERT A FIGURE
 
 ## What is CMake?
-[CMake](https://cmake.org/) is a compiler toolkit that generates the required make files to compile C/C++/C#/Cuda (C-based programming languages) codes. It is cross-platform compatible, meaning it can generate the required make files for Windows/MacOS/Linux with the same cmake script known as `CMakeLists.txt`.
+- [CMake](https://cmake.org/) is a compiler toolkit that generates the required makefiles to compile C/C++/C#/Cuda (C-based programming languages) codes.  
+- Makefile can be viewed as a form of configuration/setting file to tell the compiler how to compile a program from codes.
+- A compiler is a program that translates codes to machine instructions for the processing hardware, aka microprocessor/CPU.
+- It is cross-platform compatible, meaning it can generate the required makefiles for Windows/MacOS/Linux with the same cmake script known as `CMakeLists.txt`.
+- It only looks for `CMakeLists.txt` !!!
 
 ## So how do I use CMake?
 ```
@@ -66,6 +70,8 @@ Assume we have the above folder structure and `CMakeLists.txt`, we can use cmake
   - `--install` specify the directory to install the compiled project, which in this case is the folder called "install".
   - <Release/Debug> determines whether to compile the code in release or debug mode. As the name implies, we need to compile in Debug mode to run debuggers/setting breakpoints and pause the program at breakpoint.
 
+### Good to know!
+- We can create a nested cmake structure where we put a `CMakeLists.txt` in each of the children folder from the root/project folder. This allows us to have "compartmentalized" compilation configuration per children folder rather than having a giant `CMakeLists.txt` for the entire project. This is useful espcially once the project gets very big. 
 
 ## Is that all there is to CMake?
 Of course no. There is an entire [website](https://cmake.org/cmake/help/latest/) [1] dedicated to it !!! But the info here are the bare basic to get you started with cmake. If something goes wrong, cmake usually tells you which line causes the error and you can probably solve it from StackOverflow.
