@@ -71,6 +71,7 @@ Assume we have the above folder structure and `CMakeLists.txt`, we can use cmake
 Of course no. There is an entire [website](https://cmake.org/cmake/help/latest/) [1] dedicated to it !!! But the info here are the bare basic to get you started with cmake. If something goes wrong, cmake usually tells you which line causes the error and you can probably solve it from StackOverflow.
 
 ## References
-[1] asda
-[2] https://cmake.org/cmake/help/latest/manual/cmake.1.html
-https://coderefinery.github.io/cmake-workshop/
+[1] Official cmake documentation: [https://cmake.org/cmake/help/latest/](https://cmake.org/cmake/help/latest/)  
+[2] Basic cmake syntax: [https://cmake.org/cmake/help/latest/manual/cmake.1.html](https://cmake.org/cmake/help/latest/manual/cmake.1.html)  
+[3] Cmake tutorials: [https://coderefinery.github.io/cmake-workshop/](https://coderefinery.github.io/cmake-workshop/)
+[4] Cmake tutorials: [https://matgomes.com/category/cmake/](https://matgomes.com/category/cmake/)
