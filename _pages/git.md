@@ -11,7 +11,7 @@ toc: true
 
 ## What is git?
 - It is an *"open source version control system"* \[1\] .
-- You can think of it as record book that tracks when/who/what *changes* were made inside a *repository*.
+- You can think of it as a record book that tracks when/who/what *changes* were made inside a *repository*.
 - It compares the binary files in the *repository* to find the *changes*. 
 - *changes* include any file addition/modification/deletion.
 - A *repository* is the folder where git is initialized, with the folder `.git` .
@@ -37,10 +37,24 @@ toc: true
 `git push`  
 - Get the remote changes  
 `git pull` &larr; merge local changes with remote changes, may cause conflict  
-`git pull --rebase` &larr; get the remote changes and apply local changes on it
+`git pull --rebase` &larr; get the remote changes and apply local changes to it
+- List branches  
+`git branch`  
+- Create a new branch  
+`git branch BRANCH_NAME`  
+- Switch branch  
+`git checkout BRANCH_NAME`  
+- Merge branch B into branch A  
+`git checkout BRANCH_A`  
+`git merge BRANCH_B`  
+- Delete branch  
+`git branch -d BRANCH_NAME` &larr; delete local branch  
+`git push origin --delete BRANCH_NAME` &larr; delete remote branch  
+`git fetch -p` &larr; sync changes  
+
 
 ## Is that all there is to git?
-Of course no. There is an entire [website](https://git-scm.com) \[1\] dedicated to it !!! But the info here are the bare basic to get you started with git. If something goes wrong, git usually tells you what went wrong and possible solutions to fix it.
+Of course not. There is an entire [website](https://git-scm.com) \[1\] dedicated to it !!! But the info here is the bare basic to get you started with git. If something goes wrong, git usually tells you what went wrong and possible solutions to fix it.
 
 ## References
 [1] Official website: [https://git-scm.com](https://git-scm.com)  
