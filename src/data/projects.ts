@@ -15,20 +15,36 @@ export const projects: Project[] = [
     tags: ['AI agents', 'tooling', 'TypeScript'],
     summary:
       'A behavioral contract and skill set for LLM coding agents that enforces minimal-diff edits, explicit authorization, and decision logging.',
-    link: 'https://github.com/eehengchen/agent-coding-contract',
   },
   {
     title: 'Personal Website',
     status: 'active',
     tags: ['Astro', 'Tailwind', 'GitHub Pages'],
     summary:
-      'This site. Statically generated with Astro and deployed via GitHub Actions.',
+      'This site. Statically generated with Astro and deployed to GitHub Pages via GitHub Actions.',
+    link: 'https://github.com/cheneeheng/cheneeheng.github.io',
   },
   {
-    title: 'PhD Thesis Toolkit',
+    title: 'Computer-vision PhD research',
     status: 'past',
-    tags: ['research', 'Python'],
+    tags: [
+      'Computer vision',
+      'Autonomous vehicles',
+      'Optical flow',
+      'Object detection',
+      'Segmentation',
+      'PyTorch',
+      'TensorFlow',
+    ],
     summary:
-      'A collection of scripts and notebooks supporting my doctoral research before transitioning into industry.',
+      'Doctoral research on perception for autonomous vehicles: traffic-junction crossing, dense optical flow for objects, pixelwise junction segmentation, and binary neural networks for traffic-sign detection. Also contributed to ICU patient-monitoring models.',
+  },
+  {
+    title: 'Object-centric manipulation labeling',
+    status: 'past',
+    tags: ['Robotics', 'Manipulation', 'ICRA 2018'],
+    summary:
+      'Master/early-PhD work on an object-centric approach to predicting and labeling robot manipulation tasks (ICRA 2018).',
+    link: 'https://ieeexplore.ieee.org/abstract/document/8462973',
   },
 ];

@@ -2,11 +2,14 @@
 updated: 2026-05-18
 ---
 
-Currently focused on building AI agents that can reason about software with the same
-care a senior engineer would: minimal-diff edits, explicit authorization, and decisions
-that get logged rather than buried.
+Based in Munich, Germany.
 
-On the side: setting this site up, reading more papers on agent evaluation, and
-preparing a few talks.
+After several years of computer-vision research — traffic-junction understanding, optical flow,
+binary neural networks, patient-monitoring models — I'm now focused on AI agents that edit code
+with the same care a senior engineer would: minimal-diff edits, explicit authorization, and
+decisions that get logged rather than buried.
+
+On the side: keeping this site up to date, reading papers on agent evaluation, and writing
+short notes on the tools I use day-to-day (cmake, git, and friends).
 
 _This page is loosely inspired by [Derek Sivers' /now movement](https://nownownow.com/about)._

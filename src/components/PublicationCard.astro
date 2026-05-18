@@ -6,19 +6,27 @@ interface Props {
 const { publication } = Astro.props;
 ---
 
-<article class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5">
+<article class="group relative rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-zinc-900/5 hover:border-zinc-300 dark:hover:border-zinc-700">
+  <span class="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100" aria-hidden="true"></span>
   <div class="flex flex-wrap items-baseline justify-between gap-2">
     <h3 class="text-lg font-semibold tracking-tight">{publication.title}</h3>
     <span class="text-sm text-zinc-500">{publication.year}</span>
   </div>
   <div class="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{publication.venue}</div>
-  <p class="mt-3 text-zinc-700 dark:text-zinc-300">{publication.abstract}</p>
-  {publication.pdf_url && (
-    <a
-      href={publication.pdf_url}
-      class="mt-3 inline-block text-sm font-medium underline underline-offset-4"
-    >
-      PDF
-    </a>
-  )}
+  <p class="mt-3 text-sm text-zinc-700 dark:text-zinc-300">{publication.authors}</p>
+  <div class="mt-3 flex flex-wrap items-center gap-3">
+    {publication.pdf_url && (
+      <a
+        href={publication.pdf_url}
+        class="text-sm font-medium underline underline-offset-4"
+      >
+        Paper →
+      </a>
+    )}
+    {publication.status && (
+      <span class="text-xs rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200 px-2 py-0.5">
+        {publication.status}
+      </span>
+    )}
+  </div>
 </article>

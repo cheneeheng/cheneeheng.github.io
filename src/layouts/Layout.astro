@@ -19,10 +19,21 @@ const { title = 'EE Heng Chen', description = 'Personal website of EE Heng Chen 
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + 'favicon.svg'} />
     <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const saved = localStorage.getItem('theme');
+          const mode = saved === 'light' || saved === 'dark' ? saved : 'system';
+          const dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.dataset.themeMode = mode;
+        } catch {}
+      })();
+    </script>
   </head>
   <body class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
     <Nav />
-    <main class="max-w-3xl mx-auto px-4 py-10">
+    <main class="max-w-3xl mx-auto px-4 py-6">
       <slot />
     </main>
     <Footer />

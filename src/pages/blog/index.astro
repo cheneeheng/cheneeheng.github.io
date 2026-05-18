@@ -1,11 +1,58 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHeader from '../../components/PageHeader.astro';
+import { formatDate } from '../../lib/date';
+
+interface PostFrontmatter {
+  title: string;
+  date?: string;
+  description?: string;
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const modules = import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>(
+  './*.md',
+  { eager: true },
+);
+
+const posts = Object.values(modules)
+  .map((m) => ({
+    ...m.frontmatter,
+    url: m.url ?? '',
+  }))
+  .sort((a, b) => formatDate(b.date).localeCompare(formatDate(a.date)));
 ---
 
-<Layout title="Blog — coming soon">
+<Layout title="Blog — EE Heng Chen">
   <PageHeader
-    title="Blog — coming soon"
-    subtitle="Writing will land here once the first post is ready."
+    title="Blog"
+    subtitle="A blog is a place where one goes to tell the world about something interesting. Usually it comes down to complaints or achievements — and I choose the latter."
+    volume="07"
   />
+
+  <p class="mb-8 text-zinc-700 dark:text-zinc-300 leading-relaxed">
+    I have no idea what I am doing, but this blog thing still interests me, so I guess
+    I will do something.
+  </p>
+
+  {posts.length === 0 ? (
+    <p class="text-zinc-600 dark:text-zinc-300">No posts yet.</p>
+  ) : (
+    <ul class="space-y-6">
+      {posts.map((p) => (
+        <li class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 class="text-lg font-semibold tracking-tight">
+              <a href={base + p.url} class="hover:underline">{p.title}</a>
+            </h2>
+            {p.date && <span class="text-sm text-zinc-500">{formatDate(p.date)}</span>}
+          </div>
+          {p.description && (
+            <p class="mt-2 text-zinc-700 dark:text-zinc-300">{p.description}</p>
+          )}
+        </li>
+      ))}
+    </ul>
+  )}
 </Layout>

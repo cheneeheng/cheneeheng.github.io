@@ -2,23 +2,48 @@
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="py-8">
-  <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight">EE Heng Chen</h1>
-  <p class="mt-4 text-lg text-zinc-700 dark:text-zinc-300">
-    Researcher turned engineer, now building AI agents that write software with care.
+<section class="relative isolate -mt-6 -mx-4 px-4 pt-16 pb-20 sm:pt-20 sm:pb-24 overflow-hidden">
+  <!-- Full-bleed background. One wash, no grid, no labels. -->
+  <div
+    class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen -z-10"
+    aria-hidden="true"
+  >
+    <div class="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[26rem] w-[56rem] max-w-[110vw] rounded-full bg-emerald-300/50 blur-3xl dark:bg-emerald-500/15"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent dark:via-zinc-800"></div>
+  </div>
+
+  <!-- Eyebrow: small name + location. The work is the headline, not the name. -->
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
+    <span class="font-medium text-zinc-700 dark:text-zinc-300">EE Heng Chen</span>
+    <span aria-hidden="true" class="text-zinc-300 dark:text-zinc-700">/</span>
+    <span class="inline-flex items-center gap-1.5">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3" aria-hidden="true">
+        <path d="M12 22s-7-7.58-7-13a7 7 0 0 1 14 0c0 5.42-7 13-7 13z"></path>
+        <circle cx="12" cy="9" r="2.5"></circle>
+      </svg>
+      Munich · CET
+    </span>
+  </div>
+
+  <h1 class="mt-6 text-[clamp(2.5rem,7vw,4.75rem)] font-semibold tracking-[-0.035em] leading-[0.98] max-w-3xl text-zinc-900 dark:text-zinc-50">
+    Built models that see.
+    <span class="block text-emerald-700 dark:text-emerald-400">Now building agents that ship.</span>
+  </h1>
+
+  <p class="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed">
+    Computer-vision researcher (PhD &amp; postdoc, 2018–2023) turned builder of
+    disciplined AI coding agents — minimal-diff edits, explicit authorization,
+    and decisions that get logged rather than buried.
   </p>
-  <div class="mt-6 flex flex-wrap gap-3">
+
+  <div class="mt-8">
     <a
-      href={base + '/about'}
-      class="inline-flex items-center rounded-md border border-zinc-300 dark:border-zinc-700 px-4 py-2 text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-900"
+      href={base + '/now'}
+      class="group inline-flex items-center gap-2 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-5 py-2.5 text-sm font-medium hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors"
     >
-      About
-    </a>
-    <a
-      href={base + '/projects'}
-      class="inline-flex items-center rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 px-4 py-2 text-sm font-medium hover:opacity-90"
-    >
-      Projects
+      What I'm focused on
+      <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
     </a>
   </div>
 </section>
