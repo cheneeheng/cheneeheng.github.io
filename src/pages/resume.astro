@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pdfHref = base + '/assets/docs/ResumeChen230423.pdf';
+---
+
+<Layout title="Resume — EE Heng Chen">
+  <PageHeader title="Resume" subtitle="The short version." />
+
+  <section class="space-y-6 leading-relaxed text-zinc-800 dark:text-zinc-200">
+    <p>
+      The resume layouts nowadays are getting really creative — sometimes too creative.
+      I like the layouts with a sidebar listing the author's information. But the layouts
+      that rate skills with bars or stars are, in my opinion, not very informative.
+      Is it for faster visual comprehension? If so, what stops the author from just
+      putting full stars?
+    </p>
+
+    <p>
+      In the meantime, here is my old-school resume:
+      <a class="underline font-medium" href={pdfHref} target="_blank" rel="noopener">
+        Resume (PDF) →
+      </a>
+    </p>
+
+    <div>
+      <h2 class="text-xl font-semibold tracking-tight mt-4 mb-3">In a nutshell</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>~5 years of experience working in industry as a student and as a PhD candidate.</li>
+        <li>
+          7 years of computer-vision research experience. Worked with KinectV1 and
+          Realsense RGB-D cameras; used mainly OpenCV, TensorFlow, and PyTorch.
+        </li>
+        <li>Comfortable reading and debugging Python and C++.</li>
+        <li>
+          Experience with Kubernetes and Docker — enough to start on real tasks, and
+          I genuinely enjoy this side of the work.
+        </li>
+        <li>Experience coordinating interdisciplinary projects.</li>
+        <li>Experience supervising student work.</li>
+      </ul>
+    </div>
+  </section>
+</Layout>

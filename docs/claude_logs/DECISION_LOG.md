@@ -99,3 +99,32 @@ ensure `bun` is available in the runner (the action handles that).
 **Impact / Risk:** Several fields (resume PDF, exact dates of PhD start/end, industry timeline, LinkedIn URL) are still missing — the user should verify. The previous resume `/assets/docs/ResumeChen230423.pdf` was not migrated (no `/public/assets` content yet); a dedicated `/resume` route can be added in a follow-up if desired.
 
 **Outcome:** Applied on branch `feat/migrate-archive-content`.
+
+---
+
+### Entry 006
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-18T00:00:00Z
+**Task:** Audit Entry 005 migration; close remaining gaps.
+
+**Context:** Re-comparing the archive against the new site surfaced five items not covered by Entry 005:
+1. `assets/docs/ResumeChen230423.pdf` (resume PDF) was not copied.
+2. `assets/images/cropped-head-388.jpg` (author avatar) was not copied.
+3. `_pages/resume.md` route + "In a nutshell" bullet list had no equivalent page on the Astro site.
+4. Avatar was never wired into any page.
+5. `_pages/blog.md` excerpt ("A blog is a place...") and intro ("I have no idea what I am doing...") were not migrated.
+
+Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo copy), `_pages/404.md` (generic), `_pages/search.md` (Lunr), `_pages/sitemap.md` (auto-generated), `_pages/terms.md` (boilerplate privacy template, not personal), `_pages/archive-layout-with-content.md` (theme demo). Stock Unsplash images in `assets/images/` were also skipped — they were placeholder hero images.
+
+**Decision:**
+1. Copied `ResumeChen230423.pdf` to `public/assets/docs/` and `cropped-head-388.jpg` to `public/assets/images/`.
+2. Created `src/pages/resume.astro` with the resume musing, PDF link, and the six "In a nutshell" bullets verbatim.
+3. Added `/resume` to the Nav between Projects and Now.
+4. About page now renders the avatar alongside an intro paragraph naming the user as Chen Ee Heng (Munich, Germany).
+5. Blog index now uses the archive's excerpt as the subtitle and the archive's intro line as a paragraph above the post list.
+
+**Impact / Risk:** PDF and avatar are static under `public/`, so no build coupling. The resume copy uses the archive's PDF dated 2023-04-23 — the user should refresh if they have a newer CV.
+
+**Outcome:** Applied on branch `feat/migrate-archive-content`.
