@@ -1,0 +1,41 @@
+---
+interface TimelineItem {
+  years: string;
+  title: string;
+  body: string;
+}
+
+const items: TimelineItem[] = [
+  {
+    years: '2014 – 2019',
+    title: 'Academic phase',
+    body:
+      'Pursued graduate research in a quantitative discipline, learning the rigour of measurement, peer review, and slow ideas.',
+  },
+  {
+    years: '2019 – 2024',
+    title: 'Industry',
+    body:
+      'Moved into industry as a full-stack engineer. Built pipelines, APIs, and frontend systems; learned what shipping means.',
+  },
+  {
+    years: '2024 – now',
+    title: 'AI agents',
+    body:
+      'Pivoted into AI agent research and engineering. Focused on agents that edit code with discipline and explain their decisions.',
+  },
+];
+---
+
+<section>
+  <ol class="space-y-6 border-l border-zinc-200 dark:border-zinc-800 pl-6">
+    {items.map((item) => (
+      <li class="relative">
+        <span class="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-500"></span>
+        <div class="text-sm text-zinc-500">{item.years}</div>
+        <h3 class="text-lg font-semibold tracking-tight">{item.title}</h3>
+        <p class="mt-1 text-zinc-700 dark:text-zinc-300">{item.body}</p>
+      </li>
+    ))}
+  </ol>
+</section>

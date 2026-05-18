@@ -1,0 +1,11 @@
+---
+// `now.md` is imported via Astro's built-in Markdown support.
+import { Content as Now, frontmatter } from '../content/now.md';
+---
+
+<section class="space-y-4 leading-relaxed text-zinc-800 dark:text-zinc-200">
+  {frontmatter?.updated && (
+    <p class="text-sm text-zinc-500">Last updated: {frontmatter.updated}</p>
+  )}
+  <Now />
+</section>

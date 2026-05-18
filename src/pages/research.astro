@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PublicationList from '../components/PublicationList.astro';
+import { publications } from '../data/publications';
+
+const sorted = [...publications].sort((a, b) => b.year - a.year);
+---
+
+<Layout title="Research — EE Heng Chen">
+  <PageHeader title="Research" subtitle="Selected publications." />
+  <PublicationList publications={sorted} />
+</Layout>

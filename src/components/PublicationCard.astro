@@ -1,0 +1,24 @@
+---
+import type { Publication } from '../data/publications';
+interface Props {
+  publication: Publication;
+}
+const { publication } = Astro.props;
+---
+
+<article class="rounded-lg border border-zinc-200 dark:border-zinc-800 p-5">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h3 class="text-lg font-semibold tracking-tight">{publication.title}</h3>
+    <span class="text-sm text-zinc-500">{publication.year}</span>
+  </div>
+  <div class="mt-1 text-sm text-zinc-600 dark:text-zinc-300">{publication.venue}</div>
+  <p class="mt-3 text-zinc-700 dark:text-zinc-300">{publication.abstract}</p>
+  {publication.pdf_url && (
+    <a
+      href={publication.pdf_url}
+      class="mt-3 inline-block text-sm font-medium underline underline-offset-4"
+    >
+      PDF
+    </a>
+  )}
+</article>

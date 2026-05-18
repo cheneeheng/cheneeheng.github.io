@@ -1,0 +1,17 @@
+---
+import type { Publication } from '../data/publications';
+import PublicationCard from './PublicationCard.astro';
+
+interface Props {
+  publications: Publication[];
+}
+const { publications } = Astro.props;
+---
+
+<section class="space-y-4">
+  {publications.length === 0 ? (
+    <p class="text-zinc-600 dark:text-zinc-300">No publications yet.</p>
+  ) : (
+    publications.map((p) => <PublicationCard publication={p} />)
+  )}
+</section>

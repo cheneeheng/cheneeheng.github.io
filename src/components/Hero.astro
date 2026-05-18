@@ -1,0 +1,24 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<section class="py-8">
+  <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight">EE Heng Chen</h1>
+  <p class="mt-4 text-lg text-zinc-700 dark:text-zinc-300">
+    Researcher turned engineer, now building AI agents that write software with care.
+  </p>
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a
+      href={base + '/about'}
+      class="inline-flex items-center rounded-md border border-zinc-300 dark:border-zinc-700 px-4 py-2 text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-900"
+    >
+      About
+    </a>
+    <a
+      href={base + '/projects'}
+      class="inline-flex items-center rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 px-4 py-2 text-sm font-medium hover:opacity-90"
+    >
+      Projects
+    </a>
+  </div>
+</section>

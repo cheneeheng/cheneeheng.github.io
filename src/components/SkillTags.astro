@@ -1,0 +1,33 @@
+---
+const groups: { heading: string; tags: string[] }[] = [
+  {
+    heading: 'Research areas',
+    tags: ['LLM agents', 'agent evaluation', 'human–AI collaboration'],
+  },
+  {
+    heading: 'Languages',
+    tags: ['Python', 'TypeScript', 'SQL'],
+  },
+  {
+    heading: 'Tools',
+    tags: ['Astro', 'FastAPI', 'Postgres', 'GitHub Actions'],
+  },
+];
+---
+
+<section class="mt-10 space-y-6">
+  {groups.map((g) => (
+    <div>
+      <h3 class="text-sm font-semibold uppercase tracking-wide text-zinc-500">
+        {g.heading}
+      </h3>
+      <ul class="mt-2 flex flex-wrap gap-2">
+        {g.tags.map((t) => (
+          <li class="rounded-full border border-zinc-200 dark:border-zinc-700 px-3 py-1 text-sm">
+            {t}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</section>

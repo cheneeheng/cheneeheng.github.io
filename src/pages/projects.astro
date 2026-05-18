@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { projects } from '../data/projects';
+
+const active = projects.filter((p) => p.status === 'active');
+const past = projects.filter((p) => p.status === 'past');
+---
+
+<Layout title="Projects — EE Heng Chen">
+  <PageHeader title="Projects" subtitle="What I'm building and what I've built." />
+
+  <h2 class="text-xl font-semibold tracking-tight mt-4 mb-3">Active</h2>
+  <ProjectGrid projects={active} />
+
+  {past.length > 0 && (
+    <>
+      <h2 class="text-xl font-semibold tracking-tight mt-10 mb-3">Past</h2>
+      <ProjectGrid projects={past} />
+    </>
+  )}
+</Layout>
