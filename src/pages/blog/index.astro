@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHeader from '../../components/PageHeader.astro';
+import { formatDate } from '../../lib/date';
 
 interface PostFrontmatter {
   title: string;
@@ -20,7 +21,7 @@ const posts = Object.values(modules)
     ...m.frontmatter,
     url: m.url ?? '',
   }))
-  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+  .sort((a, b) => formatDate(b.date).localeCompare(formatDate(a.date)));
 ---
 
 <Layout title="Blog — EE Heng Chen">
@@ -44,7 +45,7 @@ const posts = Object.values(modules)
             <h2 class="text-lg font-semibold tracking-tight">
               <a href={base + p.url} class="hover:underline">{p.title}</a>
             </h2>
-            {p.date && <span class="text-sm text-zinc-500">{p.date}</span>}
+            {p.date && <span class="text-sm text-zinc-500">{formatDate(p.date)}</span>}
           </div>
           {p.description && (
             <p class="mt-2 text-zinc-700 dark:text-zinc-300">{p.description}</p>

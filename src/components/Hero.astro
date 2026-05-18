@@ -1,25 +1,112 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const stats = [
+  { value: '10+', label: 'Peer-reviewed papers' },
+  { value: '6+', label: 'Years in CV research' },
+  { value: 'Now', label: 'Building AI coding agents' },
+];
 ---
 
-<section class="py-8">
-  <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight">EE Heng Chen</h1>
-  <p class="mt-2 text-sm text-zinc-500">Munich, Germany</p>
-  <p class="mt-4 text-lg text-zinc-700 dark:text-zinc-300">
-    Part-time coder and computer-vision researcher — making machines see, and decide what to do for me.
+<section class="relative isolate -mt-10 -mx-4 px-4 pt-20 pb-16 sm:pt-24 sm:pb-20 overflow-hidden">
+  <!-- Full-bleed background, escapes the max-w-3xl shell -->
+  <div
+    class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen -z-10"
+    aria-hidden="true"
+  >
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-50 via-white to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-950"></div>
+    <!-- subtle grid -->
+    <div
+      class="absolute inset-0 opacity-[0.35] dark:opacity-[0.18]
+             [background-image:linear-gradient(to_right,rgb(24_24_27_/_0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgb(24_24_27_/_0.06)_1px,transparent_1px)]
+             dark:[background-image:linear-gradient(to_right,rgb(244_244_245_/_0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgb(244_244_245_/_0.07)_1px,transparent_1px)]
+             [background-size:28px_28px]
+             [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,black,transparent)]"
+    ></div>
+    <!-- aurora glows -->
+    <div class="absolute -top-24 left-[15%] h-72 w-72 rounded-full bg-indigo-400/30 blur-3xl dark:bg-indigo-500/20 hero-float-a"></div>
+    <div class="absolute top-12 right-[10%] h-72 w-72 rounded-full bg-amber-300/30 blur-3xl dark:bg-amber-500/20 hero-float-b"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 h-56 w-[40rem] max-w-[90vw] rounded-full bg-fuchsia-300/20 blur-3xl dark:bg-fuchsia-500/15"></div>
+    <!-- hairline divider at bottom -->
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent dark:via-zinc-700"></div>
+  </div>
+
+  <!-- status badge -->
+  <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200/80 dark:border-zinc-700/80 bg-white/70 dark:bg-zinc-900/60 backdrop-blur px-3 py-1 text-xs font-medium text-zinc-700 dark:text-zinc-200 shadow-sm">
+    <span class="relative inline-flex h-2 w-2">
+      <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+      <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+    </span>
+    Open to interesting work
+  </div>
+
+  <h1 class="mt-6 text-5xl sm:text-6xl font-bold tracking-tight leading-[1.05]">
+    <span class="block text-zinc-900 dark:text-zinc-50">EE Heng Chen</span>
+    <span class="block mt-2 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-amber-500 bg-clip-text text-transparent">
+      Teaching machines to see, decide, and ship.
+    </span>
+  </h1>
+
+  <p class="mt-6 text-lg sm:text-xl text-zinc-700 dark:text-zinc-300 max-w-2xl">
+    Computer-vision researcher turned builder of disciplined AI coding agents —
+    minimal-diff edits, explicit authorization, and decisions that get logged
+    rather than buried.
   </p>
-  <div class="mt-6 flex flex-wrap gap-3">
-    <a
-      href={base + '/about'}
-      class="inline-flex items-center rounded-md border border-zinc-300 dark:border-zinc-700 px-4 py-2 text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-900"
-    >
-      About
-    </a>
+
+  <div class="mt-8 flex flex-wrap items-center gap-3">
     <a
       href={base + '/research'}
-      class="inline-flex items-center rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 px-4 py-2 text-sm font-medium hover:opacity-90"
+      class="group relative inline-flex items-center gap-2 rounded-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-5 py-2.5 text-sm font-medium shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/30 transition-shadow"
     >
-      Research
+      Explore research
+      <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
+    </a>
+    <a
+      href={base + '/projects'}
+      class="group inline-flex items-center gap-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white/60 dark:bg-zinc-900/40 backdrop-blur px-5 py-2.5 text-sm font-medium hover:bg-white dark:hover:bg-zinc-900 transition-colors"
+    >
+      See projects
+      <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
+    </a>
+    <a
+      href={base + '/about'}
+      class="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-50 px-2 py-2.5"
+    >
+      About me
     </a>
   </div>
+
+  <div class="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-zinc-500 dark:text-zinc-400">
+    <span>Munich, Germany</span>
+    <span aria-hidden="true" class="text-zinc-300 dark:text-zinc-700">/</span>
+    <span>CET</span>
+    <span aria-hidden="true" class="text-zinc-300 dark:text-zinc-700">/</span>
+    <a href="mailto:eeheng.chen@gmail.com" class="hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-4">eeheng.chen@gmail.com</a>
+  </div>
+
+  <dl class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-200/70 dark:bg-zinc-800/70">
+    {stats.map((s) => (
+      <div class="group relative bg-white/80 dark:bg-zinc-950/80 px-5 py-5 backdrop-blur transition-colors hover:bg-white dark:hover:bg-zinc-950">
+        <dt class="text-[11px] uppercase tracking-[0.14em] text-zinc-500 dark:text-zinc-400">{s.label}</dt>
+        <dd class="mt-1.5 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">{s.value}</dd>
+      </div>
+    ))}
+  </dl>
 </section>
+
+<style>
+  @keyframes heroFloatA {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(20px, -16px, 0); }
+  }
+  @keyframes heroFloatB {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(-24px, 12px, 0); }
+  }
+  .hero-float-a { animation: heroFloatA 14s ease-in-out infinite; }
+  .hero-float-b { animation: heroFloatB 18s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-float-a, .hero-float-b { animation: none; }
+  }
+</style>

@@ -128,3 +128,38 @@ Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo co
 **Impact / Risk:** PDF and avatar are static under `public/`, so no build coupling. The resume copy uses the archive's PDF dated 2023-04-23 — the user should refresh if they have a newer CV.
 
 **Outcome:** Applied on branch `feat/migrate-archive-content`.
+
+---
+
+### Entry 007
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-18T22:10:00Z
+**Task:** Modernize the home page (user feedback: "looks dull and unappealing"; constraint: no emojis).
+
+**Context:** The previous Hero was a small h1 + paragraph + two outline buttons inside the global `max-w-3xl` shell. SectionPreview was a thin "title / view all" header with a vertical stack of bordered cards. No visual identity, no motion, no accent color, no information density (no stats, no status, no contact).
+
+**Decision:**
+1. Rewrote `Hero.astro` as a full-bleed section (escapes `max-w-3xl` via an absolutely-positioned `w-screen left-1/2 -translate-x-1/2` background) with:
+   - Layered background: zinc gradient + subtle 28px grid with radial mask + three floating aurora blobs (indigo / amber / fuchsia) + hairline divider.
+   - Animated emerald "Open to interesting work" status dot using the built-in `animate-ping`, and two custom `@keyframes` (hero-float-a/b) with a `prefers-reduced-motion` opt-out.
+   - Gradient-clipped tagline ("Teaching machines to see, decide, and ship.") via `bg-gradient-to-r ... bg-clip-text text-transparent`.
+   - Primary CTA with colored shadow, secondary glassy CTA, tertiary text link.
+   - Metadata strip (Munich / CET / email mailto).
+   - 3-up stats grid (Publications / Years CV / Now).
+2. Rewrote `SectionPreview.astro`: numbered index, uppercase eyebrow, larger h2, bottom border, and switched the children container to a 2-col grid on md+. The home page passes `index="01|02|03"` and eyebrows per section.
+3. Replaced the plain Now paragraph with a custom callout card (gradient border-bg + corner glow) inlined in `index.astro` rather than using SectionPreview, because Now is a single-child block that would otherwise sit half-width on md+.
+4. Added a shared hover treatment to `ProjectCard.astro` and `PublicationCard.astro`: `rounded-xl`, `transition-all`, `hover:-translate-y-0.5`, soft shadow on hover, accent gradient hairline at the top edge (amber for projects, indigo for publications) revealed on hover. These cards are also used on `/projects` and `/research` — the lift is universal and intentional.
+
+**Considered alternatives:**
+- Web fonts (Inter / display serif): skipped to keep the site fully static and offline-friendly; system sans is sufficient with the new hierarchy.
+- A new `wide` slot on `Layout.astro`: rejected as over-broad — the negative-margin / full-bleed-absolute trick is contained entirely within `Hero.astro` and doesn't change how other pages render.
+- `@tailwindcss/typography`: not needed for this change.
+
+**Impact / Risk:**
+- New Hero uses animations behind `prefers-reduced-motion`. No JS islands added; everything remains static HTML + CSS.
+- Card markup changes are additive (extra wrapper span, more utility classes) — `/projects` and `/research` were re-checked and still render.
+- Build clean (`npm run build`: 9 pages, ~2s, no warnings beyond the pre-existing node DEP0205).
+
+**Outcome:** Applied on branch `feat/migrate-archive-content`.
