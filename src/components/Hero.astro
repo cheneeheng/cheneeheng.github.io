@@ -1,113 +1,49 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-
-const stats = [
-  { value: '10', label: 'Peer-reviewed papers — 2018–2023' },
-  { value: '6 yrs', label: 'PhD + postdoc in computer vision' },
-  { value: 'Now', label: 'Building AI coding agents' },
-];
 ---
 
-<section class="relative isolate -mt-6 -mx-4 px-4 pt-12 pb-16 sm:pt-16 sm:pb-20 overflow-hidden">
-  <!-- Full-bleed background, escapes the max-w-3xl shell -->
+<section class="relative isolate -mt-6 -mx-4 px-4 pt-16 pb-20 sm:pt-20 sm:pb-24 overflow-hidden">
+  <!-- Full-bleed background. One wash, no grid, no labels. -->
   <div
     class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen -z-10"
     aria-hidden="true"
   >
-    <!-- base wash -->
     <div class="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
-
-    <!-- dot grid, masked radially to fade out at edges -->
-    <div
-      class="absolute inset-0
-             [background-image:radial-gradient(rgb(24_24_27_/_0.14)_1px,transparent_1px)]
-             dark:[background-image:radial-gradient(rgb(244_244_245_/_0.10)_1px,transparent_1px)]
-             [background-size:18px_18px]
-             [background-position:0_0]
-             [mask-image:radial-gradient(ellipse_70%_75%_at_50%_30%,black,transparent_75%)]"
-    ></div>
-
-    <!-- emerald spotlight, layered for depth -->
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 h-[28rem] w-[60rem] max-w-[110vw] rounded-full bg-emerald-300/70 blur-3xl dark:bg-emerald-500/25"></div>
-    <div class="absolute -top-12 left-1/2 -translate-x-1/2 h-72 w-[32rem] max-w-[90vw] rounded-full bg-emerald-400/40 blur-3xl dark:bg-emerald-400/20"></div>
-    <div class="absolute top-24 left-1/2 -translate-x-1/2 h-40 w-[20rem] max-w-[80vw] rounded-full bg-emerald-200/60 blur-2xl dark:bg-emerald-300/10"></div>
-
-    <!-- architectural hairlines (very faint) -->
-    <div class="absolute inset-x-0 top-12 h-px bg-gradient-to-r from-transparent via-zinc-300/60 to-transparent dark:via-zinc-700/40"></div>
-    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent dark:via-zinc-700"></div>
-
-    <!-- corner serial-number labels, like a spec sheet -->
-    <div class="absolute top-4 right-4 sm:right-6 hidden sm:flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-zinc-400 dark:text-zinc-600">
-      <span class="h-px w-6 bg-current opacity-50"></span>
-      <span>VOL · 01</span>
-    </div>
-    <div class="absolute top-4 left-4 sm:left-6 hidden sm:flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-zinc-400 dark:text-zinc-600">
-      <span>EE-CHEN / 2026</span>
-      <span class="h-px w-6 bg-current opacity-50"></span>
-    </div>
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-[26rem] w-[56rem] max-w-[110vw] rounded-full bg-emerald-300/50 blur-3xl dark:bg-emerald-500/15"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent dark:via-zinc-800"></div>
   </div>
 
-  <!-- badges row -->
-  <div class="flex flex-wrap items-center gap-2">
-    <!-- location pill -->
-    <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/70 backdrop-blur px-3 py-1 text-[11px] font-medium text-zinc-700 dark:text-zinc-300">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" aria-hidden="true">
+  <!-- Eyebrow: small name + location. The work is the headline, not the name. -->
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-zinc-500 dark:text-zinc-400">
+    <span class="font-medium text-zinc-700 dark:text-zinc-300">EE Heng Chen</span>
+    <span aria-hidden="true" class="text-zinc-300 dark:text-zinc-700">/</span>
+    <span class="inline-flex items-center gap-1.5">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3" aria-hidden="true">
         <path d="M12 22s-7-7.58-7-13a7 7 0 0 1 14 0c0 5.42-7 13-7 13z"></path>
         <circle cx="12" cy="9" r="2.5"></circle>
       </svg>
-      <span>Munich</span>
-      <span aria-hidden="true" class="text-zinc-300 dark:text-zinc-700">·</span>
-      <span class="font-mono tracking-wide text-zinc-500 dark:text-zinc-400">CET</span>
-    </div>
-
-    <!-- open to work pill -->
-    <div class="inline-flex items-center gap-2 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/70 backdrop-blur px-3 py-1 text-[11px] font-medium text-zinc-700 dark:text-zinc-300">
-      <span class="relative inline-flex h-2 w-2">
-        <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-        <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-      </span>
-      Open to hard problems &amp; bold ideas
-    </div>
+      Munich · CET
+    </span>
   </div>
 
-  <h1 class="mt-6 text-[clamp(2.75rem,8vw,5.5rem)] font-semibold tracking-[-0.04em] leading-[0.92] text-zinc-900 dark:text-zinc-50">
-    EE Heng Chen
+  <h1 class="mt-6 text-[clamp(2.5rem,7vw,4.75rem)] font-semibold tracking-[-0.035em] leading-[0.98] max-w-3xl text-zinc-900 dark:text-zinc-50">
+    Built models that see.
+    <span class="block text-emerald-700 dark:text-emerald-400">Now building agents that ship.</span>
   </h1>
 
-  <p class="mt-5 text-2xl sm:text-3xl font-semibold tracking-tight leading-[1.15] max-w-2xl text-rose-800 dark:text-rose-300">
-    Built models that see.
-    <span class="text-zinc-900 dark:text-zinc-50">Now building agents that ship.</span>
-  </p>
-
-  <p class="mt-5 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed">
+  <p class="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 max-w-xl leading-relaxed">
     Computer-vision researcher (PhD &amp; postdoc, 2018–2023) turned builder of
     disciplined AI coding agents — minimal-diff edits, explicit authorization,
     and decisions that get logged rather than buried.
   </p>
 
-  <div class="mt-7 flex flex-wrap items-center gap-3">
+  <div class="mt-8">
     <a
-      href={base + '/projects'}
+      href={base + '/now'}
       class="group inline-flex items-center gap-2 rounded-md bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 px-5 py-2.5 text-sm font-medium hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors"
     >
-      See what I'm building
-      <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
-    </a>
-    <a
-      href={base + '/research'}
-      class="group inline-flex items-center gap-2 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white/80 dark:bg-zinc-900/70 backdrop-blur px-5 py-2.5 text-sm font-medium hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
-    >
-      Read past research
+      What I'm focused on
       <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
     </a>
   </div>
-
-  <dl class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-200 dark:bg-zinc-800">
-    {stats.map((s) => (
-      <div class="bg-white dark:bg-zinc-950 px-5 py-5 flex flex-col gap-3 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/60">
-        <dd class="text-3xl font-semibold tracking-tight tabular-nums leading-none text-zinc-900 dark:text-zinc-50">{s.value}</dd>
-        <dt class="mt-auto text-[11px] uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400 font-medium leading-snug">{s.label}</dt>
-      </div>
-    ))}
-  </dl>
 </section>

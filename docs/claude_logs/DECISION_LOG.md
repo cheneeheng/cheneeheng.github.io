@@ -163,3 +163,49 @@ Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo co
 - Build clean (`npm run build`: 9 pages, ~2s, no warnings beyond the pre-existing node DEP0205).
 
 **Outcome:** Applied on branch `feat/migrate-archive-content`.
+
+---
+
+### Entry 008
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-18T00:00:00Z
+**Task:** Strip the home page back ("Jobs pass" — user roleplayed a Steve Jobs critique, then approved).
+
+**Context:** The Hero stacked nine competing elements (dot grid, three emerald spotlights, two corner serial-number labels, two pills, gradient name, two-tone tagline, paragraph, two CTAs, stat grid). `index.astro` then teased Research, Projects, and Now without delivering any of them. Entry 007 optimised for visual density; this pass optimises for one-message clarity.
+
+**Decision:**
+1. `Hero.astro`: dropped the dot grid; collapsed three emerald spotlights to a single subtle wash; removed the `VOL · 01` and `EE-CHEN / 2026` corner labels; removed the "Open to hard problems & bold ideas" pill; removed the three-cell stat grid; collapsed two CTAs to one ("See what I'm building"). Promoted the tagline to `<h1>`; demoted the name to a small eyebrow above it. Kept the Munich/CET pill (concrete, useful).
+2. `index.astro`: removed the Research SectionPreview and the inline Now callout block. Kept only the Projects section (two active projects, full ProjectCard). Nav already exposes `/research` and `/now` so removal does not lose discoverability.
+
+**Considered alternatives:**
+- Replacing the "Open to..." pill with a concrete role label (e.g., "Open to staff/principal AI eng roles"): rejected — user has not stated a target role and inventing one would be fabrication.
+- Adding screenshots to ProjectCard: out of scope; `Project` has no image field.
+
+**Impact / Risk:** Visual density drops sharply; the home page becomes a hero + two project cards. Discoverability of Research/Now/Blog continues to come from Nav.
+
+**Outcome:** Applied on branch `feat/migrate-archive-content`.
+
+---
+
+### Entry 009
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-18T00:00:00Z
+**Task:** Resolve home-page CTA / section redundancy.
+
+**Context:** After Entry 008, the Hero CTA and the bottom Projects section both pointed to `/projects`. User flagged the conflict and proposed splitting: one for "what I'm doing now," one for "parallel/finished work."
+
+**Decision:**
+1. Hero CTA: relabel "See what I'm building" → "What I'm focused on"; retarget `/projects` → `/now`. Gives the primary narrative a single home.
+2. Home `Projects` section: rename eyebrow "What I'm shipping" → "In parallel & shipped"; title "Projects" → "Other work". Selection switched from `filter(status==='active').slice(0,2)` to `projects.slice(1, 3)` — skip the first project (the implicit primary "now" work) and show the next two. Gives one parallel-active + one past on the home page; the full list still lives at `/projects`.
+
+**Considered alternatives:**
+- Adding a `featured: true` flag to `Project` to mark the primary work explicitly: rejected as scope creep — array-order-as-priority is sufficient.
+- Deep-linking the Hero CTA to a specific project: rejected — projects don't have individual pages.
+
+**Impact / Risk:** Whichever project is listed first in `src/data/projects.ts` becomes the implicit "focus" and is excluded from the home-page section. Reorder the array to change the focus.
+
+**Outcome:** Applied on branch `feat/migrate-archive-content`.
