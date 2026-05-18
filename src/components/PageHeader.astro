@@ -2,11 +2,41 @@
 interface Props {
   title: string;
   subtitle?: string;
+  volume?: string;
 }
-const { title, subtitle } = Astro.props;
+const { title, subtitle, volume } = Astro.props;
 ---
 
-<header class="mb-10">
-  <h1 class="text-3xl font-semibold tracking-tight">{title}</h1>
-  {subtitle && <p class="mt-2 text-zinc-600 dark:text-zinc-300">{subtitle}</p>}
+<header class="relative isolate -mt-6 -mx-4 px-4 pt-12 pb-10 sm:pt-14 sm:pb-12 mb-10 overflow-hidden">
+  <div
+    class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-screen -z-10"
+    aria-hidden="true"
+  >
+    <div class="absolute inset-0 bg-zinc-50 dark:bg-zinc-950"></div>
+
+    <!-- dot grid, masked to fade -->
+    <div
+      class="absolute inset-0
+             [background-image:radial-gradient(rgb(24_24_27_/_0.12)_1px,transparent_1px)]
+             dark:[background-image:radial-gradient(rgb(244_244_245_/_0.08)_1px,transparent_1px)]
+             [background-size:18px_18px]
+             [mask-image:radial-gradient(ellipse_60%_80%_at_50%_30%,black,transparent_75%)]"
+    ></div>
+
+    <!-- soft emerald spotlight (echo of the hero, smaller and warmer) -->
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 h-72 w-[42rem] max-w-[100vw] rounded-full bg-emerald-300/60 blur-3xl dark:bg-emerald-500/20"></div>
+
+    <!-- bottom hairline divider -->
+    <div class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-zinc-300 to-transparent dark:via-zinc-700"></div>
+
+    {volume && (
+      <div class="absolute top-3 right-4 sm:right-6 hidden sm:flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.22em] text-zinc-400 dark:text-zinc-600">
+        <span class="h-px w-6 bg-current opacity-50"></span>
+        <span>VOL · {volume}</span>
+      </div>
+    )}
+  </div>
+
+  <h1 class="text-4xl sm:text-5xl font-semibold tracking-[-0.03em] leading-[1.02] text-zinc-900 dark:text-zinc-50">{title}</h1>
+  {subtitle && <p class="mt-3 text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">{subtitle}</p>}
 </header>

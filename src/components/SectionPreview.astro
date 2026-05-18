@@ -9,7 +9,7 @@ const { title, href, index, eyebrow } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="mt-16 scroll-mt-20">
+<section class="mt-12 scroll-mt-20">
   <div class="flex items-end justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
     <div class="flex items-baseline gap-3">
       {index && (
@@ -30,7 +30,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
     </a>
   </div>
-  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
     <slot />
   </div>
 </section>

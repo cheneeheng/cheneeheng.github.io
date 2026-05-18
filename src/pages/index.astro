@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <Layout title="EE Heng Chen">
   <Hero />
 
-  <SectionPreview index="01" eyebrow="Selected papers" title="Research" href="/research">
+  <SectionPreview index="01" eyebrow="Selected papers · 2018–2023" title="Past research" href="/research">
     {recentPublications.map((p) => <PublicationCard publication={p} />)}
   </SectionPreview>
 
@@ -27,7 +27,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     {activeProjects.map((p) => <ProjectCard project={p} />)}
   </SectionPreview>
 
-  <section class="mt-16">
+  <section class="mt-12">
     <div class="flex items-end justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-3">
       <div class="flex items-baseline gap-3">
         <span class="text-xs font-mono font-medium text-zinc-400 dark:text-zinc-500 tabular-nums">03</span>
@@ -45,16 +45,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       </a>
     </div>
 
-    <article class="mt-6 relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-br from-white via-white to-indigo-50/40 dark:from-zinc-950 dark:via-zinc-950 dark:to-indigo-950/30 p-6 sm:p-7">
-      <div class="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-fuchsia-300/20 blur-3xl dark:bg-fuchsia-500/15 pointer-events-none" aria-hidden="true"></div>
+    <article class="mt-5 relative overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 sm:p-7">
+      <span class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/70 to-transparent" aria-hidden="true"></span>
       <p class="text-base sm:text-lg text-zinc-800 dark:text-zinc-200 leading-relaxed">
-        Coming from computer-vision research, currently building AI agents that
-        edit code with discipline. On the side: agent-evaluation papers and
-        short notes on the tools I use day-to-day.
+        Years of computer-vision research — traffic-junction understanding,
+        optical flow, binary neural networks, patient-monitoring models —
+        closed out in 2023. Now focused on AI agents that edit code with
+        discipline. On the side: short notes on the tools I use day-to-day.
       </p>
       <a
         href={base + '/now'}
-        class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-indigo-600 dark:text-indigo-300 hover:text-indigo-700 dark:hover:text-indigo-200 group"
+        class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-zinc-900 dark:text-zinc-100 group"
       >
         Read the full /now page
         <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">&rarr;</span>
