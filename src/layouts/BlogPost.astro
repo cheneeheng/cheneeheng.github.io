@@ -1,0 +1,21 @@
+---
+import Layout from './Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    date?: string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} — EE Heng Chen`} description={frontmatter.description}>
+  <PageHeader title={frontmatter.title} subtitle={frontmatter.date} />
+  <article class="prose prose-zinc dark:prose-invert max-w-none leading-relaxed">
+    <slot />
+  </article>
+</Layout>
