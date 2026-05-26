@@ -189,6 +189,27 @@ Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo co
 
 ---
 
+### Entry 010
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-26T00:00:00Z
+**Task:** Implement weekly blog post queue (GitHub Action).
+
+**Context:** User asked for Option B (queue folder + weekly Action). Implementation required resolving three unspecified details: queue location, ordering convention, and deploy trigger.
+
+**Decision:**
+1. Queue at `src/pages/blog/_queue/` — Astro's router skips `_`-prefixed directories, so queued files are never served as pages during the interim.
+2. Ordering by numeric filename prefix (`01-post-title.md` → published as `post-title.md`). Alphabetical sort of prefixed names gives deterministic FIFO; reordering is a rename, not a metadata edit.
+3. Deploy trigger: push with `GITHUB_TOKEN` (contents: write) + `gh workflow run deploy.yml` (actions: write). Pushes via `GITHUB_TOKEN` do not trigger `on: push` workflows (GitHub security boundary), so the deploy must be triggered separately. No PAT required.
+4. Schedule: Monday 09:00 UTC. Arbitrary; user can change the cron expression.
+
+**Impact / Risk:** If the queue is empty the job exits cleanly (no commit, no deploy). Date injection uses awk on line 1; queue files must not already contain `date:` in frontmatter.
+
+**Outcome:** Applied — `.github/workflows/publish-queued-post.yml` + `src/pages/blog/_queue/.gitkeep`.
+
+---
+
 ### Entry 009
 
 **Type:** Decision
