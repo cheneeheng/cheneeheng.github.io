@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: I used Claude Code to build a plugin manager for Claude Code
-date: 2026-06-09
 description: How I directed Claude Code to build a plugin manager for Claude Code in eleven days — the workflow, the pace, and the Windows bug it caught before I did.
 ---
 

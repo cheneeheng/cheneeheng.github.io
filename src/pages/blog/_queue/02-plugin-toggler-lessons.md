@@ -1,7 +1,6 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: No dependencies, two implementations, one Windows nightmare
-date: 2026-06-02
 description: Three lessons from building a zero-dependency, dual-surface developer tool — constraints, dual implementations, and the Windows path bugs that kept coming back.
 ---
 
