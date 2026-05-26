@@ -1,5 +1,4 @@
 ---
-date: 2026-05-26
 layout: ../../layouts/BlogPost.astro
 title: I built a plugin manager for Claude Code
 description: A browser UI and VSCode extension for toggling Claude Code plugins per-project — built because managing them one-at-a-time in the CLI is painful.
