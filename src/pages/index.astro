@@ -3,9 +3,27 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import SectionPreview from '../components/SectionPreview.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
 import { projects } from '../data/projects';
+import { formatDate } from '../lib/date';
+
+interface PostFrontmatter {
+  title: string;
+  date?: string;
+  description?: string;
+}
 
 const otherProjects = projects.slice(1, 3);
+
+const blogModules = import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>(
+  './blog/*.md',
+  { eager: true },
+);
+
+const latestPosts = Object.values(blogModules)
+  .map((m) => ({ ...m.frontmatter, url: m.url ?? '' }))
+  .sort((a, b) => formatDate(b.date).localeCompare(formatDate(a.date)))
+  .slice(0, 2);
 ---
 
 <Layout title="EE Heng Chen">
@@ -14,4 +32,12 @@ const otherProjects = projects.slice(1, 3);
   <SectionPreview eyebrow="In parallel & shipped" title="Other work" href="/projects">
     {otherProjects.map((p) => <ProjectCard project={p} />)}
   </SectionPreview>
+
+  {latestPosts.length > 0 && (
+    <SectionPreview eyebrow="Recent writing" title="Blog" href="/blog">
+      {latestPosts.map((p) => (
+        <BlogPostCard title={p.title} date={p.date} description={p.description} url={p.url} />
+      ))}
+    </SectionPreview>
+  )}
 </Layout>

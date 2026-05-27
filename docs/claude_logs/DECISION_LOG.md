@@ -210,6 +210,27 @@ Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo co
 
 ---
 
+### Entry 011
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-27T00:00:00Z
+**Task:** Add latest blog posts section to home page; create favicon samples.
+
+**Context:** Blog section — no `BlogPostCard` component existed; user did not specify card layout.  Favicon samples — user said "create a few samples" with no design brief.
+
+**Decision:**
+1. Created `BlogPostCard.astro` styled to match `ProjectCard.astro` (same rounded-xl border, hover-lift, emerald hairline accent) — ensures visual consistency between the two home-page sections.
+2. Blog glob runs from `src/pages/index.astro` using path `./blog/*.md`, which naturally excludes `_queue/` (Astro skips `_`-prefixed dirs). Sorted by date desc, sliced to 2.
+3. Section is conditionally rendered (`latestPosts.length > 0`) so it disappears gracefully if there are no published posts.
+4. Favicon samples: created four SVG variants as `public/favicon-sample-{a,b,c,d}.svg`. Design basis: site color palette (zinc-950 bg, emerald accent `#34d399`, zinc-50 text). Options: (A) EC monogram dark square, (B) `</>` code brackets in emerald, (C) E in circle with emerald ring, (D) geometric three-bar E.
+
+**Impact / Risk:** `BlogPostCard` is a new component — removing the blog section from index later means deleting the import and JSX block; the component file would become unused (not auto-removed). Favicon samples sit in `public/` and are served as static assets; user should delete them after choosing.
+
+**Outcome:** Applied.
+
+---
+
 ### Entry 009
 
 **Type:** Decision
