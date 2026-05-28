@@ -189,6 +189,29 @@ Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo co
 
 ---
 
+### Entry 009
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-05-18T00:00:00Z
+**Task:** Resolve home-page CTA / section redundancy.
+
+**Context:** After Entry 008, the Hero CTA and the bottom Projects section both pointed to `/projects`. User flagged the conflict and proposed splitting: one for "what I'm doing now," one for "parallel/finished work."
+
+**Decision:**
+1. Hero CTA: relabel "See what I'm building" → "What I'm focused on"; retarget `/projects` → `/now`. Gives the primary narrative a single home.
+2. Home `Projects` section: rename eyebrow "What I'm shipping" → "In parallel & shipped"; title "Projects" → "Other work". Selection switched from `filter(status==='active').slice(0,2)` to `projects.slice(1, 3)` — skip the first project (the implicit primary "now" work) and show the next two. Gives one parallel-active + one past on the home page; the full list still lives at `/projects`.
+
+**Considered alternatives:**
+- Adding a `featured: true` flag to `Project` to mark the primary work explicitly: rejected as scope creep — array-order-as-priority is sufficient.
+- Deep-linking the Hero CTA to a specific project: rejected — projects don't have individual pages.
+
+**Impact / Risk:** Whichever project is listed first in `src/data/projects.ts` becomes the implicit "focus" and is excluded from the home-page section. Reorder the array to change the focus.
+
+**Outcome:** Applied on branch `feat/migrate-archive-content`.
+
+---
+
 ### Entry 010
 
 **Type:** Decision
@@ -231,23 +254,25 @@ Skipped (deliberately, not content): `_pages/about.md` (Minimal-Mistakes demo co
 
 ---
 
-### Entry 009
+### Entry 012
 
 **Type:** Decision
 **Mode:** Autonomous
-**Timestamp:** 2026-05-18T00:00:00Z
-**Task:** Resolve home-page CTA / section redundancy.
+**Timestamp:** 2026-05-28T00:00:00Z
+**Task:** Add per-post SVG banner images to blog pages.
 
-**Context:** After Entry 008, the Hero CTA and the bottom Projects section both pointed to `/projects`. User flagged the conflict and proposed splitting: one for "what I'm doing now," one for "parallel/finished work."
-
+**Context:** User wanted a banner-like SVG after each blog title reflecting the post's
+mood. Storage mechanism, theming approach, and frontmatter contract were unspecified.
 **Decision:**
-1. Hero CTA: relabel "See what I'm building" → "What I'm focused on"; retarget `/projects` → `/now`. Gives the primary narrative a single home.
-2. Home `Projects` section: rename eyebrow "What I'm shipping" → "In parallel & shipped"; title "Projects" → "Other work". Selection switched from `filter(status==='active').slice(0,2)` to `projects.slice(1, 3)` — skip the first project (the implicit primary "now" work) and show the next two. Gives one parallel-active + one past on the home page; the full list still lives at `/projects`.
-
-**Considered alternatives:**
-- Adding a `featured: true` flag to `Project` to mark the primary work explicitly: rejected as scope creep — array-order-as-priority is sufficient.
-- Deep-linking the Hero CTA to a specific project: rejected — projects don't have individual pages.
-
-**Impact / Risk:** Whichever project is listed first in `src/data/projects.ts` becomes the implicit "focus" and is excluded from the home-page section. Reorder the array to change the focus.
-
-**Outcome:** Applied on branch `feat/migrate-archive-content`.
+- Added optional `banner` (path) + `bannerAlt` frontmatter fields, rendered in
+  `BlogPost.astro` between `PageHeader` and the article, base-path aware via
+  `import.meta.env.BASE_URL` (matches existing link pattern).
+- Stored banners as static files in `public/assets/blog/<slug>.svg`.
+- Banners are self-contained (own dark slate gradient + emerald accent matching the
+  favicon palette) rather than CSS-themed, because an external `<img>` SVG cannot read
+  the page's manual `.dark` class — this keeps them correct in both light and dark mode.
+- Mood mapping: plugin-manager → on/off toggle rows with a cursor; hello → a path
+  converging toward a rising sun ("new direction").
+**Impact / Risk:** New blog posts must opt in by adding `banner:`. Drafts in
+`src/pages/blog/_queue/` were left untouched (not yet published).
+**Outcome:** Both banners verified by rendering to PNG with sharp; temp artifacts removed.

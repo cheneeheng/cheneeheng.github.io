@@ -3,6 +3,8 @@ layout: ../../layouts/BlogPost.astro
 title: New blog, new direction
 date: 2026-05-18
 description: Resetting the blog. Expect short, occasional notes on building AI coding agents and the tooling around them.
+banner: /assets/blog/hello.svg
+bannerAlt: A path leading toward a rising sun on the horizon
 ---
 
 The old posts here were from another era — terse CMake notes and git scratchpads

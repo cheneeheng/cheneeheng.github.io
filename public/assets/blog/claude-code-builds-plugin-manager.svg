@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A direct-and-build feedback loop between a prompt and a shipped package, over a rising release timeline">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <!-- feedback loop: direct -> build -> direct -->
+  <g fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round">
+    <!-- top arc: direct -> build -->
+    <path d="M486 110 A130 130 0 0 1 714 110"/>
+    <!-- bottom arc: build -> direct (feedback) -->
+    <path d="M714 190 A130 130 0 0 1 486 190" stroke-opacity="0.45"/>
+  </g>
+  <!-- arrowheads -->
+  <path d="M714 110 l-16 -10 l4 18 z" fill="#34d399"/>
+  <path d="M486 190 l16 10 l-4 -18 z" fill="#34d399" fill-opacity="0.7"/>
+
+  <!-- left node: the prompt (I directed) -->
+  <g transform="translate(404 118)">
+    <rect width="64" height="64" rx="16" fill="#1e293b" stroke="#34d399" stroke-opacity="0.8"/>
+    <path d="M20 22 l14 10 l-14 10" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="36" y="40" width="14" height="4" rx="2" fill="#34d399"/>
+  </g>
+
+  <!-- right node: the build (it shipped) -->
+  <g transform="translate(732 118)">
+    <rect width="64" height="64" rx="16" fill="#1e293b" stroke="#334155"/>
+    <path d="M32 14 l18 10 v16 l-18 10 l-18 -10 v-16 z" fill="none" stroke="#34d399" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M14 24 l18 10 l18 -10 M32 34 v26" stroke="#34d399" stroke-opacity="0.6" stroke-width="2.5" fill="none"/>
+    <path d="M25 33 l5 5 l9 -10" fill="none" stroke="#6ee7b7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- rising release timeline: 0.0.1 -> 0.6.0 -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600">
+    <line x1="300" y1="252" x2="900" y2="222" stroke="#334155" stroke-width="2"/>
+    <g fill="#34d399">
+      <circle cx="300" cy="252" r="4"/>
+      <circle cx="420" cy="246" r="4" fill-opacity="0.6"/>
+      <circle cx="540" cy="240" r="4" fill-opacity="0.7"/>
+      <circle cx="660" cy="234" r="4" fill-opacity="0.8"/>
+      <circle cx="780" cy="228" r="4" fill-opacity="0.9"/>
+      <circle cx="900" cy="222" r="5"/>
+    </g>
+    <text x="286" y="276" text-anchor="middle" fill="#64748b">0.0.1</text>
+    <text x="912" y="216" text-anchor="middle" fill="#6ee7b7">0.6.0</text>
+  </g>
+</svg>

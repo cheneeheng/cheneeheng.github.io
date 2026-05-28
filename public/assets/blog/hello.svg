@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A path leading toward a rising sun on the horizon">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="0.7" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#10241f"/>
+    </linearGradient>
+    <radialGradient id="dawn" cx="0.5" cy="0.62" r="0.55">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.45"/>
+      <stop offset="0.5" stop-color="#34d399" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ecfdf5"/>
+      <stop offset="0.45" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="stars" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="8" r="1" fill="#f8fafc" fill-opacity="0.16"/>
+      <circle cx="28" cy="24" r="1.4" fill="#f8fafc" fill-opacity="0.10"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#sky)"/>
+  <rect width="1200" height="186" fill="url(#stars)"/>
+  <rect width="1200" height="300" fill="url(#dawn)"/>
+
+  <!-- horizon -->
+  <line x1="0" y1="186" x2="1200" y2="186" stroke="#34d399" stroke-opacity="0.35"/>
+  <line x1="0" y1="186" x2="1200" y2="186" stroke="#0b1120" stroke-opacity="0.4" stroke-width="6" transform="translate(0 4)"/>
+
+  <!-- rising sun -->
+  <circle cx="600" cy="186" r="90" fill="url(#sun)"/>
+  <circle cx="600" cy="186" r="40" fill="#ecfdf5" fill-opacity="0.9"/>
+
+  <!-- converging path (new direction) -->
+  <g stroke-linecap="round">
+    <path d="M470 300 L588 188" stroke="#475569" stroke-width="3"/>
+    <path d="M730 300 L612 188" stroke="#475569" stroke-width="3"/>
+    <line x1="600" y1="300" x2="600" y2="196" stroke="#34d399" stroke-width="4" stroke-dasharray="14 16" stroke-opacity="0.85"/>
+  </g>
+
+  <!-- forward arrow on the path -->
+  <path d="M600 246 l13 16 h-8 v18 h-10 v-18 h-8 z" fill="#34d399"/>
+</svg>

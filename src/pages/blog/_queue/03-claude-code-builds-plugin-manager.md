@@ -2,6 +2,8 @@
 layout: ../../layouts/BlogPost.astro
 title: I used Claude Code to build a plugin manager for Claude Code
 description: How I directed Claude Code to build a plugin manager for Claude Code in eleven days — the workflow, the pace, and the Windows bug it caught before I did.
+banner: /assets/blog/claude-code-builds-plugin-manager.svg
+bannerAlt: A direct-and-build feedback loop between a prompt and a shipped package, over a rising release timeline from 0.0.1 to 0.6.0
 ---
 
 A few weeks ago I shipped `claude-code-plugin-toggler` — a UI for managing Claude Code plugins per-project without touching the CLI. Two surfaces: a browser UI and a VSCode extension. The whole thing was written by Claude Code. I directed it; it built.

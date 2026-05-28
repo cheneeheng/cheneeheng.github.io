@@ -3,6 +3,8 @@ date: 2026-05-26
 layout: ../../layouts/BlogPost.astro
 title: I built a plugin manager for Claude Code
 description: A browser UI and VSCode extension for toggling Claude Code plugins per-project — built because managing them one-at-a-time in the CLI is painful.
+banner: /assets/blog/claude-code-plugin-manager.svg
+bannerAlt: Rows of plugin toggle switches, some on and some off, with a cursor flipping one
 ---
 
 Claude Code's plugin management has one real friction point: everything happens one operation at a time. Install a plugin, get dropped back to the terminal, navigate back into the plugin view, do the next one. If you're setting up a project with five plugins, that's five round-trips. I got tired of it, so I built a UI.

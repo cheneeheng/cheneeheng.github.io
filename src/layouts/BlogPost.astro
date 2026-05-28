@@ -8,14 +8,28 @@ interface Props {
     title: string;
     date?: string;
     description?: string;
+    banner?: string;
+    bannerAlt?: string;
   };
 }
 
 const { frontmatter } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const banner = frontmatter.banner ? base + frontmatter.banner : undefined;
 ---
 
 <Layout title={`${frontmatter.title} — EE Heng Chen`} description={frontmatter.description}>
   <PageHeader title={frontmatter.title} subtitle={formatDate(frontmatter.date)} />
+  {banner && (
+    <img
+      src={banner}
+      alt={frontmatter.bannerAlt ?? `${frontmatter.title} — banner`}
+      width="1200"
+      height="300"
+      loading="eager"
+      class="mb-10 w-full rounded-xl border border-zinc-200 dark:border-zinc-800"
+    />
+  )}
   <article class="prose prose-zinc dark:prose-invert max-w-none leading-relaxed">
     <slot />
   </article>

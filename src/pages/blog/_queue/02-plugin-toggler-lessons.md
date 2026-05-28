@@ -2,6 +2,8 @@
 layout: ../../layouts/BlogPost.astro
 title: No dependencies, two implementations, one Windows nightmare
 description: Three lessons from building a zero-dependency, dual-surface developer tool — constraints, dual implementations, and the Windows path bugs that kept coming back.
+banner: /assets/blog/plugin-toggler-lessons.svg
+bannerAlt: Two mirrored implementations writing to one shared file, with a lowercase c-drive vs uppercase C-drive path mismatch flagged
 ---
 
 When I started `claude-code-plugin-toggler`, I set one constraint before writing a line: no external dependencies. The Python server would use stdlib only. The VSCode extension would have zero npm runtime packages. No pip install, no node_modules at runtime. If it couldn't be built with what ships in the box, I'd rethink the design.
