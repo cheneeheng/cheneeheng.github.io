@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="Three design decisions: Claude's own transcripts as the source of truth, the docker CLI instead of an SDK, and the container as the security boundary">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+
+    <!-- 1: transcripts as source of truth -->
+    <g transform="translate(90 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- stacked jsonl files -->
+      <g transform="translate(40 34)">
+        <rect x="14" y="14" width="86" height="64" rx="8" fill="#0f172a" stroke="#334155"/>
+        <rect x="7" y="7" width="86" height="64" rx="8" fill="#0f172a" stroke="#334155"/>
+        <rect width="86" height="64" rx="8" fill="#0b1120" stroke="#34d399" stroke-opacity="0.7"/>
+        <rect x="12" y="14" width="60" height="5" rx="2.5" fill="#475569"/>
+        <rect x="12" y="26" width="44" height="5" rx="2.5" fill="#475569"/>
+        <rect x="12" y="38" width="54" height="5" rx="2.5" fill="#475569"/>
+        <text x="43" y="58" text-anchor="middle" font-size="11" fill="#6ee7b7">.jsonl</text>
+      </g>
+      <!-- arrow to list -->
+      <path d="M150 70 h44" stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M198 70 l-14 -8 l4 16 z" fill="#34d399"/>
+      <g transform="translate(206 44)">
+        <rect width="76" height="14" rx="4" fill="#475569"/>
+        <rect y="22" width="76" height="14" rx="4" fill="#475569"/>
+        <rect y="44" width="76" height="14" rx="4" fill="#34d399" fill-opacity="0.5"/>
+      </g>
+      <text x="150" y="148">transcripts = truth</text>
+    </g>
+
+    <!-- 2: docker CLI, no SDK -->
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g transform="translate(150 76)">
+        <!-- terminal prompt instead of SDK box -->
+        <rect x="-110" y="-40" width="220" height="60" rx="10" fill="#0b1120" stroke="#34d399" stroke-opacity="0.6"/>
+        <text x="0" y="-3" text-anchor="middle" font-size="15" fill="#6ee7b7">$ docker exec</text>
+        <!-- crossed-out dependency -->
+        <g transform="translate(0 44)">
+          <rect x="-70" y="-18" width="140" height="36" rx="9" fill="#fbbf24" fill-opacity="0.08" stroke="#fbbf24" stroke-opacity="0.4"/>
+          <text x="0" y="6" text-anchor="middle" font-size="14" fill="#fbbf24">dockerode</text>
+          <line x1="-70" y1="18" x2="70" y2="-18" stroke="#fbbf24" stroke-width="2.5" stroke-opacity="0.8"/>
+        </g>
+      </g>
+      <text x="150" y="148">CLI, no SDK</text>
+    </g>
+
+    <!-- 3: container as the boundary -->
+    <g transform="translate(810 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- container box -->
+      <rect x="80" y="34" width="140" height="78" rx="12" fill="#0f172a" stroke="#34d399" stroke-opacity="0.6"/>
+      <!-- shield inside -->
+      <g transform="translate(150 56)">
+        <path d="M0 -10 l24 10 v18 a26 26 0 0 1 -24 26 a26 26 0 0 1 -24 -26 v-18 z" fill="#34d399" fill-opacity="0.14" stroke="#34d399" stroke-width="2.5"/>
+        <path d="M-9 20 l7 7 l13 -16" fill="none" stroke="#6ee7b7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="150" y="148">container = sandbox</text>
+    </g>
+
+  </g>
+</svg>

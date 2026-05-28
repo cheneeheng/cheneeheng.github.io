@@ -6,7 +6,7 @@ banner: /assets/blog/plugin-toggler-lessons.svg
 bannerAlt: Two mirrored implementations writing to one shared file, with a lowercase c-drive vs uppercase C-drive path mismatch flagged
 ---
 
-When I started `claude-code-plugin-toggler`, I set one constraint before writing a line: no external dependencies. The Python server would use stdlib only. The VSCode extension would have zero npm runtime packages. No pip install, no node_modules at runtime. If it couldn't be built with what ships in the box, I'd rethink the design.
+When I started [`claude-code-plugin-toggler`](https://github.com/cheneeheng/claude-code-plugin-toggler), I set one constraint before writing a line: no external dependencies. The Python server would use stdlib only. The VSCode extension would have zero npm runtime packages. No pip install, no node_modules at runtime. If it couldn't be built with what ships in the box, I'd rethink the design.
 
 That constraint shaped everything that followed.
 
