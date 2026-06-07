@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A terracotta swatch and a complementary teal swatch feeding a UI card with teal controls and one terracotta enabled row">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0c1f1d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.3" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#2fb3a8" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#2fb3a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.78" cy="0.85" r="0.6">
+      <stop offset="0" stop-color="#e98a62" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#e98a62" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <rect width="1200" height="300" fill="url(#glow2)"/>
+
+  <!-- complementary swatches: terracotta (Claude) + teal (lead) -->
+  <g font-family="ui-sans-serif, system-ui, sans-serif">
+    <!-- terracotta swatch -->
+    <g transform="translate(150 80)">
+      <rect width="120" height="120" rx="20" fill="#e98a62"/>
+      <rect width="120" height="120" rx="20" fill="none" stroke="#f4a37d" stroke-opacity="0.5"/>
+      <text x="60" y="150" text-anchor="middle" font-size="14" fill="#e98a62" fill-opacity="0.9">terracotta</text>
+    </g>
+    <!-- complement arc -->
+    <path d="M286 130 q60 -34 120 0" fill="none" stroke="#94a3b8" stroke-opacity="0.55" stroke-width="2.5" stroke-dasharray="6 8"/>
+    <text x="346" y="86" text-anchor="middle" font-size="13" fill="#94a3b8" fill-opacity="0.85">complement</text>
+    <!-- teal swatch (lead) -->
+    <g transform="translate(420 80)">
+      <rect width="120" height="120" rx="20" fill="#2fb3a8"/>
+      <rect width="120" height="120" rx="20" fill="none" stroke="#45c7bc" stroke-opacity="0.5"/>
+      <text x="60" y="150" text-anchor="middle" font-size="14" fill="#2fb3a8" fill-opacity="0.95">teal</text>
+    </g>
+  </g>
+
+  <!-- feed arrow into UI card -->
+  <g stroke="#2fb3a8" stroke-opacity="0.5" stroke-width="2.5" stroke-dasharray="6 8">
+    <line x1="560" y1="150" x2="700" y2="150"/>
+  </g>
+
+  <!-- mini UI card: teal controls, one terracotta enabled row -->
+  <g transform="translate(706 78)" font-family="ui-sans-serif, system-ui, sans-serif">
+    <rect width="360" height="144" rx="18" fill="#122a27" stroke="#203f3a"/>
+    <!-- enabled row — warms to terracotta -->
+    <g transform="translate(16 16)">
+      <rect width="328" height="34" rx="9" fill="#e98a62" fill-opacity="0.12"/>
+      <rect x="0" y="0" width="4" height="34" rx="2" fill="#e98a62"/>
+      <rect x="20" y="13" width="150" height="8" rx="4" fill="#7c9590"/>
+      <rect x="268" y="6" width="48" height="22" rx="11" fill="#2fb3a8"/>
+      <circle cx="303" cy="17" r="8" fill="#e7f1ee"/>
+    </g>
+    <!-- enabled row 2 -->
+    <g transform="translate(16 58)">
+      <rect width="328" height="34" rx="9" fill="#e98a62" fill-opacity="0.12"/>
+      <rect x="0" y="0" width="4" height="34" rx="2" fill="#e98a62"/>
+      <rect x="20" y="13" width="120" height="8" rx="4" fill="#7c9590"/>
+      <rect x="268" y="6" width="48" height="22" rx="11" fill="#2fb3a8"/>
+      <circle cx="303" cy="17" r="8" fill="#e7f1ee"/>
+    </g>
+    <!-- disabled row — neutral, teal-off -->
+    <g transform="translate(16 100)">
+      <rect width="328" height="34" rx="9" fill="#163230"/>
+      <rect x="20" y="13" width="96" height="8" rx="4" fill="#3f5450"/>
+      <rect x="268" y="6" width="48" height="22" rx="11" fill="#203f3a"/>
+      <circle cx="281" cy="17" r="8" fill="#7c9590"/>
+    </g>
+  </g>
+</svg>

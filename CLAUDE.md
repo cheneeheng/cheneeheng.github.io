@@ -27,6 +27,15 @@ Content is split across three mechanisms; pick the right one:
 
 The site is **not** using Astro content collections (`src/content/config.ts`) — adding one would change how `now.md` and `blog/*.md` are loaded.
 
+### Blog voice
+
+Write posts in a **personal** voice, not "influencer style."
+
+- Avoid: punchy standalone declarative one-liners as paragraphs; aphoristic closers ("The boring choice is the correct one"); imperative lessons aimed at the reader ("Don't design your own. Surface theirs."); "If you're building X, then Y" prescriptions; the tidy meta-takeaway sign-off that turns a personal story into a lecture.
+- Prefer: first person, grounded in what actually happened and was thought; reflective rather than prescriptive; few aphorisms; no "here's the lesson for you" ending; quieter. The reader is overhearing the reasoning, not being taught.
+
+Each post lives in `src/pages/blog/<repo>--<detail>.md`, sets `layout: ../../layouts/BlogPost.astro`, and references a 1200×300 banner SVG in `public/assets/blog/` (dark slate `#0b1120`→`#0f172a` gradient, dots pattern, accent glow, rounded `#1e293b`/`#334155` cards).
+
 ### Layouts and components
 
 - `src/layouts/Layout.astro` — root shell (Nav + main + Footer, dark mode classes baked in). Every page should wrap in this.
