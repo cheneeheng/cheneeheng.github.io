@@ -1,6 +1,7 @@
 ---
 date: 2026-06-04
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: The plugin manager I didn't write
 description: Every line of my Claude Code plugin manager was written by Claude Code. What I actually did all those days — specs, sequencing, and being the first user — and where the model out-debugged me.
 banner: /assets/blog/claude-code-builds-plugin-manager.svg

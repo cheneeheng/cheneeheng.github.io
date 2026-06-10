@@ -1,6 +1,7 @@
 ---
 date: 2026-06-10
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: I asked Claude what made its design look generated
 description: The redesign looked AI-generated and I couldn't say why — so I asked the model that designed it to critique it. It listed its own tells, and iteration 19 became a subtraction pass.
 banner: /assets/blog/claude-code-plugin-toggler--de-generification.svg

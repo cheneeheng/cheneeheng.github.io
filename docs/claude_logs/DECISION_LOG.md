@@ -303,3 +303,24 @@ user asked for suggestions, not edits.
 **Impact / Risk:** If queue posts are published under different filenames, their
 internal links break — verify at publication time.
 **Outcome:** Eight posts rewritten, one new post + banner SVG added.
+
+---
+
+### Entry 014
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-06-10T00:00:00Z
+**Task:** Add a dedicated repo-link section to blog posts.
+
+**Context:** The goal said "each blog post" but did not specify where the section
+goes, how the repo is supplied, or what happens to posts that mention no repo
+(`hello.md`).
+**Decision:** Added an optional `repo:` frontmatter field rendered by
+`BlogPost.astro` as a quiet aside *after* the article (GitHub mark + one sentence),
+styled to match the existing zinc card language. Display name is derived from the
+URL path. `hello.md` gets no field — the section only renders when a repo exists,
+so non-project posts stay untouched.
+**Impact / Risk:** Future posts must remember to set `repo:`; posts without it
+silently lack the section (intended).
+**Outcome:** Six plugin-toggler posts updated; layout renders the section conditionally.

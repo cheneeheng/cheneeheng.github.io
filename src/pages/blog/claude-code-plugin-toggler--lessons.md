@@ -1,6 +1,7 @@
 ---
 date: 2026-06-02
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: The Windows bug that came back three times
 description: I promised to write up the path problems once I understood them. It took three releases, a 29-line band-aid, and Claude Code finding the one character I couldn't see.
 banner: /assets/blog/plugin-toggler-lessons.svg

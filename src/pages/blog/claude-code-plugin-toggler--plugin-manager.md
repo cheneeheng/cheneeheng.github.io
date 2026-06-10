@@ -1,6 +1,7 @@
 ---
 date: 2026-05-26
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: Five plugins, five round trips
 description: Setting up yet another project with my usual Claude Code plugins, I got annoyed enough to build a toggler — a browser UI and a VSCode panel over one JSON file.
 banner: /assets/blog/claude-code-plugin-manager.svg

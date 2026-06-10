@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-html-wrapper
 title: "Put any CLI in the browser: xterm.js, node-pty, and Docker"
 description: The generic recipe underneath my Claude Code wrapper — a WebSocket-to-PTY bridge into a container, written down with the five things that actually cost me time.
 banner: /assets/blog/cli-in-the-browser.svg

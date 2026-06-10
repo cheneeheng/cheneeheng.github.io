@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-html-wrapper
 title: Three layers I refused to build
 description: My Claude Code wrapper has no database, no Docker SDK, and no permission prompts — each absence was a decision made in the spec, and each one is why the server fits in seven files.
 banner: /assets/blog/wrapping-claude-code-lessons.svg

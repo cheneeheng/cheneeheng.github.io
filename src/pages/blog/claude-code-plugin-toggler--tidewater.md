@@ -1,6 +1,7 @@
 ---
 date: 2026-06-08
 layout: ../../layouts/BlogPost.astro
+repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: Teal, because of the orange
 description: Reskinning my Claude Code plugin manager around teal and terracotta — a palette that stays related to Claude without looking like an Anthropic product, and a VSCode panel that does the same trick against the editor.
 banner: /assets/blog/claude-code-plugin-toggler--tidewater.svg
