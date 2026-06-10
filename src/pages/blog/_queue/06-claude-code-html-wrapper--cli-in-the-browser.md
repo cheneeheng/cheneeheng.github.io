@@ -1,26 +1,22 @@
 ---
 layout: ../../layouts/BlogPost.astro
 title: "Put any CLI in the browser: xterm.js, node-pty, and Docker"
-description: A practical recipe for bridging a browser terminal to a real CLI process in a sandboxed container — the WebSocket-to-PTY bridge, and the gotchas nobody warns you about.
+description: The generic recipe underneath my Claude Code wrapper — a WebSocket-to-PTY bridge into a container, written down with the five things that actually cost me time.
 banner: /assets/blog/cli-in-the-browser.svg
 bannerAlt: A left-to-right pipeline from browser xterm.js through a websocket to node-pty to docker exec to a CLI process
 ---
 
-I recently wrapped Claude Code in a browser. Under the project-specific parts, what I actually built was generic: a way to drive *any* interactive CLI from a browser tab, with the process sandboxed in a container. If you've ever wanted a web terminal for a tool — a REPL, a database shell, an AI coding agent — this is the recipe, including the parts that cost me time.
+When I peeled the Claude-specific parts off [the wrapper I built](/blog/claude-code-html-wrapper--in-the-browser), what was left turned out to be generic: a way to drive *any* interactive CLI from a browser tab, with the process sandboxed in a container. I went looking for a writeup like this before I built mine and didn't find one that included the failure modes, so this is the version I wish I'd had — the recipe, plus the five places I lost time.
 
-**The shape of it**
-
-Four pieces in a line:
+The whole thing is four pieces in a line:
 
 ```
 browser (xterm.js) ──ws──► node-pty ──► docker exec -it ──► your CLI
 ```
 
-The browser renders a terminal and ships keystrokes over a WebSocket. A Node server turns that socket into a real pseudo-terminal with `node-pty`, which runs `docker exec` into a container where your CLI lives. Output streams back the same way. The trick is that it's a *transparent pipe* — you are not parsing the CLI's output or simulating a shell. You're handing a real PTY's bytes to a terminal emulator and letting it do its job.
+The browser renders a terminal and ships keystrokes over a WebSocket. A Node server turns that socket into a real pseudo-terminal with `node-pty`, which runs `docker exec` into a container where the CLI lives. Output streams back the same way. The insight that makes it all work: this is a *transparent pipe*. You are not parsing the CLI's output or simulating a shell — you're handing a real PTY's bytes to a terminal emulator and letting each side do the one thing it's good at.
 
-**Step 1: The browser terminal**
-
-[xterm.js](https://xtermjs.org/) is the same terminal component VS Code uses. Load it (a CDN is fine — no bundler required), mount it, and wire two directions: keystrokes out, bytes in.
+**The browser end.** [xterm.js](https://xtermjs.org/) is the same terminal component VS Code uses. Load it (a CDN is fine — no bundler required), mount it, and wire two directions: keystrokes out, bytes in.
 
 ```js
 import { Terminal } from 'xterm';
@@ -47,11 +43,9 @@ ws.onopen = sendSize;
 window.addEventListener('resize', () => { fit.fit(); sendSize(); });
 ```
 
-Two message types go *to* the server — `input` and `resize` — and raw bytes come *back*. That asymmetry is deliberate: input needs structure (you have to distinguish a keystroke from a resize event), but output is just terminal bytes, so don't wrap them.
+Note the asymmetry: two structured message types go *to* the server — `input` and `resize` — but raw bytes come *back*. That's deliberate. Input needs structure because a keystroke and a resize event have to be distinguishable; output is just terminal bytes, and wrapping them buys nothing.
 
-**Step 2: The WebSocket-to-PTY bridge**
-
-On the server, each WebSocket connection spawns one `node-pty` process running `docker exec -it` into the user's container. Then you pipe both directions and translate the two inbound message types.
+**The bridge.** On the server, each WebSocket connection spawns one `node-pty` process running `docker exec -it` into the user's container, and then it's piping in both directions:
 
 ```js
 const pty = require('node-pty');
@@ -78,11 +72,9 @@ wss.on('connection', (ws, req) => {
 });
 ```
 
-That's the whole core. Everything else — auth, container lifecycle, session listing — is scaffolding around this pipe.
+That's the entire core. Everything else I built — auth, container lifecycle, session listing — is scaffolding around this one pipe.
 
-**Step 3: The sandbox container**
-
-The CLI runs in Docker, not on the host, so a user driving it can't reach anything you didn't give them. A minimal image:
+**The sandbox.** The CLI runs in Docker, not on the host, so whoever drives it can't reach anything you didn't give them. A minimal image:
 
 ```dockerfile
 FROM node:20-slim
@@ -90,22 +82,18 @@ RUN npm install -g your-cli
 WORKDIR /workspace
 ```
 
-Create one container per user and mount a volume so their files survive restarts:
+I create one container per user and mount a volume so files survive restarts:
 
 ```js
 exec(`docker run -d --name claude-user-${id} ` +
      `-v ${WORKSPACE_ROOT}/${id}:/workspace your-image tail -f /dev/null`);
 ```
 
-The container runs a do-nothing `tail -f /dev/null` so it stays alive; each browser session `exec`s into it rather than starting a fresh container. One long-lived sandbox per user, many short-lived terminal sessions inside it.
+The container runs a do-nothing `tail -f /dev/null` to stay alive; each browser session `exec`s into it rather than starting fresh. One long-lived sandbox per user, many short-lived terminals inside it.
 
-Now the gotchas — the things that actually cost me time.
+Now the five things that actually cost me time.
 
-**Gotcha 1: Browsers can't set headers on a WebSocket upgrade**
-
-You'll want to authenticate the socket. The natural move is an `Authorization: Bearer` header — and the browser WebSocket API simply won't let you set one. There's no headers argument.
-
-The workaround is a query param: `wss://host/ws?token=...`, validated during the HTTP upgrade *before* you accept the socket.
+**Browsers can't set headers on a WebSocket upgrade.** I wanted to authenticate the socket with an `Authorization: Bearer` header, and spent a while confused about why I couldn't: the browser WebSocket API simply has no headers argument. The workaround everyone lands on is a query param — `wss://host/ws?token=...` — validated during the HTTP upgrade, *before* accepting the socket:
 
 ```js
 server.on('upgrade', (req, socket, head) => {
@@ -118,30 +106,18 @@ server.on('upgrade', (req, socket, head) => {
 });
 ```
 
-Reject *before* `handleUpgrade`, not inside the connection handler — you don't want to complete a handshake just to close it. (A token in a URL is fine over TLS for an internal tool, but it lands in logs and history; for anything public, scope it to a short-lived single-use ticket.)
+Reject before `handleUpgrade`, not inside the connection handler — completing a handshake just to close it is wasted work and a worse security posture. (A token in a URL is fine over TLS for an internal tool, but it lands in logs and history; for anything public, make it a short-lived single-use ticket.)
 
-**Gotcha 2: `-it` matters, and so does the PTY**
+**`-it` matters, and so does the PTY.** My first attempt used plain `child_process.spawn`, and the CLI came back with no colors, line-buffered output, and sometimes no prompt at all. Interactive CLIs behave completely differently when they don't believe a human is at a terminal. You need `docker exec -it` *and* you need `node-pty` on top — the PTY is what convinces the CLI it's on a real terminal. I lost a genuinely embarrassing hour to the missing colors before I understood this.
 
-`docker exec` without `-it` gives you a non-interactive pipe, and interactive CLIs behave completely differently when they don't think they're on a terminal — no colors, no cursor control, sometimes no prompt at all. You need `-it` *and* you need to be running it under `node-pty`. The PTY is what convinces the CLI a human is at a real terminal. Plain `child_process.spawn` won't do it; you'll get line-buffered, stripped output and spend an hour wondering why the colors vanished.
+**Resize, or live with garbage.** Skip the `resize` plumbing and the PTY stays at its spawn-time 80×24 while the browser terminal is whatever size the window is. A plain shell hides this — prompts are short — so everything looks fine until something draws a full-screen UI, at which point the output wraps and corrupts. Claude Code's interface is exactly such a UI, which is how I found out. Send `term.resize(cols, rows)` on connect and on every window resize.
 
-**Gotcha 3: Resize, or live with garbage**
-
-If you skip the `resize` plumbing, the PTY stays at its spawn-time 80×24 while the browser terminal is whatever size the window is. Anything that draws a full-screen UI — an editor, a TUI, a coding agent's interface — wraps and corrupts. Send `term.resize(cols, rows)` on connect and on every window resize. It's easy to forget because a plain shell looks fine without it; the breakage only shows up once something tries to paint the whole screen.
-
-**Gotcha 4: Don't let throws escape at the socket boundary**
-
-A WebSocket can vanish between the moment you decide to write and the moment you write — the user closed the tab. If you let that `send()` throw, it can take down more than the one connection. Wrap writes and closes in a `try/catch` that swallows the error on purpose; the socket being gone is a normal event, not an exception worth propagating.
+**Don't let throws escape at the socket boundary.** A WebSocket can vanish between the moment you decide to write and the moment you write — the user closed the tab, which from the server's perspective is no event at all until the next send. If that `send()` throws uncaught, it can take down more than the one connection. The socket being gone is a normal occurrence, not an exception worth propagating:
 
 ```js
 term.onData(data => { try { ws.send(data); } catch { /* gone */ } });
 ```
 
-**Gotcha 5: Reap idle containers**
+**Reap idle containers.** One permanent container per user means a container per user *forever* if you let it. I track last activity in memory — every byte in either direction bumps a timestamp — and a timer stops containers idle past a threshold. The volume keeps the files, so the user pays nothing but a second of startup next time. I added this after watching a handful of test containers quietly hold memory for days.
 
-One container per user means a container per user *forever* if you let it. Track last activity in memory and stop containers that have been idle past a threshold — every inbound or outbound byte bumps the timestamp; a timer sweeps the rest. The volume keeps the files, so stopping an idle container costs the user nothing but a second of startup next time. Skip this and a handful of users will quietly pin all your memory.
-
-**What you end up with**
-
-Put together, it's surprisingly little code — a static page with xterm.js, one upgrade handler, one connection handler bridging WebSocket and PTY, and a few `docker` commands for lifecycle. The CLI doesn't know it's in a browser; the browser doesn't know it's talking to Docker. Each side does the one thing it's good at, and the pipe in the middle is dumb on purpose.
-
-If you want a complete, working reference, the project this came out of is at [github.com/cheneeheng/claude-code-html-wrapper](https://github.com/cheneeheng/claude-code-html-wrapper) — it wraps Claude Code specifically, but the bridge above is the reusable heart of it. Swap the CLI in the `docker exec` line and you've got a web terminal for whatever tool you like.
+What you end up with is surprisingly little code: a static page with xterm.js, one upgrade handler, one connection handler bridging WebSocket and PTY, a few `docker` commands for lifecycle. The CLI doesn't know it's in a browser; the browser doesn't know it's talking to Docker; the pipe in the middle is dumb on purpose. The complete working version is at [github.com/cheneeheng/claude-code-html-wrapper](https://github.com/cheneeheng/claude-code-html-wrapper) — it wraps Claude Code specifically, but swap the CLI in the `docker exec` line and it's a web terminal for whatever tool you reach for instead.

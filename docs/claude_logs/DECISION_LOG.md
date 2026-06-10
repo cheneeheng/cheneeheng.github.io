@@ -276,3 +276,30 @@ mood. Storage mechanism, theming approach, and frontmatter contract were unspeci
 **Impact / Risk:** New blog posts must opt in by adding `banner:`. Drafts in
 `src/pages/blog/_queue/` were left untouched (not yet published).
 **Outcome:** Both banners verified by rendering to PNG with sharp; temp artifacts removed.
+
+---
+
+### Entry 013
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-06-10T16:30:00Z
+**Task:** Rewrite all blog posts in a personal serial-story voice; add iter-19 post.
+
+**Context:** User authorized free rewriting ("rewrite them as you like") but several
+sub-choices were unspecified: whether `_queue` drafts were in scope, whether titles
+could change, how queue posts should cross-link before publication, and whether
+hello.md needed rework.
+**Decision:** (a) Rewrote the three `_queue` wrapper drafts in place — they are the
+html-wrapper posts the user explicitly named. (b) Changed display titles where the
+old ones were influencer-styled, but kept all filenames, dates, banners, and URLs.
+(c) Queue posts now cross-link as `/blog/claude-code-html-wrapper--<detail>` on the
+assumption that the `NN-` prefix is dropped at publication, per the published
+`<repo>--<detail>` convention. (d) Left hello.md untouched — already personal, not
+about either project. (e) Fixed a serial-consistency bug: the 06-09 post claimed the
+tool "is at 0.6" while the 06-07/08 posts already describe 0.7/0.8 work.
+(f) Did not edit the ceh-blog skill source (agent-skills repo) or project CLAUDE.md —
+user asked for suggestions, not edits.
+**Impact / Risk:** If queue posts are published under different filenames, their
+internal links break — verify at publication time.
+**Outcome:** Eight posts rewritten, one new post + banner SVG added.

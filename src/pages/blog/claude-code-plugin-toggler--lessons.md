@@ -1,40 +1,26 @@
 ---
 date: 2026-06-02
 layout: ../../layouts/BlogPost.astro
-title: No dependencies, two implementations, one Windows nightmare
-description: Three lessons from building a zero-dependency, dual-surface developer tool — constraints, dual implementations, and the Windows path bugs that kept coming back.
+title: The Windows bug that came back three times
+description: I promised to write up the path problems once I understood them. It took three releases, a 29-line band-aid, and Claude Code finding the one character I couldn't see.
 banner: /assets/blog/plugin-toggler-lessons.svg
 bannerAlt: Two mirrored implementations writing to one shared file, with a lowercase c-drive vs uppercase C-drive path mismatch flagged
 ---
 
-When I started [`claude-code-plugin-toggler`](https://github.com/cheneeheng/claude-code-plugin-toggler), I set one constraint before writing a line: no external dependencies. The Python server would use stdlib only. The VSCode extension would have zero npm runtime packages. No pip install, no node_modules at runtime. If it couldn't be built with what ships in the box, I'd rethink the design.
+[Last time](/blog/claude-code-plugin-toggler--plugin-manager) I said Windows had opinions about file paths and that I'd write it up once I understood what was going on. It took three releases to get there, and the last step wasn't me understanding it — it was Claude Code finding the one character I'd been unable to see.
 
-That constraint shaped everything that followed.
+Some context first, because the bug only makes sense against a decision I made on day one. When I started [`claude-code-plugin-toggler`](https://github.com/cheneeheng/claude-code-plugin-toggler), I set myself one constraint before writing anything: no external dependencies. The Python server would be stdlib only; the VSCode extension would have zero npm runtime packages. If it couldn't be built with what ships in the box, I'd rethink the design. I liked what that bought me — you run `python3 server.py` and it just works, nothing to install or audit. What I underestimated was the bill. No path libraries, no cross-platform utilities. Every sharp edge in the OS was now mine to handle personally.
 
-**The cost of zero dependencies**
+The other relevant choice: the tool has two faces, a browser UI on a Python server and a VSCode extension on a Node extension host. Same data contract — read `installed_plugins.json`, write `.claude/settings.local.json` — implemented twice, once per language, no shared code. At this size that felt right, and I still think it is. But it means that when a bug exists, it exists twice. Fix it in Python, fix it again in Node.
 
-The upside is obvious: nothing to install, nothing to break, nothing to audit. You run `python3 server.py` and it works. Always.
+Windows took full advantage. The first path bug was the ordinary kind — separators — and the fix was routine. Then uninstall broke, and that turned out to be a hard-coded path, also routine once found. Each fix went in, I moved on, and a release later something path-shaped broke again. By the third round I was suspicious of the whole area but couldn't say why.
 
-The downside is that you give up the ecosystem. No path libraries. No cross-platform utilities. Every sharp edge in the OS is yours to handle personally. I didn't fully appreciate that tradeoff until Windows started teaching me.
+The third one was the strange one. Uninstalling a plugin from the VSCode extension would silently do nothing. No error, no log, just a plugin that stayed installed. I patched what looked like the problem; the symptom moved somewhere else. I patched that; it moved again. Eventually I wrote a 29-line function that rewrote the JSON file before every uninstall call, and the symptom finally stopped. I knew it was a band-aid. I shipped it anyway, because it worked and I was tired of this bug.
 
-**Two surfaces, one data contract**
+Then I pointed Claude Code at it and asked it to find the actual cause. It read the extension code, traced the path from where VSCode hands it over to where it lands in the JSON, and came back with this: `uri.fsPath` returns lowercase drive letters on Windows — `c:\Users\...`. The Claude Code CLI writes uppercase — `C:\Users\...`. The extension passed its working directory into a `spawn()` call, the lowercase path got recorded in `installed_plugins.json`, and later the uninstall lookup compared it against the CLI's uppercase version. Same path, different letter, no match, silent failure. Two programs sharing one file, each assuming its own convention, and the disagreement only surfacing at lookup time with no trace back to the source.
 
-The tool has two independent surfaces: a browser UI backed by the Python server, and a VSCode extension backed by a Node.js extension host. Same data contract — read from `installed_plugins.json`, write to `.claude/settings.local.json` — implemented separately in each language. No shared code, no shared runtime.
+One character. I had been staring at these paths for three releases and my eyes slid right over the case of the drive letter every single time — it *looks* right, because it is right, on the filesystem. It's only wrong as a string.
 
-That was the right call at this size. A shared library would have required packaging, runtime coordination, and overhead that didn't make sense. Independent implementations are easier to reason about in isolation.
+The real fix was five lines in `_projectRoot()`: detect a lowercase drive letter, uppercase it at the source. The 29-line band-aid came out entirely. There's something a little humbling about watching your workaround get deleted because the actual problem fit in five lines you couldn't find yourself.
 
-The cost: when a bug exists, it exists twice. When you fix it in Python, you fix it again in Node.
-
-**Fix one layer, hit the next**
-
-The Windows path bugs were the most instructive part of the build. They came back three times across three releases — each one uncovered only after the previous fix went in.
-
-The first fix handled the separator issue. The second handled a hard-coded uninstall path. The third was the strangest, and I didn't catch it myself.
-
-VSCode's `uri.fsPath` returns lowercase drive letters on Windows: `c:\Users\...` instead of `C:\Users\...`. The Claude Code CLI, meanwhile, writes uppercase. When the extension passed its working directory to `spawn()`, the path landed in `installed_plugins.json` as `c:\...`. Later, when the uninstall lookup ran, it compared against `C:\...` — same path, different letter, no match. Uninstall silently failed.
-
-My first fix was a 29-line function that patched the JSON file before every uninstall call. It worked. It was also a band-aid over the wrong layer.
-
-Claude Code found the root cause. It read the extension code, traced the path from `uri.fsPath` through to the JSON write, and identified the single character responsible. The real fix was 5 lines in `_projectRoot()`: detect a lowercase drive letter, uppercase it at the source, and remove the 29-line workaround entirely.
-
-That's the kind of bug that hides because it looks right. I'd been staring at the same code and kept fixing the wrong layer.
+Would I still take the zero-dependency constraint, knowing it put me on the hook for edges like this? For this tool, yes — the bug wasn't really about missing libraries, since a path library wouldn't have normalized drive-letter case across two processes either. But I've stopped pretending the constraint is free. The tool is at 0.6.1 now, stable on Windows as far as I can tell, and I've learned to read paths with one eye on the first character.

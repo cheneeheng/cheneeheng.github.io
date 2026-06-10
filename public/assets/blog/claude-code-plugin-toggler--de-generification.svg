@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A UI card crowded with glows, gradients and floating rows, an arrow, then a flat dense card whose only ornament is a terracotta enabled-edge">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0c1f1d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.22" cy="0.15" r="0.65">
+      <stop offset="0" stop-color="#2fb3a8" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#2fb3a8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="cardglow" cx="0.5" cy="0" r="1">
+      <stop offset="0" stop-color="#e98a62" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#e98a62" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rowgrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e98a62" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#2fb3a8" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <!-- BEFORE: the garnished card — glows, gradients, floating rows, big radii -->
+  <g transform="translate(120 70)" font-family="ui-sans-serif, system-ui, sans-serif">
+    <rect width="360" height="160" rx="22" fill="#122a27" stroke="#334155"/>
+    <rect width="360" height="160" rx="22" fill="url(#cardglow)"/>
+    <!-- lifted gradient row with shadow -->
+    <g transform="translate(20 18)">
+      <rect x="3" y="5" width="320" height="34" rx="14" fill="#020617" fill-opacity="0.6"/>
+      <rect width="320" height="34" rx="14" fill="url(#rowgrad)"/>
+      <rect x="16" y="13" width="130" height="8" rx="4" fill="#cbd5e1" fill-opacity="0.8"/>
+      <rect x="258" y="6" width="46" height="22" rx="11" fill="#2fb3a8"/>
+      <circle cx="291" cy="17" r="8" fill="#e7f1ee"/>
+      <circle cx="291" cy="17" r="12" fill="none" stroke="#2fb3a8" stroke-opacity="0.6"/>
+    </g>
+    <!-- second lifted row -->
+    <g transform="translate(20 66)">
+      <rect x="3" y="5" width="320" height="34" rx="14" fill="#020617" fill-opacity="0.6"/>
+      <rect width="320" height="34" rx="14" fill="#1c3a36"/>
+      <rect x="16" y="13" width="100" height="8" rx="4" fill="#94a3b8"/>
+      <rect x="258" y="6" width="46" height="22" rx="11" fill="#203f3a"/>
+      <circle cx="271" cy="17" r="8" fill="#7c9590"/>
+    </g>
+    <!-- entrance-motion ghost row -->
+    <g transform="translate(20 114)" opacity="0.45">
+      <rect width="320" height="34" rx="14" fill="#1c3a36"/>
+      <rect x="16" y="13" width="115" height="8" rx="4" fill="#64748b"/>
+    </g>
+    <text x="180" y="186" text-anchor="middle" font-size="13" fill="#94a3b8" fill-opacity="0.85">all the tells at once</text>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#94a3b8" stroke-opacity="0.6" stroke-width="2.5">
+    <line x1="520" y1="150" x2="640" y2="150" stroke-dasharray="6 8"/>
+    <path d="M632 142 l14 8 -14 8" fill="none"/>
+  </g>
+
+  <!-- AFTER: flat dense list, hairline dividers, one terracotta edge -->
+  <g transform="translate(680 70)" font-family="ui-sans-serif, system-ui, sans-serif">
+    <rect width="360" height="160" rx="10" fill="#122a27" stroke="#203f3a"/>
+    <!-- header with the three-fader brand mark -->
+    <g transform="translate(16 12)">
+      <g>
+        <rect x="0" y="2" width="20" height="3" rx="1.5" fill="#2d544d"/>
+        <rect x="0" y="9" width="20" height="3" rx="1.5" fill="#2d544d"/>
+        <rect x="0" y="16" width="20" height="3" rx="1.5" fill="#2d544d"/>
+        <circle cx="16" cy="3.5" r="3.4" fill="#e98a62"/>
+        <circle cx="5" cy="10.5" r="3.4" fill="#2fb3a8"/>
+        <circle cx="12" cy="17.5" r="3.4" fill="#2fb3a8"/>
+      </g>
+      <rect x="30" y="7" width="90" height="9" rx="4" fill="#7c9590"/>
+    </g>
+    <line x1="0" y1="44" x2="360" y2="44" stroke="#203f3a"/>
+    <!-- enabled row: flat wash + solid terracotta left edge -->
+    <g transform="translate(0 44)">
+      <rect width="360" height="38" fill="#e98a62" fill-opacity="0.1"/>
+      <rect width="4" height="38" fill="#e98a62"/>
+      <rect x="20" y="15" width="140" height="8" rx="4" fill="#9fb5b0"/>
+      <rect x="296" y="9" width="44" height="20" rx="10" fill="#2fb3a8"/>
+      <circle cx="330" cy="19" r="7" fill="#e7f1ee"/>
+    </g>
+    <line x1="0" y1="82" x2="360" y2="82" stroke="#203f3a"/>
+    <!-- flat disabled rows, hairline separated -->
+    <g transform="translate(0 82)">
+      <rect x="20" y="15" width="110" height="8" rx="4" fill="#3f5450"/>
+      <rect x="296" y="9" width="44" height="20" rx="10" fill="#203f3a"/>
+      <circle cx="306" cy="19" r="7" fill="#7c9590"/>
+    </g>
+    <line x1="0" y1="120" x2="360" y2="120" stroke="#203f3a"/>
+    <g transform="translate(0 120)">
+      <rect x="20" y="15" width="125" height="8" rx="4" fill="#3f5450"/>
+      <rect x="296" y="9" width="44" height="20" rx="10" fill="#203f3a"/>
+      <circle cx="306" cy="19" r="7" fill="#7c9590"/>
+    </g>
+    <text x="180" y="186" text-anchor="middle" font-size="13" fill="#94a3b8" fill-opacity="0.85">one decorated element</text>
+  </g>
+</svg>

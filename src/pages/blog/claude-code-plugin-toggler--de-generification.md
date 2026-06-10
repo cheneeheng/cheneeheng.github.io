@@ -1,0 +1,22 @@
+---
+date: 2026-06-10
+layout: ../../layouts/BlogPost.astro
+title: I asked Claude what made its design look generated
+description: The redesign looked AI-generated and I couldn't say why — so I asked the model that designed it to critique it. It listed its own tells, and iteration 19 became a subtraction pass.
+banner: /assets/blog/claude-code-plugin-toggler--de-generification.svg
+bannerAlt: A UI card crowded with glows, gradients and floating rows, an arrow, then a flat dense card whose only ornament is a terracotta enabled-edge
+---
+
+[Last time](/blog/claude-code-plugin-toggler--tidewater) I ended on a question I couldn't answer: the redesigned toggler looked coherent, but it had a faint AI-generated quality I couldn't name, and I wondered whether a real designer would name it in five seconds. I don't have a real designer. What I have is the thing that designed it.
+
+So I asked Claude to critique its own work. Not to redesign anything, not to suggest improvements — just to look at the design it had produced and tell me what made it read as generated.
+
+It named everything. Corner glows with a grain overlay. Gradient fills with glow rings on the toggles. A staggered entrance animation on every page load. Hover-lift on every row. The same 14–16px corner radius on every container, big or small. The display serif sprinkled across multiple elements. Individually each of these is a defensible choice; the tell is that they were all there at once, every garnish applied with the same even hand. The phrase I ended up writing into the iteration spec was that the design "carries all the stock tells at once."
+
+I keep turning over what that exchange means. The vague unease I couldn't articulate turned out to be a finite list — not some ineffable missing soul, just habits. The model has a house style the way a generation of Dribbble shots had a house style, and when you ask it to *design*, it applies the habits. When you ask it to *critique*, it can name them. Same weights, opposite direction. The knowledge of what looks generated was sitting in there the whole time; nothing in my earlier prompts had ever pointed at it.
+
+The fix became ITER_19, and the spec is unusual for this project: it's a subtraction iteration. Almost nothing new — the work is deletion. The atmosphere layer goes, both gradients on the enabled row go, the entrance choreography goes, the hover-lift goes. The palette stays exactly as it was; Tidewater was never the problem. What replaces the garnish is a small set of rules I now actually believe in rather than inherited: one decorated element on the whole page (the terracotta edge on an enabled row — the single signal that was always the point), motion only when the user caused a state change, depth drawn with hairline borders instead of shadows, and a radius hierarchy instead of rounded-everything. The rows collapsed from floating cards into a dense flat list with dividers, which sounds like a downgrade and is the opposite — density is what a sidebar tool you open every day is supposed to have. And the display serif got rationed to exactly one element, the app title, on the theory that typography carries identity better when it isn't everywhere.
+
+The one thing the iteration *adds* is a brand mark, and it's small but it's my favorite part. Three horizontal fader tracks with knobs — two teal, and exactly one terracotta. The mark is the product's one color rule drawn as a picture: terracotta means enabled. It sits in the header of both surfaces, doubles as the favicon, and got exported to the PNG that the VSCode Marketplace insists on (SVG icons are rejected, which I learned the way one learns most packaging rules).
+
+It shipped this morning as 0.9.0. And the honest report, one day in: the first impression is a lot cleaner and smoother. The page comes up and just *sits* there, flat and quiet, instead of performing its little entrance. I'd call it an acceptable improvement — but I'm not 100% convinced yet, and I notice I said nice things about the previous look too, right before the unease crept in. Whatever judgment I have seems to operate on a delay; the tells only become visible to me after I've lived with a design for a few days. So the real test isn't today. It's whether, sometime next week, I open the panel and the question — *does this look generated?* — has finally gone quiet. If it hasn't, at least I now know who to ask.
