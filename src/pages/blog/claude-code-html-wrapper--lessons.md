@@ -1,4 +1,5 @@
 ---
+date: 2026-06-16
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-html-wrapper
 title: Three layers I refused to build
