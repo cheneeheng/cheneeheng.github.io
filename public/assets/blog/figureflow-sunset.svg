@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="Two questions answered: wrapping React Flow in Python (yes), and LLM-authored interactive diagrams (static mermaid wins) — leading to a clean sunset">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+
+    <!-- 1: wrap React Flow in Python -> yes -->
+    <g transform="translate(90 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- python source box -->
+      <g transform="translate(38 56)">
+        <rect width="86" height="56" rx="8" fill="#0b1120" stroke="#334155"/>
+        <text x="43" y="26" text-anchor="middle" font-size="13" fill="#6ee7b7">Flow(</text>
+        <text x="43" y="44" text-anchor="middle" font-size="13" fill="#6ee7b7">Node…)</text>
+      </g>
+      <!-- arrow -->
+      <path d="M132 84 h40" stroke="#34d399" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M176 84 l-14 -8 l4 16 z" fill="#34d399"/>
+      <!-- mini node graph -->
+      <g transform="translate(188 50)">
+        <rect x="0" y="0" width="34" height="22" rx="6" fill="#0f172a" stroke="#34d399" stroke-opacity="0.7"/>
+        <rect x="48" y="46" width="34" height="22" rx="11" fill="#0f172a" stroke="#34d399" stroke-opacity="0.7"/>
+        <path d="M17 22 q0 24 48 24" stroke="#475569" stroke-width="2" fill="none"/>
+      </g>
+      <text x="150" y="148">wrap xyflow? yes</text>
+    </g>
+
+    <!-- 2: static beats interactive for LLMs -->
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- interactive canvas, dimmed/crossed -->
+      <g transform="translate(36 44)">
+        <rect width="100" height="64" rx="9" fill="#fbbf24" fill-opacity="0.06" stroke="#fbbf24" stroke-opacity="0.4"/>
+        <text x="50" y="30" text-anchor="middle" font-size="12" fill="#fbbf24">interactive</text>
+        <text x="50" y="48" text-anchor="middle" font-size="12" fill="#fbbf24">canvas</text>
+        <line x1="0" y1="64" x2="100" y2="0" stroke="#fbbf24" stroke-width="2.5" stroke-opacity="0.8"/>
+      </g>
+      <!-- vs -->
+      <text x="150" y="84" text-anchor="middle" font-size="13" fill="#64748b">&gt;</text>
+      <!-- static mermaid wins -->
+      <g transform="translate(164 44)">
+        <rect width="100" height="64" rx="9" fill="#0b1120" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="50" y="30" text-anchor="middle" font-size="12" fill="#6ee7b7">static</text>
+        <text x="50" y="48" text-anchor="middle" font-size="12" fill="#6ee7b7">mermaid</text>
+      </g>
+      <text x="150" y="148">static wins</text>
+    </g>
+
+    <!-- 3: clean sunset / archived -->
+    <g transform="translate(810 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- horizon line -->
+      <line x1="60" y1="104" x2="240" y2="104" stroke="#334155" stroke-width="2"/>
+      <!-- setting sun -->
+      <g transform="translate(150 104)">
+        <path d="M-30 0 a30 30 0 0 1 60 0 z" fill="#34d399" fill-opacity="0.16" stroke="#34d399" stroke-width="2.5"/>
+        <line x1="-46" y1="0" x2="-36" y2="0" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="36" y1="0" x2="46" y2="0" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+      <!-- frozen/locked tag -->
+      <g transform="translate(118 48)">
+        <rect width="64" height="22" rx="11" fill="#0b1120" stroke="#34d399" stroke-opacity="0.6"/>
+        <text x="32" y="15" text-anchor="middle" font-size="11" fill="#6ee7b7">v3.0.0</text>
+      </g>
+      <text x="150" y="148">archived clean</text>
+    </g>
+
+  </g>
+</svg>
