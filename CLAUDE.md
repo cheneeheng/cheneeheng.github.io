@@ -25,6 +25,16 @@ Content is split across three mechanisms; pick the right one:
 - **`src/content/now.md`** — single Markdown file imported directly by `NowContent.astro` (not a content collection). Frontmatter `updated:` is rendered as "Last updated".
 - **`src/pages/blog/*.md`** — blog posts as standalone Markdown pages. The blog index (`src/pages/blog/index.astro`) discovers them with `import.meta.glob('./*.md', { eager: true })` and sorts by frontmatter `date`. Each post must set `layout: ../../layouts/BlogPost.astro` so it renders inside the site shell.
 
+**Do not write new posts directly into `src/pages/blog/`.** New posts go into the **publish queue** at `src/pages/blog/_queue/` and CI publishes them on a schedule — see below. Edit a file in `src/pages/blog/` directly only to fix an *already-published* post. (The `_queue` glob is excluded by the leading-underscore directory, so queued posts don't render until moved out.)
+
+### Blog publish queue
+
+New posts are drafted into `src/pages/blog/_queue/` and published one at a time by `.github/workflows/publish-queued-post.yml` (cron: Tuesdays 09:00 UTC; also `workflow_dispatch`). On each run the workflow picks the **lowest-numbered** queued file, strips the `NN-` prefix, injects `date: <today>` as the second line, moves it to `src/pages/blog/`, commits, and triggers `deploy.yml`.
+
+When queuing a post:
+- Name it `NN-<repo>--<detail>.md` with a two-digit ordering prefix (`NN-` controls publish order; lowest goes first). Use the next number after the highest already in `_queue/`.
+- **Omit the `date:` frontmatter field** — CI injects it on publish day. Set everything else (`layout`, `repo`, `title`, `description`, `banner`, `bannerAlt`) as normal.
+
 The site is **not** using Astro content collections (`src/content/config.ts`) — adding one would change how `now.md` and `blog/*.md` are loaded.
 
 ### Blog voice
