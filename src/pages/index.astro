@@ -27,14 +27,17 @@ const latestPosts = Object.values(blogModules)
 
 // Person entity — consolidates authorship into one recognizable identity for
 // search and AI answer surfaces. Keep `sameAs` profiles consistent across the
-// web; add LinkedIn / X here once those handles are confirmed.
+// web; add an X handle here once confirmed.
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Chen Ee Heng',
   url: 'https://cheneeheng.github.io',
   jobTitle: 'Computer-vision researcher and AI-agent engineer',
-  sameAs: ['https://github.com/cheneeheng'],
+  sameAs: [
+    'https://github.com/cheneeheng',
+    'https://www.linkedin.com/in/ee-heng-chen-dr-ing',
+  ],
 };
 ---
 
