@@ -65,6 +65,18 @@ Each post lives in `src/pages/blog/<repo>--<detail>.md`, sets `layout: ../../lay
 - `src/layouts/BlogPost.astro` — wraps `Layout` and adds a `PageHeader` + `prose` article block; used as the `layout:` for blog Markdown.
 - `src/components/` — purely presentational Astro components. No client-side JS islands; everything renders to static HTML.
 
+### SEO / AEO (discoverability for search engines and AI agents)
+
+The site is optimized to be both indexed by search engines and cited by AI systems. Preserve these when adding pages or posts:
+
+- **`src/components/BaseHead.astro`** emits `<title>`, meta description, canonical, Open Graph, and Twitter-card tags. It is included by `Layout.astro`; every page gets it for free. Pass `image` and `ogType` through `Layout` props to override (blog posts pass the banner and `ogType="article"`).
+- **JSON-LD.** `BlogPost.astro` emits a `BlogPosting` per post from frontmatter (with `dateModified` falling back to `date`); `index.astro` emits a `Person` entity. Author is **Chen Ee Heng**.
+- **`@astrojs/sitemap`** (in `astro.config.mjs`) generates `/sitemap-index.xml`. `public/robots.txt` references it and explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.).
+- **`src/pages/llms.txt.ts`** generates `/llms.txt` from `import.meta.glob` of the posts — it stays in sync automatically; no manual edit needed when publishing.
+- **Markdown twins.** `src/pages/blog/[slug].md.ts` serves every post's raw Markdown at `/blog/<slug>.md` (frontmatter stripped, title + description prepended) for token-efficient agent consumption. `BlogPost.astro` links to it ("View as Markdown"). This auto-covers new posts.
+
+Optional post frontmatter for SEO: `updated:` (sets `dateModified` / freshness signal) and `schemaType:` (override `BlogPosting`, e.g. `HowTo`, `FAQPage`, `TechArticle`, `SoftwareSourceCode` to match the post's shape). These are read by `BlogPost.astro`; everything else about queuing/publishing is unchanged.
+
 ### Base path handling
 
 `astro.config.mjs` sets `site: 'https://cheneeheng.github.io'` with **no `base`** — the site deploys at the user-page root. Code that builds links still reads `import.meta.env.BASE_URL` (see `index.astro`, `Layout.astro`, `blog/index.astro`) so that adding a `base` later (e.g. for a project-page deploy) does not break links. Preserve this pattern when adding internal links: `const base = import.meta.env.BASE_URL.replace(/\/$/, '')` then `href={base + '/path'}`.

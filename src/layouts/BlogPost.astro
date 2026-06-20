@@ -7,10 +7,12 @@ interface Props {
   frontmatter: {
     title: string;
     date?: string;
+    updated?: string;
     description?: string;
     banner?: string;
     bannerAlt?: string;
     repo?: string;
+    schemaType?: string;
   };
 }
 
@@ -19,9 +21,43 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const banner = frontmatter.banner ? base + frontmatter.banner : undefined;
 const repo = frontmatter.repo;
 const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefined;
+
+// Markdown twin: same path with a .md suffix (see src/pages/blog/[slug].md.ts).
+const mdHref = Astro.url.pathname.replace(/\/$/, '') + '.md';
+
+// JSON-LD structured data — a freshness/authorship signal for search and AI
+// answer surfaces. dateModified falls back to date so it is always present.
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const published = frontmatter.date ? new Date(frontmatter.date).toISOString() : undefined;
+const modified = frontmatter.updated
+  ? new Date(frontmatter.updated).toISOString()
+  : published;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': frontmatter.schemaType ?? 'BlogPosting',
+  headline: frontmatter.title,
+  ...(frontmatter.description ? { description: frontmatter.description } : {}),
+  ...(published ? { datePublished: published } : {}),
+  ...(modified ? { dateModified: modified } : {}),
+  ...(frontmatter.banner
+    ? { image: new URL(frontmatter.banner, Astro.site).href }
+    : {}),
+  author: {
+    '@type': 'Person',
+    name: 'Chen Ee Heng',
+    url: 'https://cheneeheng.github.io',
+  },
+  mainEntityOfPage: canonical.href,
+};
 ---
 
-<Layout title={`${frontmatter.title} — EE Heng Chen`} description={frontmatter.description}>
+<Layout
+  title={`${frontmatter.title} — EE Heng Chen`}
+  description={frontmatter.description}
+  image={frontmatter.banner}
+  ogType="article"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <PageHeader title={frontmatter.title} subtitle={formatDate(frontmatter.date)} />
   {banner && (
     <img
@@ -36,6 +72,12 @@ const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefin
   <article class="prose prose-zinc dark:prose-invert max-w-none leading-relaxed">
     <slot />
   </article>
+  <p class="mt-8 text-sm text-zinc-500 dark:text-zinc-400">
+    <a href={mdHref} class="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100">
+      View as Markdown
+    </a>
+    <span class="text-zinc-400 dark:text-zinc-500"> — raw source for agents and LLMs</span>
+  </p>
   {repo && (
     <aside class="mt-12 flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 px-5 py-4">
       <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" class="shrink-0 fill-zinc-500 dark:fill-zinc-400">
