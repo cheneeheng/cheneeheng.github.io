@@ -24,9 +24,22 @@ const latestPosts = Object.values(blogModules)
   .map((m) => ({ ...m.frontmatter, url: m.url ?? '' }))
   .sort((a, b) => formatDate(b.date).localeCompare(formatDate(a.date)))
   .slice(0, 2);
+
+// Person entity — consolidates authorship into one recognizable identity for
+// search and AI answer surfaces. Keep `sameAs` profiles consistent across the
+// web; add LinkedIn / X here once those handles are confirmed.
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Chen Ee Heng',
+  url: 'https://cheneeheng.github.io',
+  jobTitle: 'Computer-vision researcher and AI-agent engineer',
+  sameAs: ['https://github.com/cheneeheng'],
+};
 ---
 
 <Layout title="EE Heng Chen">
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <Hero />
 
   <SectionPreview eyebrow="In parallel & shipped" title="Other work" href="/projects">
