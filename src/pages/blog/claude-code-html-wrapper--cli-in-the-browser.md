@@ -1,4 +1,5 @@
 ---
+date: 2026-06-23
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-html-wrapper
 title: "Put any CLI in the browser: xterm.js, node-pty, and Docker"
