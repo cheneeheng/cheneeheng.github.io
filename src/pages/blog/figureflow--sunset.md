@@ -1,4 +1,5 @@
 ---
+date: 2026-06-30
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/figureflow
 title: figureflow worked. I shut it down anyway.
