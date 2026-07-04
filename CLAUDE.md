@@ -39,7 +39,10 @@ The site is **not** using Astro content collections (`src/content/config.ts`) �
 
 ### Blog voice
 
-Write posts in a **personal** voice, not "influencer style." The blog is organized as **serials**: each project is a series, each post an episode the reader is following in order.
+Write posts in a **personal** voice, not "influencer style." The voice rules below apply to **every** post; the episode rules apply only to serial episodes. Two post types:
+
+- **Serial episodes** — each project is a series, each post an episode the reader is following in order.
+- **Standalone posts** — project one-offs (e.g. `figureflow--sunset`) and meta/site notes (e.g. `hello`). No cross-linking or open-thread obligations. A standalone about a project can retroactively become episode 1 if the project continues.
 
 **Series status** (an ongoing series continues until the user explicitly declares the project finished):
 - `claude-code-plugin-toggler` — **ongoing**. New episodes pick up where the last left off.
@@ -47,14 +50,16 @@ Write posts in a **personal** voice, not "influencer style." The blog is organiz
 
 **Episode rules:**
 - Open inside a moment or a thought — an annoyance, a realization, a scene — never a product pitch or background.
-- Pick up the live thread the previous episode left ("Last time I said…"), and cross-link it.
+- **Episode 1 of a new series** opens at the origin itch — the annoyance or curiosity that started the project. No back-link (there is nothing to link), and no "this is the start of a series" framing; the serial reveals itself when episode 2 links back.
+- Every later episode picks up the live thread the previous episode left ("Last time I said…"), and cross-links it.
 - Endings: an **ongoing** series ends on the genuinely open thread — the unresolved question or the next thing being watched (a reserved verdict is a valid ending). A **finished** series' final post ends with closure; no manufactured cliffhangers.
 - Check continuity against earlier episodes before publishing: version numbers, dates, what the reader already knows. Don't re-tell a story a previous episode owns — call back to it in a sentence and link.
 
 **Voice rules:**
 - Avoid: punchy standalone declarative one-liners as paragraphs; aphoristic closers ("The boring choice is the correct one"); imperative lessons aimed at the reader ("Don't design your own. Surface theirs."); "If you're building X, then Y" prescriptions; the tidy meta-takeaway sign-off that turns a personal story into a lecture; bold pseudo-headers as section labels ("**What it does**", "**The lesson:**"); CTA endings.
 - Prefer: first person, grounded in what actually happened and was thought; connected paragraphs that carry the narrative; reflective rather than prescriptive; doubt and self-report kept in ("I shipped it anyway, because I was tired of this bug"); quieter. The reader is overhearing the reasoning, not being taught.
-- Never invent scenes, feelings, or chronology. Every beat must come from the repo (changelogs, specs, commits) or from the author's own words — interview answers are quotable nearly verbatim; the author's phrasing *is* the voice. If the human beat is missing, ask for it rather than fabricating it.
+- Never invent scenes, feelings, or chronology. Every beat must come from the repo (changelogs, specs, commits) or from the author's own words — interview answers are quotable nearly verbatim; the author's phrasing *is* the voice.
+- **Drafting workflow (draft, then gap-check):** draft from repo material first. Wherever a human beat is missing — a feeling, the real reason behind a decision, a scene — insert a `[NEEDS-BEAT: <what's missing>]` marker instead of writing around it or inventing it. Then run a targeted interview on just those markers and fold the answers in before the draft is considered done. A draft with unresolved `[NEEDS-BEAT]` markers never goes into the publish queue.
 - Tutorials (how-to posts) keep their full utility — real code, steps, pitfalls — but pitfalls are narrated as what they cost the author, not as warnings issued to the reader.
 
 Each post lives in `src/pages/blog/<repo>--<detail>.md`, sets `layout: ../../layouts/BlogPost.astro`, and references a 1200×300 banner SVG in `public/assets/blog/` (dark slate `#0b1120`→`#0f172a` gradient, dots pattern, accent glow, rounded `#1e293b`/`#334155` cards).
@@ -76,6 +81,8 @@ The site is optimized to be both indexed by search engines and cited by AI syste
 - **Markdown twins.** `src/pages/blog/[slug].md.ts` serves every post's raw Markdown at `/blog/<slug>.md` (frontmatter stripped, title + description prepended) for token-efficient agent consumption. `BlogPost.astro` links to it ("View as Markdown"). This auto-covers new posts.
 
 Optional post frontmatter for SEO: `updated:` (sets `dateModified` / freshness signal) and `schemaType:` (override `BlogPosting`, e.g. `HowTo`, `FAQPage`, `TechArticle`, `SoftwareSourceCode` to match the post's shape). These are read by `BlogPost.astro`; everything else about queuing/publishing is unchanged.
+
+The full visibility playbook (rationale, content-writing rules, known gaps, open checklist) is `.agents_workspace/blog-visibility-optimization-guide.md`. For any SEO/AEO work, start from its Section 9 checklist; its Section 3 content rules yield to the Blog voice section above for serial episodes.
 
 ### Base path handling
 

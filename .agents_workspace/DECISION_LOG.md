@@ -324,3 +324,46 @@ so non-project posts stay untouched.
 **Impact / Risk:** Future posts must remember to set `repo:`; posts without it
 silently lack the section (intended).
 **Outcome:** Six plugin-toggler posts updated; layout renders the section conditionally.
+
+---
+
+### Entry 015
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-07-04T00:00:00Z
+**Task:** Revise blog-visibility-optimization-guide.md against implemented repo state.
+
+**Context:** The guide was written pre-implementation; Sections 1-2 are now live but
+implemented differently (glob-based standalone pages, no content collections). Its code
+samples, if followed top-to-bottom, would break the site. Choice: update the samples in
+place, or replace them with status entries pointing at the actual repo files.
+**Decision:** Replaced implemented-item code samples with status + actual-file pointers
+(repo is the single source of truth; duplicated samples would drift again). Kept the
+conceptual/rationale prose and the not-yet-done items as actionable tasks. Added newly
+found gaps as open items (SVG og:image not rendered by social scrapers; no RSS feed; no
+description build-check) rather than implementing them - task scope was the guide, not
+new features.
+**Impact / Risk:** Guide readers must open repo files to see implementations; acceptable
+since the guide targets agents working in this repo.
+**Outcome:** Guide rewritten with Section 9 consolidated open checklist.
+
+---
+
+### Entry 016
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-07-04T00:00:00Z
+**Task:** Reconcile guide Section 3 (answer-first, question titles) with CLAUDE.md blog voice.
+
+**Context:** Guide's content rules (answer-first openings, question-phrased titles) directly
+contradict the episode rule "open inside a moment, never a pitch or background." User did
+not specify precedence.
+**Decision:** Blog voice wins for serial episodes; Section 3.3 answer-first/question-title
+rules scoped to tutorial/reference posts only. Universal rules (chunk self-containment,
+fact density, runnable code, vocabulary, recency) apply to all posts. Codified as a
+precedence note in the guide and a one-line pointer in CLAUDE.md's SEO section.
+**Impact / Risk:** Slightly lower AI-citation optimization for narrative episodes; matches
+project CLAUDE.md authority ranking above workspace docs.
+**Outcome:** Documented in both files; user can veto via summary.
