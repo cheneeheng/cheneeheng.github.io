@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A terminal running usage-report, the claude-usage library feeding both the dashboard and the report as its second consumer, and a by-model breakdown">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+
+    <!-- 1: terminal -->
+    <g transform="translate(90 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <rect x="28" y="40" width="244" height="82" rx="8" fill="#0b1120" stroke="#334155"/>
+      <text x="44" y="63" font-size="12" fill="#6ee7b7" text-anchor="start">$ usage-report --top 5</text>
+      <text x="44" y="85" font-size="11" fill="#94a3b8" text-anchor="start">42 sessions &#183; 18.7M tokens</text>
+      <text x="44" y="103" font-size="11" fill="#94a3b8" text-anchor="start">$124.53 estimated</text>
+      <text x="150" y="148">one command, then exit</text>
+    </g>
+
+    <!-- 2: one library, second consumer -->
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <rect x="100" y="40" width="100" height="30" rx="8" fill="#0b1120" stroke="#34d399" stroke-opacity="0.7"/>
+      <text x="150" y="60" font-size="11" fill="#6ee7b7">claude-usage</text>
+      <path d="M140 70 L84 104" stroke="#34d399" stroke-width="2" fill="none"/>
+      <path d="M160 70 L216 104" stroke="#34d399" stroke-width="2" fill="none"/>
+      <rect x="30" y="104" width="104" height="28" rx="8" fill="#0f172a" stroke="#334155"/>
+      <text x="82" y="122" font-size="11" fill="#94a3b8">dashboard</text>
+      <rect x="166" y="104" width="104" height="28" rx="8" fill="#0f172a" stroke="#334155"/>
+      <text x="218" y="122" font-size="11" fill="#94a3b8">report</text>
+      <text x="150" y="150">extracted on the second</text>
+    </g>
+
+    <!-- 3: by model -->
+    <g transform="translate(810 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <text x="150" y="40" font-size="12" fill="#64748b">by model</text>
+      <text x="40" y="72" font-size="11" fill="#6ee7b7" text-anchor="start">opus</text>
+      <rect x="120" y="62" width="120" height="12" rx="6" fill="#0b1120" stroke="#334155"/>
+      <rect x="120" y="62" width="98" height="12" rx="6" fill="#34d399" fill-opacity="0.9"/>
+      <text x="40" y="104" font-size="11" fill="#6ee7b7" text-anchor="start">sonnet</text>
+      <rect x="120" y="94" width="120" height="12" rx="6" fill="#0b1120" stroke="#334155"/>
+      <rect x="120" y="94" width="44" height="12" rx="6" fill="#34d399" fill-opacity="0.9"/>
+      <text x="150" y="148">where it goes</text>
+    </g>
+
+  </g>
+</svg>

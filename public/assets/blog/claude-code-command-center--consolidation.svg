@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="From scattered standalone repos, to one monorepo called C4 split into apps, tools and libs, to Claude Code reading the whole repo and surfacing duplication">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+
+    <!-- 1: scattered standalone repos, no map -->
+    <g transform="translate(90 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- little disconnected repo islands -->
+      <g fill="#0b1120" stroke="#475569">
+        <rect x="42" y="44" width="40" height="28" rx="7"/>
+        <rect x="120" y="34" width="40" height="28" rx="7"/>
+        <rect x="200" y="50" width="40" height="28" rx="7"/>
+        <rect x="70" y="86" width="40" height="28" rx="7"/>
+        <rect x="164" y="82" width="40" height="28" rx="7"/>
+        <rect x="228" y="88" width="30" height="28" rx="7"/>
+      </g>
+      <text x="150" y="112" font-size="22" fill="#64748b">?</text>
+      <text x="150" y="148">many repos, no map</text>
+    </g>
+
+    <!-- 2: one repo, split apps / tools / libs -->
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g transform="translate(40 40)">
+        <rect width="60" height="52" rx="9" fill="#0b1120" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="30" y="31" text-anchor="middle" font-size="12" fill="#6ee7b7">apps</text>
+      </g>
+      <g transform="translate(120 40)">
+        <rect width="60" height="52" rx="9" fill="#0b1120" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="30" y="31" text-anchor="middle" font-size="12" fill="#6ee7b7">tools</text>
+      </g>
+      <g transform="translate(200 40)">
+        <rect width="60" height="52" rx="9" fill="#0b1120" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="30" y="31" text-anchor="middle" font-size="12" fill="#6ee7b7">libs</text>
+      </g>
+      <text x="150" y="122" font-size="15" fill="#6ee7b7">C4</text>
+      <text x="150" y="148">one repo</text>
+    </g>
+
+    <!-- 3: Claude Code reads across, duplication visible -->
+    <g transform="translate(810 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <!-- two matching blocks flagged as duplicate -->
+      <g transform="translate(56 46)">
+        <rect width="80" height="40" rx="8" fill="#0f172a" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="40" y="25" text-anchor="middle" font-size="12" fill="#6ee7b7">read()</text>
+      </g>
+      <g transform="translate(164 46)">
+        <rect width="80" height="40" rx="8" fill="#0f172a" stroke="#34d399" stroke-opacity="0.7"/>
+        <text x="40" y="25" text-anchor="middle" font-size="12" fill="#6ee7b7">read()</text>
+      </g>
+      <!-- link showing they are the same -->
+      <path d="M136 66 h28" stroke="#34d399" stroke-width="2.5" fill="none" stroke-dasharray="4 4"/>
+      <text x="150" y="112" font-size="12" fill="#fbbf24">= duplicate</text>
+      <text x="150" y="148">seen, not shipped</text>
+    </g>
+
+  </g>
+</svg>

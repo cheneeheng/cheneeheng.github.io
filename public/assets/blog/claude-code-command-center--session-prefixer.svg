@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A wall of identical unnamed sessions, a wrapper injecting a folder-and-timestamp name, and a browsable list of dated sessions">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+
+    <!-- 1: identical unnamed sessions -->
+    <g transform="translate(90 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g font-size="10">
+        <g transform="translate(48 44)"><rect width="204" height="20" rx="5" fill="#0b1120" stroke="#334155"/><text x="12" y="14" fill="#64748b" text-anchor="start">session</text></g>
+        <g transform="translate(48 70)"><rect width="204" height="20" rx="5" fill="#0b1120" stroke="#334155"/><text x="12" y="14" fill="#64748b" text-anchor="start">session</text></g>
+        <g transform="translate(48 96)"><rect width="204" height="20" rx="5" fill="#0b1120" stroke="#334155"/><text x="12" y="14" fill="#64748b" text-anchor="start">session</text></g>
+      </g>
+      <text x="228" y="112" font-size="18" fill="#64748b">?</text>
+      <text x="150" y="148">which one was it</text>
+    </g>
+
+    <!-- 2: wrapper injects a name -->
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <rect x="36" y="46" width="228" height="72" rx="8" fill="#0b1120" stroke="#334155"/>
+      <text x="48" y="70" font-size="11" fill="#6ee7b7" text-anchor="start">$ claude</text>
+      <text x="48" y="94" font-size="11" fill="#34d399" text-anchor="start">+ --name proj-2607051530</text>
+      <text x="150" y="148">named for me</text>
+    </g>
+
+    <!-- 3: browsable dated sessions -->
+    <g transform="translate(810 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g font-size="10">
+        <g transform="translate(40 44)"><rect width="220" height="20" rx="5" fill="#0b1120" stroke="#34d399" stroke-opacity="0.6"/><text x="12" y="14" fill="#6ee7b7" text-anchor="start">proj-2607051530</text></g>
+        <g transform="translate(40 70)"><rect width="220" height="20" rx="5" fill="#0b1120" stroke="#334155"/><text x="12" y="14" fill="#94a3b8" text-anchor="start">proj-2607041012</text></g>
+        <g transform="translate(40 96)"><rect width="220" height="20" rx="5" fill="#0b1120" stroke="#334155"/><text x="12" y="14" fill="#94a3b8" text-anchor="start">api-2607031845</text></g>
+      </g>
+      <text x="150" y="148">findable at last</text>
+    </g>
+
+  </g>
+</svg>
