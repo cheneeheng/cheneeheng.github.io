@@ -1,4 +1,5 @@
 ---
+date: 2026-07-07
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: The monorepo I wouldn't have built before Claude Code
