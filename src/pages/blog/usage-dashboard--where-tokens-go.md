@@ -1,4 +1,5 @@
 ---
+date: 2026-07-21
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: Where all my tokens actually went
