@@ -1,4 +1,5 @@
 ---
+date: 2026-07-28
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: CLI is all the rage, so I made one
