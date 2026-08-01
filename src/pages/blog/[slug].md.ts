@@ -1,4 +1,5 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
+import { seriesOf } from '../../lib/series';
 
 // Markdown twins: serve every post's raw Markdown at /blog/<slug>.md so AI
 // coding agents can consume plain Markdown instead of the HTML page (cleaner
@@ -14,6 +15,7 @@ const rawModules = import.meta.glob<string>('./*.md', {
 interface PostFrontmatter {
   title: string;
   description?: string;
+  repo?: string;
 }
 const metaModules = import.meta.glob<{ frontmatter: PostFrontmatter }>('./*.md', {
   eager: true,
@@ -34,9 +36,18 @@ export const getStaticPaths: GetStaticPaths = () =>
 export const GET: APIRoute = ({ props }) => {
   const { path } = props as { path: string };
   const raw = rawModules[path];
-  const { title, description } = metaModules[path].frontmatter;
+  const { title, description, repo } = metaModules[path].frontmatter;
 
-  const body = `# ${title}\n\n${description ? `> ${description}\n\n` : ''}${stripFrontmatter(raw)}\n`;
+  const series = seriesOf(repo, slugFromPath(path));
+  const seriesNote = series
+    ? `_Part ${series.part} of ${series.total} in the ${series.name} series.${
+        series.part > 1
+          ? ` Start with [part 1, ${series.first.title}](/blog/${series.first.slug})._`
+          : '_'
+      }\n\n`
+    : '';
+
+  const body = `# ${title}\n\n${description ? `> ${description}\n\n` : ''}${seriesNote}${stripFrontmatter(raw)}\n`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },

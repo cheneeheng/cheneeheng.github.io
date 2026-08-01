@@ -8,7 +8,7 @@ banner: /assets/blog/usage-dashboard--where-tokens-go.svg
 bannerAlt: A usage dashboard with a by-project bar chart, an activity heatmap of when Claude Code gets used, and a rate-limit trajectory line climbing toward a cap
 ---
 
-The status line could tell me the moment I was in — how full the context was, how close the next reset — and nothing about the shape of any of it. It couldn't tell me that one project had quietly eaten most of my week, or that I burn tokens fastest on Sunday nights, or that a single runaway session cost more than the previous twenty combined. I wanted the story behind the live number, and one line was never going to hold a story.
+[The status line](/blog/claude-code-command-center--statusline) could tell me the moment I was in — how full the context was, how close the next reset — and nothing about the shape of any of it. It couldn't tell me that one project had quietly eaten most of my week, or that I burn tokens fastest on Sunday nights, or that a single runaway session cost more than the previous twenty combined. I wanted the story behind the live number, and one line was never going to hold a story.
 
 So the dashboard is where the history goes. It reads the same transcripts Claude Code already writes for every session and turns them into the things I actually wanted to see: usage by project, by model, by tool; a heatmap of which hours I lean on it hardest; week-over-week deltas so I can tell whether I'm genuinely trending up or just having a loud day. I can scope the whole thing to the last 7 or 30 days, or to a single project, and watch every number recompute around the filter.
 
