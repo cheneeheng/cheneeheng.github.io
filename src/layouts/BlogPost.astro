@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { formatDate } from '../lib/date';
+import { seriesOf } from '../lib/series';
 
 interface Props {
   frontmatter: {
@@ -23,7 +24,10 @@ const repo = frontmatter.repo;
 const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefined;
 
 // Markdown twin: same path with a .md suffix (see src/pages/blog/[slug].md.ts).
-const mdHref = Astro.url.pathname.replace(/\/$/, '') + '.md';
+const path = Astro.url.pathname.replace(/\/$/, '');
+const mdHref = path + '.md';
+
+const series = seriesOf(repo, path.split('/').pop() ?? '');
 
 // JSON-LD structured data — a freshness/authorship signal for search and AI
 // answer surfaces. dateModified falls back to date so it is always present.
@@ -59,6 +63,21 @@ const schema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <PageHeader title={frontmatter.title} subtitle={formatDate(frontmatter.date)} />
+  {series && (
+    <p class="mb-8 text-sm text-zinc-600 dark:text-zinc-400">
+      Part {series.part} of {series.total} in the
+      <span class="font-medium text-zinc-900 dark:text-zinc-100">{series.name}</span> series.
+      {series.part > 1 && (
+        <>
+          {' '}Start with
+          <a
+            href={`${base}/blog/${series.first.slug}`}
+            class="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100"
+          >part 1, {series.first.title}</a>.
+        </>
+      )}
+    </p>
+  )}
   {banner && (
     <img
       src={banner}

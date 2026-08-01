@@ -8,7 +8,7 @@ banner: /assets/blog/claude-code-command-center--usage-report.svg
 bannerAlt: A terminal running usage-report, the claude-usage library feeding both the dashboard and the report as its second consumer, and a by-model breakdown
 ---
 
-The dashboard already did everything I needed. The report tool exists because I wanted to know whether I could do it in the terminal instead — no browser, no server, just a command that prints the same summary and exits. CLI is all the rage nowadays, and I was curious whether the same numbers would feel different coming out of a shell.
+[The dashboard](/blog/usage-dashboard--where-tokens-go) already did everything I needed. The report tool exists because I wanted to know whether I could do it in the terminal instead — no browser, no server, just a command that prints the same summary and exits. CLI is all the rage nowadays, and I was curious whether the same numbers would feel different coming out of a shell.
 
 It was easier than it should have been, for a reason I'd half set up in advance. All the transcript-reading — the walk over the JSONL files, the pricing table — had been living inside the dashboard, because the dashboard was the only thing that needed it. The report was the second thing. And the second thing is exactly when copying the code would have been the wrong move: I pulled the parsing out into a small `claude-usage` library, pointed the dashboard at it, and the report came out as a thin shell on top. Writing the report is what turned the dashboard's private code into something shared.
 

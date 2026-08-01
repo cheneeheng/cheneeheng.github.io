@@ -10,6 +10,8 @@ bannerAlt: A left-to-right pipeline from browser xterm.js through a websocket to
 
 When I peeled the Claude-specific parts off [the wrapper I built](/blog/claude-code-html-wrapper--in-the-browser), what was left turned out to be generic: a way to drive *any* interactive CLI from a browser tab, with the process sandboxed in a container. I went looking for a writeup like this before I built mine and didn't find one that included the failure modes, so this is the version I wish I'd had — the recipe, plus the five places I lost time.
 
+## The recipe
+
 The whole thing is four pieces in a line:
 
 ```
@@ -93,7 +95,7 @@ exec(`docker run -d --name claude-user-${id} ` +
 
 The container runs a do-nothing `tail -f /dev/null` to stay alive; each browser session `exec`s into it rather than starting fresh. One long-lived sandbox per user, many short-lived terminals inside it.
 
-Now the five things that actually cost me time.
+## The five things that actually cost me time
 
 **Browsers can't set headers on a WebSocket upgrade.** I wanted to authenticate the socket with an `Authorization: Bearer` header, and spent a while confused about why I couldn't: the browser WebSocket API simply has no headers argument. The workaround everyone lands on is a query param — `wss://host/ws?token=...` — validated during the HTTP upgrade, *before* accepting the socket:
 
@@ -122,4 +124,6 @@ term.onData(data => { try { ws.send(data); } catch { /* gone */ } });
 
 **Reap idle containers.** One permanent container per user means a container per user *forever* if you let it. I track last activity in memory — every byte in either direction bumps a timestamp — and a timer stops containers idle past a threshold. The volume keeps the files, so the user pays nothing but a second of startup next time. I added this after watching a handful of test containers quietly hold memory for days.
 
-What you end up with is surprisingly little code: a static page with xterm.js, one upgrade handler, one connection handler bridging WebSocket and PTY, a few `docker` commands for lifecycle. The CLI doesn't know it's in a browser; the browser doesn't know it's talking to Docker; the pipe in the middle is dumb on purpose. The complete working version is at [github.com/cheneeheng/claude-code-html-wrapper](https://github.com/cheneeheng/claude-code-html-wrapper) — it wraps Claude Code specifically, but swap the CLI in the `docker exec` line and it's a web terminal for whatever tool you reach for instead.
+## What you end up with
+
+Surprisingly little code: a static page with xterm.js, one upgrade handler, one connection handler bridging WebSocket and PTY, a few `docker` commands for lifecycle. The CLI doesn't know it's in a browser; the browser doesn't know it's talking to Docker; the pipe in the middle is dumb on purpose. The complete working version is at [github.com/cheneeheng/claude-code-html-wrapper](https://github.com/cheneeheng/claude-code-html-wrapper) — it wraps Claude Code specifically, but swap the CLI in the `docker exec` line and it's a web terminal for whatever tool you reach for instead.

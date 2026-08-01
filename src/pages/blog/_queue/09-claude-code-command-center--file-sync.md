@@ -7,7 +7,7 @@ banner: /assets/blog/claude-code-command-center--file-sync.svg
 bannerAlt: Two folders kept in sync newer-wins in both directions, a raw copy clobbering a machine-specific settings key, and a merge that keeps that key while newer values win
 ---
 
-Last time I wrote about reconciling files across repos by hand, and admitted the thing I really wanted for some of them was to stop deciding at all — just let the newer copy win, everywhere, automatically. This is that tool. It's smaller than the manual one, and more dangerous.
+[Last time](/blog/claude-code-command-center--cross-repo-diff) I wrote about reconciling files across repos by hand, and admitted the thing I really wanted for some of them was to stop deciding at all — just let the newer copy win, everywhere, automatically. This is that tool. It's smaller than the manual one, and more dangerous.
 
 The setup is that I keep my Claude config in two places and I'm careless about which one I edit. I'll tweak a `CLAUDE.md` in whichever folder I happen to be sitting in and not give the other a thought. So file-sync watches both and, on a timer, copies whichever one I touched last over the one I didn't. No canonical copy, no source of truth — whichever is newer wins, in either direction.
 

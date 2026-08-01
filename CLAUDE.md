@@ -48,6 +48,8 @@ Write posts in a **personal** voice, not "influencer style." The voice rules bel
 - `claude-code-plugin-toggler` — **ongoing**. New episodes pick up where the last left off.
 - `claude-code-html-wrapper` — **finished**. Its three-post arc is closed; no new episodes.
 
+**Series note (automatic).** Posts sharing a `repo` frontmatter value are one series, ordered by `date`. `src/lib/series.ts` derives this and `BlogPost.astro` renders "Part N of M in the &lt;repo&gt; series — start with part 1, &lt;title&gt;" under the header; `[slug].md.ts` emits the same line into the Markdown twin. A post whose `repo` is unique (or absent) gets nothing. So: never hand-write "part N of M" or a part-1 link in prose — set `repo` correctly and the note maintains itself as the series grows. Prose back-links to the *previous* episode are still written by hand (rule below).
+
 **Episode rules:**
 - Open inside a moment or a thought — an annoyance, a realization, a scene — never a product pitch or background.
 - **Episode 1 of a new series** opens at the origin itch — the annoyance or curiosity that started the project. No back-link (there is nothing to link), and no "this is the start of a series" framing; the serial reveals itself when episode 2 links back.
@@ -61,6 +63,8 @@ Write posts in a **personal** voice, not "influencer style." The voice rules bel
 - Never invent scenes, feelings, or chronology. Every beat must come from the repo (changelogs, specs, commits) or from the author's own words — interview answers are quotable nearly verbatim; the author's phrasing *is* the voice.
 - **Drafting workflow (draft, then gap-check):** draft from repo material first. Wherever a human beat is missing — a feeling, the real reason behind a decision, a scene — insert a `[NEEDS-BEAT: <what's missing>]` marker instead of writing around it or inventing it. Then run a targeted interview on just those markers and fold the answers in before the draft is considered done. A draft with unresolved `[NEEDS-BEAT]` markers never goes into the publish queue.
 - Tutorials (how-to posts) keep their full utility — real code, steps, pitfalls — but pitfalls are narrated as what they cost the author, not as warnings issued to the reader.
+
+**Section headings.** Posts over ~700 words carry `##` headings — roughly one per two paragraphs — so the page isn't a slab. This does not license the bold pseudo-headers banned above; those sit *inside* the prose and label a claim, while a `##` is a real heading in the document outline. Rules: never a heading before the opening paragraph (the post still opens inside a moment), and the wording comes from the post's own sentences, not from a template — usually by promoting the paragraph's first line and deleting it from the body so the heading doesn't echo the text under it. Shorter posts get none; at 400 words the labels outnumber the ideas. Paragraphs stay under ~150 words. The article keeps `max-w-none` so the post spans the same `max-w-3xl` column as the nav and every other page — uniform width is the deliberate choice here, over the narrower measure typography would otherwise want. Headings and paragraph length, not a narrower column, are what carry readability.
 
 Each post lives in `src/pages/blog/<repo>--<detail>.md`, sets `layout: ../../layouts/BlogPost.astro`, and references a 1200×300 banner SVG in `public/assets/blog/` (dark slate `#0b1120`→`#0f172a` gradient, dots pattern, accent glow, rounded `#1e293b`/`#334155` cards).
 

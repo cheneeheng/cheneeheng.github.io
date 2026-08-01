@@ -367,3 +367,82 @@ precedence note in the guide and a one-line pointer in CLAUDE.md's SEO section.
 **Impact / Risk:** Slightly lower AI-citation optimization for narrative episodes; matches
 project CLAUDE.md authority ranking above workspace docs.
 **Outcome:** Documented in both files; user can veto via summary.
+
+---
+
+### Entry 017
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-08-01T16:05:00Z
+**Task:** Add "part of a series / link to part 1" signposting to blog posts (session goal).
+
+**Context:** Three ambiguities. (a) How to declare series membership — new explicit
+frontmatter (`series`, `seriesPart`) vs deriving it. (b) Whether to edit already-published
+posts, which CLAUDE.md restricts to fixes. (c) Whether to prose-link the C4 episodes that
+open cold.
+**Decision:** (a) Derive the series from the existing `repo` frontmatter, which all episodes
+of a project already share; `src/lib/series.ts` sorts by date and BlogPost.astro renders the
+note. No new frontmatter to set, no part numbers to renumber when the queue publishes, and
+queued posts join their series automatically. (b) Edited two published posts to add links
+only — both already named the previous episode in prose ("The status line…", "The dashboard
+already did…") without linking it, so this is a fix, not a rewrite. (c) Left
+`--statusline`'s cold open alone: it makes no reference to the monorepo post, so a
+"last time" bridge would have been invented chronology, which the voice rules forbid. The
+automatic note carries its part-1 link instead.
+**Impact / Risk:** Series membership now depends on `repo` being set correctly and
+identically across episodes; a typo silently drops a post from its series. Two posts sharing
+a repo are always presented as a series, so a genuine one-off about an existing repo would
+be mislabelled — none exists today.
+**Outcome:** Build passes, 22 pages; notes verified in HTML and in the Markdown twins.
+
+---
+
+### Entry 018
+
+**Type:** Decision
+**Mode:** Autonomous
+**Timestamp:** 2026-08-01T16:26:00Z
+**Task:** Make posts less of a wall of text (session goal, follow-up).
+
+**Context:** User asked whether paragraph breaks or section headings would help, tried one
+post of each treatment, and chose `##` headings. Open sub-decisions: which posts get them,
+how many, and how to word them without inventing content.
+**Decision:** Headings on posts over ~700 words only (9 posts), roughly one per two
+paragraphs; the five posts under 500 words get none, since at that length the labels
+outnumber the ideas. Heading text is taken from the post's own sentences — usually by
+promoting a paragraph's opening line into the heading and deleting it from the body, so no
+new claims enter the prose and the heading doesn't echo the text beneath it. No heading
+before the opening paragraph, preserving the "open inside a moment" rule. Separately, found
+and removed `max-w-none` on the article in BlogPost.astro: it was overriding prose's 65ch
+measure, so text ran ~90 characters per line, which was a larger cause of the slab effect
+than paragraph count. Recorded all of this in CLAUDE.md next to the existing ban on bold
+pseudo-headers so the two rules aren't read as contradictory.
+**Impact / Risk:** Nine published posts have edited prose (deleted transition sentences).
+Headings are authored labels rather than the author's exact phrasing in a few cases
+("Cleaner than it felt", "One day in"), so they are the most likely thing to want revision.
+**Outcome:** Build clean, 0 errors. Section-break alternative (`---` styled as `* * *`)
+rendered as blank space and was reverted along with its CSS; cause not diagnosed since the
+approach was dropped.
+
+---
+
+### Entry 019
+
+**Type:** Decision
+**Mode:** User-directed
+**Timestamp:** 2026-08-01T16:40:00Z
+**Task:** Post column width (supersedes the measure change in Entry 018).
+
+**Context:** Entry 018 removed `max-w-none` from the article to get a 65ch measure. That
+constrained only the article, so the banner and series note still spanned the full
+container and the text read as a ragged narrow column. Widening and centering the whole
+post in a 68ch wrapper fixed the raggedness but left the post narrower than the nav.
+**Decision:** User chose uniform width. Wrapper removed, `max-w-none` restored — the post
+spans the same `max-w-3xl` column as every other page. Lines run ~90 characters, wider than
+typography would want; uniformity with the rest of the site was the explicit priority.
+Readability now rests on the `##` headings and the paragraph splits instead.
+**Impact / Risk:** `BlogPost.astro` differs from main only by the series note; the width
+experiment left no trace. Long-line fatigue on wide monitors is accepted.
+**Outcome:** Build clean. CLAUDE.md updated to record uniform width as the deliberate call,
+replacing the earlier note that said the opposite.

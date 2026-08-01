@@ -12,11 +12,17 @@ Three things kept happening. I'd sit down to build some small Claude Code utilit
 
 Each of these was its own standalone repo. A repo for the statusline hook, a repo for the plugin toggler, a repo for the thing that reads token usage out of Claude Code's transcripts. The only two that already shared a home were the usage-report CLI and the usage-dashboard app, because they read the same data and I'd never bothered to separate them. Everything else lived on its own little island, and the islands were multiplying faster than I could keep a map of them.
 
+## Pulling twelve repos into one
+
 So the consolidation was the obvious move once I said it out loud. Pull them all into one repo — apps you open in one folder, tools that do one job in another, the shared reading code in a third. I called it the Claude Code Command Center: four C's, so, C4 — because every one of these tools is built around Claude Code, and increasingly, built with it too.
+
+## Why it doesn't rot now
 
 That second part is the whole reason this works. I wouldn't have done it a few years ago. A monorepo of a dozen half-related utilities is exactly the kind of thing that rots: you stop knowing what's in it, the duplication just moves from across repos to across folders, and now you've got one big mess instead of twelve small ones. Back when the number of little tools I was building started to blow up, that would have been the real risk. What changed is the thing the whole repo is named after. Claude Code can see the whole repo at once — when I go to add something, it finds the loop I already wrote and tells me to reuse it. The duplication that used to hide across repo boundaries is just visible now; it's a question I can ask instead of a mistake I discover later.
 
 I still gave it structure, because I don't trust a single big folder to stay honest on its own. Apps are destinations you open — the usage dashboard, the plugin toggler, the component browser. Tools are plumbing that does one job and gets out of the way — the statusline hook, the scheduled digests. And a shared library only earns its own folder when two real things actually use it, never one; I extract on the second consumer, not the first. That last rule is the one I'm most sure of, because I've paid for getting it wrong — a "shared" library with a single consumer is just a more complicated way to write that one consumer.
+
+## Where it stands
 
 One of these, the plugin toggler, has already grown past being a folder in here and has [its own series on this blog](/blog/claude-code-plugin-toggler--plugin-manager), so I won't re-tell it. That's the pattern I expect to see again: most of these stay small entries in the catalog, and every so often one turns out to be interesting enough to walk off on its own.
 
