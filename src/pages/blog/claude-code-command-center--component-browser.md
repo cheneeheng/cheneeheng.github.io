@@ -1,4 +1,5 @@
 ---
+date: 2026-08-04
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: I couldn't tell which skill would fire
