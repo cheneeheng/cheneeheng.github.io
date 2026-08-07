@@ -29,7 +29,7 @@ Content is split across three mechanisms; pick the right one:
 
 ### Blog publish queue
 
-New posts are drafted into `src/pages/blog/_queue/` and published one at a time by `.github/workflows/publish-queued-post.yml` (cron: Tuesdays 09:00 UTC; also `workflow_dispatch`). On each run the workflow picks the **lowest-numbered** queued file, strips the `NN-` prefix, injects `date: <today>` as the second line, moves it to `src/pages/blog/`, commits, and triggers `deploy.yml`.
+New posts are drafted into `src/pages/blog/_queue/` and published one at a time by `.github/workflows/publish-queued-post.yml` (cron: Tuesdays and Thursdays 09:00 UTC; also `workflow_dispatch`). On each run the workflow picks the **lowest-numbered** queued file, strips the `NN-` prefix, injects `date: <today>` as the second line, moves it to `src/pages/blog/`, commits, and triggers `deploy.yml`.
 
 When queuing a post:
 - Name it `NN-<repo>--<detail>.md` with a two-digit ordering prefix (`NN-` controls publish order; lowest goes first). Use the next number after the highest already in `_queue/`.
