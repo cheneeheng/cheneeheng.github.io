@@ -46,6 +46,8 @@ Write posts in a **personal** voice, not "influencer style." The voice rules bel
 
 **Series status** (an ongoing series continues until the user explicitly declares the project finished):
 - `claude-code-plugin-toggler` — **ongoing**. New episodes pick up where the last left off.
+- `mcp-cassette` — **ongoing**. Six-episode arc queued (origin → stdio bugs → CI → HTTP/sampling → lint → diff); ends on real-world use and more protocol surface.
+- `pr-compliance-gate` — **ongoing**. Six-episode arc queued (origin → reconcile → investigator → sandbox root → the three bugs → not publishing); ends on live GitHub intake and whether the reviews are trustworthy.
 - `claude-code-html-wrapper` — **finished**. Its three-post arc is closed; no new episodes.
 
 **Series note (automatic).** Posts sharing a `repo` frontmatter value are one series, ordered by `date`. `src/lib/series.ts` derives this and `BlogPost.astro` renders "Part N of M in the &lt;repo&gt; series — start with part 1, &lt;title&gt;" under the header; `[slug].md.ts` emits the same line into the Markdown twin. A post whose `repo` is unique (or absent) gets nothing. So: never hand-write "part N of M" or a part-1 link in prose — set `repo` correctly and the note maintains itself as the series grows. Prose back-links to the *previous* episode are still written by hand (rule below).
