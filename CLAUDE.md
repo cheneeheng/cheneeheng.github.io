@@ -34,6 +34,7 @@ New posts are drafted into `src/pages/blog/_queue/` and published one at a time 
 When queuing a post:
 - Name it `NN-<repo>--<detail>.md` with a two-digit ordering prefix (`NN-` controls publish order; lowest goes first). Use the next number after the highest already in `_queue/`.
 - **Omit the `date:` frontmatter field** — CI injects it on publish day. Set everything else (`layout`, `repo`, `title`, `description`, `banner`, `bannerAlt`) as normal.
+- Queuing a whole arc at once: number the episodes as one contiguous block per series, not interleaved with another series. Reordering later is just renaming files — prose back-links reference slugs, never numbers.
 
 The site is **not** using Astro content collections (`src/content/config.ts`) — adding one would change how `now.md` and `blog/*.md` are loaded.
 
