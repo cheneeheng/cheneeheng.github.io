@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A live agent-to-server session being recorded to a cassette file, then the cassette replayed offline in place of the server">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+
+    <!-- 1: live session, slow and paid -->
+    <g transform="translate(90 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g font-size="10">
+        <rect x="26" y="44" width="76" height="34" rx="7" fill="#0b1120" stroke="#475569"/>
+        <text x="64" y="65" fill="#94a3b8">agent</text>
+        <rect x="198" y="44" width="76" height="34" rx="7" fill="#0b1120" stroke="#475569"/>
+        <text x="236" y="65" fill="#94a3b8">server</text>
+      </g>
+      <g stroke="#64748b" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M106 55 h88"/>
+        <path d="M194 68 h-88"/>
+      </g>
+      <path d="M194 55 l-11 -5 l0 10 z" fill="#64748b"/>
+      <path d="M106 68 l11 -5 l0 10 z" fill="#64748b"/>
+      <text x="150" y="106" font-size="10" fill="#64748b">slow · paid · flaky</text>
+      <text x="150" y="148">every run calls the model</text>
+    </g>
+
+    <!-- 2: recorded to a cassette -->
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <rect x="70" y="40" width="160" height="66" rx="8" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.5"/>
+      <g stroke="#38bdf8" stroke-opacity="0.55" stroke-width="1.5">
+        <line x1="86" y1="58" x2="182" y2="58"/>
+        <line x1="86" y1="70" x2="214" y2="70"/>
+        <line x1="86" y1="82" x2="158" y2="82"/>
+        <line x1="86" y1="94" x2="196" y2="94"/>
+      </g>
+      <text x="150" y="126" font-size="10" fill="#64748b">session.mcp.json</text>
+      <text x="150" y="148">the whole session, committed</text>
+    </g>
+
+    <!-- 3: replayed offline -->
+    <g transform="translate(810 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g font-size="10">
+        <rect x="26" y="44" width="76" height="34" rx="7" fill="#0b1120" stroke="#475569"/>
+        <text x="64" y="65" fill="#94a3b8">agent</text>
+        <rect x="198" y="44" width="76" height="34" rx="7" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.6"/>
+        <text x="236" y="65" fill="#7dd3fc">cassette</text>
+      </g>
+      <g stroke="#38bdf8" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M106 61 h88"/>
+      </g>
+      <path d="M194 61 l-11 -5 l0 10 z" fill="#38bdf8"/>
+      <text x="150" y="106" font-size="10" fill="#64748b">no network · no key · instant</text>
+      <text x="150" y="148">MCP_CASSETTE_MODE=none</text>
+    </g>
+
+  </g>
+</svg>
