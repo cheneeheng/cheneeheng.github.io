@@ -1,4 +1,5 @@
 ---
+date: 2026-08-11
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: Planning got so easy I drowned in plans
