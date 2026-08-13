@@ -1,4 +1,5 @@
 ---
+date: 2026-08-13
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: The same file, quietly different in every repo
