@@ -1,4 +1,5 @@
 ---
+date: 2026-08-18
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: Harvesting lessons from sessions I'd never reopen
