@@ -1,4 +1,5 @@
 ---
+date: 2026-08-20
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: I let a copy win, and it ate my status line
