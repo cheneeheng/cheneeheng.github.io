@@ -64,15 +64,15 @@ const schema = {
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <PageHeader title={frontmatter.title} subtitle={formatDate(frontmatter.date)} />
   {series && (
-    <p class="mb-8 text-sm text-zinc-600 dark:text-zinc-400">
+    <p class="mb-8 text-sm text-muted">
       Part {series.part} of {series.total} in the
-      <span class="font-medium text-zinc-900 dark:text-zinc-100">{series.name}</span> series.
+      <span class="mono text-ink">{series.name}</span> series.
       {series.part > 1 && (
         <>
           {' '}Start with
           <a
             href={`${base}/blog/${series.first.slug}`}
-            class="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100"
+            class="underline-offset-4"
           >part 1, {series.first.title}</a>.
         </>
       )}
@@ -85,26 +85,26 @@ const schema = {
       width="1200"
       height="300"
       loading="eager"
-      class="mb-10 w-full rounded-xl border border-zinc-200 dark:border-zinc-800"
+      class="mb-10 w-full rounded-lg border border-line"
     />
   )}
-  <article class="prose prose-zinc dark:prose-invert max-w-none leading-relaxed">
+  <article class="prose max-w-none leading-relaxed">
     <slot />
   </article>
-  <p class="mt-8 text-sm text-zinc-500 dark:text-zinc-400">
-    <a href={mdHref} class="underline underline-offset-4 hover:text-zinc-900 dark:hover:text-zinc-100">
+  <p class="mt-10 text-sm text-muted">
+    <a href={mdHref} class="underline-offset-4">
       View as Markdown
     </a>
-    <span class="text-zinc-400 dark:text-zinc-500"> — raw source for agents and LLMs</span>
+    <span class="text-subtle"> — raw source for agents and LLMs</span>
   </p>
   {repo && (
-    <aside class="mt-12 flex items-center gap-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 px-5 py-4">
-      <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" class="shrink-0 fill-zinc-500 dark:fill-zinc-400">
+    <aside class="mt-12 flex items-center gap-3 rounded-lg border border-line bg-surface px-5 py-4">
+      <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" class="shrink-0 fill-current text-muted">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
       </svg>
-      <p class="text-sm text-zinc-600 dark:text-zinc-400">
+      <p class="text-sm text-muted">
         The project this post follows lives at
-        <a href={repo} class="font-medium text-zinc-900 dark:text-zinc-100 underline underline-offset-4">{repoName}</a>
+        <a href={repo} class="mono underline-offset-4">{repoName}</a>
         on GitHub.
       </p>
     </aside>

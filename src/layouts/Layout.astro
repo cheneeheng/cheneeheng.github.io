@@ -25,6 +25,12 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href={import.meta.env.BASE_URL + 'favicon.svg'} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    />
     <BaseHead title={title} description={description} image={image} ogType={ogType} />
     <script is:inline>
       (() => {
@@ -33,12 +39,13 @@ const {
           const mode = saved === 'light' || saved === 'dark' ? saved : 'system';
           const dark = mode === 'dark' || (mode === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
           document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
           document.documentElement.dataset.themeMode = mode;
         } catch {}
       })();
     </script>
   </head>
-  <body class="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+  <body class="min-h-screen bg-page text-ink">
     <Nav />
     <main class="max-w-3xl mx-auto px-4 py-6">
       <slot />

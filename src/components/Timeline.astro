@@ -28,14 +28,22 @@ const items: TimelineItem[] = [
 ---
 
 <section>
-  <ol class="space-y-6 border-l border-zinc-200 dark:border-zinc-800 pl-6">
-    {items.map((item) => (
-      <li class="relative">
-        <span class="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full bg-zinc-400 dark:bg-zinc-500"></span>
-        <div class="text-sm text-zinc-500">{item.years}</div>
-        <h3 class="text-lg font-semibold tracking-tight">{item.title}</h3>
-        <p class="mt-1 text-zinc-700 dark:text-zinc-300">{item.body}</p>
-      </li>
-    ))}
+  <ol class="space-y-8 border-l border-line pl-6">
+    {items.map((item, i) => {
+      const current = i === items.length - 1;
+      return (
+        <li class="relative">
+          <span
+            class:list={[
+              'absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full border',
+              current ? 'bg-brand border-brand' : 'bg-page border-line-strong',
+            ]}
+          ></span>
+          <span class="eyebrow">{item.years}</span>
+          <h3 class="mt-1 font-serif text-lg font-semibold tracking-tight text-ink">{item.title}</h3>
+          <p class="mt-1 text-muted leading-relaxed">{item.body}</p>
+        </li>
+      );
+    })}
   </ol>
 </section>

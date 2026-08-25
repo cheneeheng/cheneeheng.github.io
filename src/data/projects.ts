@@ -6,15 +6,46 @@ export interface Project {
   tags: string[];
   summary: string;
   link?: string;
+  /** Shown on the homepage. Mirrors the featured projects on the GitHub profile. */
+  featured?: boolean;
 }
 
 export const projects: Project[] = [
   {
-    title: 'Agent Coding Contract',
+    title: 'PR Compliance Gate',
     status: 'active',
-    tags: ['AI agents', 'tooling', 'TypeScript'],
+    featured: true,
+    tags: ['LangGraph', 'Claude Agent SDK', 'FastAPI', 'Policy compliance'],
     summary:
-      'A behavioral contract and skill set for LLM coding agents that enforces minimal-diff edits, explicit authorization, and decision logging.',
+      'A LangGraph + Claude Agent SDK pipeline that reviews pull requests against security, licensing, and data-handling policy before merge — cost-gated, human-in-the-loop.',
+    link: 'https://github.com/cheneeheng/pr-compliance-gate',
+  },
+  {
+    title: 'Presidio Compliance Stack',
+    status: 'active',
+    featured: true,
+    tags: ['PDPA', 'PII redaction', 'Presidio', 'Python'],
+    summary:
+      'A pip-installable PDPA compliance layer for Malaysian SMEs using AI/LLM tooling with customer data. One shared codebase, two packages: presidio-audit and presidio-malaysia.',
+    link: 'https://github.com/cheneeheng/presidio-compliance-stack',
+  },
+  {
+    title: 'MLOps Incident Commander',
+    status: 'active',
+    featured: true,
+    tags: ['Multi-agent', 'MLOps', 'Monitoring', 'Post-mortem'],
+    summary:
+      'Multi-agent supervision of a live ML model: monitoring, investigation, remediation, post-mortem.',
+    link: 'https://github.com/cheneeheng/mlops-incident-commander',
+  },
+  {
+    title: 'MCP Cassette',
+    status: 'active',
+    featured: true,
+    tags: ['MCP', 'Testing', 'PyPI', 'Python'],
+    summary:
+      'vcrpy for MCP. Records real agent–server sessions into diffable cassettes and replays them as deterministic mock servers.',
+    link: 'https://github.com/cheneeheng/mcp-cassette',
   },
   {
     title: 'Personal Website',

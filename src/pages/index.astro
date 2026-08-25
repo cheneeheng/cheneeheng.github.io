@@ -13,7 +13,7 @@ interface PostFrontmatter {
   description?: string;
 }
 
-const otherProjects = projects.slice(1, 3);
+const featured = projects.filter((p) => p.featured);
 
 const blogModules = import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>(
   './blog/*.md',
@@ -45,12 +45,16 @@ const personSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <Hero />
 
-  <SectionPreview eyebrow="In parallel & shipped" title="Other work" href="/projects">
-    {otherProjects.map((p) => <ProjectCard project={p} />)}
+  <SectionPreview
+    eyebrow={`Projects · ${featured.length}`}
+    title="What I'm building"
+    href="/projects"
+  >
+    {featured.map((p) => <ProjectCard project={p} />)}
   </SectionPreview>
 
   {latestPosts.length > 0 && (
-    <SectionPreview eyebrow="Recent writing" title="Blog" href="/blog">
+    <SectionPreview eyebrow={`Recent writing · ${latestPosts.length}`} title="Blog" href="/blog">
       {latestPosts.map((p) => (
         <BlogPostCard title={p.title} date={p.date} description={p.description} url={p.url} />
       ))}
