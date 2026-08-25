@@ -1,4 +1,5 @@
 ---
+date: 2026-08-25
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/claude-code-command-center
 title: The smallest thing in here, and I forgot it was running
