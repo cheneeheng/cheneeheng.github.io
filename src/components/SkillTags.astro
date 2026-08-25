@@ -23,17 +23,13 @@ const groups: { heading: string; tags: string[] }[] = [
 ];
 ---
 
-<section class="mt-10 space-y-6">
+<section class="mt-12 space-y-6">
   {groups.map((g) => (
     <div>
-      <h3 class="text-sm font-semibold uppercase tracking-wide text-zinc-500">
-        {g.heading}
-      </h3>
-      <ul class="mt-2 flex flex-wrap gap-2">
+      <span class="eyebrow">{g.heading} · {g.tags.length}</span>
+      <ul class="mt-2 flex flex-wrap gap-1.5">
         {g.tags.map((t) => (
-          <li class="rounded-full border border-zinc-200 dark:border-zinc-700 px-3 py-1 text-sm">
-            {t}
-          </li>
+          <li class="badge">{t}</li>
         ))}
       </ul>
     </div>

@@ -11,13 +11,17 @@ const past = projects.filter((p) => p.status === 'past');
 <Layout title="Projects — EE Heng Chen">
   <PageHeader title="Projects" subtitle="What I'm building and what I've built." volume="04" />
 
-  <h2 class="text-xl font-semibold tracking-tight mt-4 mb-3">Active</h2>
-  <ProjectGrid projects={active} />
+  <section>
+    <span class="eyebrow">Active · {active.length}</span>
+    <p class="mt-1 mb-4 text-sm text-muted">What I am working on right now.</p>
+    <ProjectGrid projects={active} />
+  </section>
 
   {past.length > 0 && (
-    <>
-      <h2 class="text-xl font-semibold tracking-tight mt-10 mb-3">Past</h2>
+    <section class="mt-12">
+      <span class="eyebrow">Past · {past.length}</span>
+      <p class="mt-1 mb-4 text-sm text-muted">Research and work that is finished.</p>
       <ProjectGrid projects={past} />
-    </>
+    </section>
   )}
 </Layout>

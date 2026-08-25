@@ -4,9 +4,11 @@ import { Content as Now, frontmatter } from '../content/now.md';
 import { formatDate } from '../lib/date';
 ---
 
-<section class="space-y-4 leading-relaxed text-zinc-800 dark:text-zinc-200">
+<section>
   {frontmatter?.updated && (
-    <p class="text-sm text-zinc-500">Last updated: {formatDate(frontmatter.updated)}</p>
+    <p class="eyebrow mb-6">Last updated · {formatDate(frontmatter.updated)}</p>
   )}
-  <Now />
+  <div class="prose max-w-none leading-relaxed">
+    <Now />
+  </div>
 </section>

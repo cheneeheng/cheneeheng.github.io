@@ -10,7 +10,9 @@ const { publications } = Astro.props;
 
 <section class="space-y-4">
   {publications.length === 0 ? (
-    <p class="text-zinc-600 dark:text-zinc-300">No publications yet.</p>
+    <p class="rounded-lg border border-dashed border-line-strong p-6 text-center text-muted">
+      No publications listed yet.
+    </p>
   ) : (
     publications.map((p) => <PublicationCard publication={p} />)
   )}
