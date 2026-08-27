@@ -1,4 +1,5 @@
 ---
+date: 2026-08-27
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mcp-cassette
 title: Testing an MCP server meant paying the agent every time
