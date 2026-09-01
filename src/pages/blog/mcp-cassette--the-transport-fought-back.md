@@ -1,4 +1,5 @@
 ---
+date: 2026-09-01
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mcp-cassette
 title: A buffered read, a greedy argparse, and one line I'm not proud of
