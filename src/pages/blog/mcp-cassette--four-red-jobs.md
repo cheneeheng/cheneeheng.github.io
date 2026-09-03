@@ -1,4 +1,5 @@
 ---
+date: 2026-09-03
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mcp-cassette
 title: Four red jobs on my first CI run, and Windows was the one that passed
