@@ -1,4 +1,5 @@
 ---
+date: 2026-09-08
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mcp-cassette
 title: Streamable HTTP by hand, and a sampling request that never arrived
