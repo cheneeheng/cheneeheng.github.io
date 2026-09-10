@@ -1,4 +1,5 @@
 ---
+date: 2026-09-10
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mcp-cassette
 title: I built a test fixture and it turned out to be a supply-chain artifact
