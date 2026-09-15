@@ -1,4 +1,5 @@
 ---
+date: 2026-09-15
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mcp-cassette
 title: The parameter that looked completely innocent
