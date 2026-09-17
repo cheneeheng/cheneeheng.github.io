@@ -1,4 +1,5 @@
 ---
+date: 2026-09-17
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/pr-compliance-gate
 title: A pull-request reviewer I built to find out whether I could
