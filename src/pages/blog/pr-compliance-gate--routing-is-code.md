@@ -1,4 +1,5 @@
 ---
+date: 2026-09-22
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/pr-compliance-gate
 title: Every investigation ended at a human, and a reducer was why
