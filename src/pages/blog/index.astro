@@ -3,11 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
 import { formatDate } from '../../lib/date';
+import { seriesOf } from '../../lib/series';
 
 interface PostFrontmatter {
   title: string;
   date?: string;
   description?: string;
+  repo?: string;
 }
 
 const modules = import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>(
@@ -19,6 +21,8 @@ const posts = Object.values(modules)
   .map((m) => ({
     ...m.frontmatter,
     url: m.url ?? '',
+    tag: m.frontmatter.repo?.split('/').pop(),
+    series: seriesOf(m.frontmatter.repo, (m.url ?? '').split('/').pop() ?? ''),
   }))
   .sort((a, b) => formatDate(b.date).localeCompare(formatDate(a.date)));
 ---
@@ -45,7 +49,7 @@ const posts = Object.values(modules)
     <ul class="mt-4 space-y-4">
       {posts.map((p) => (
         <li>
-          <BlogPostCard title={p.title} date={p.date} description={p.description} url={p.url} />
+          <BlogPostCard title={p.title} date={p.date} description={p.description} url={p.url} tag={p.tag} part={p.series && `${p.series.part}/${p.series.total}`} />
         </li>
       ))}
     </ul>

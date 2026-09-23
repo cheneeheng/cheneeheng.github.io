@@ -29,6 +29,9 @@ const mdHref = path + '.md';
 
 const series = seriesOf(repo, path.split('/').pop() ?? '');
 
+// Tags are just the repo name for now.
+const tags = repoName ? [repoName.split('/').pop()!] : [];
+
 // JSON-LD structured data — a freshness/authorship signal for search and AI
 // answer surfaces. dateModified falls back to date so it is always present.
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -62,21 +65,35 @@ const schema = {
   ogType="article"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <PageHeader title={frontmatter.title} subtitle={formatDate(frontmatter.date)} />
-  {series && (
-    <p class="mb-8 text-sm text-muted">
-      Part {series.part} of {series.total} in the
-      <span class="mono text-ink">{series.name}</span> series.
-      {series.part > 1 && (
-        <>
-          {' '}Start with
-          <a
-            href={`${base}/blog/${series.first.slug}`}
-            class="underline-offset-4"
-          >part 1, {series.first.title}</a>.
-        </>
+  <PageHeader title={frontmatter.title}>
+    <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-muted">
+      <time datetime={formatDate(frontmatter.date)}>{formatDate(frontmatter.date)}</time>
+      {tags.length > 0 && (
+        <ul class="mono flex flex-wrap gap-3 text-sm text-subtle" aria-label="Tags">
+          {tags.map((t) => <li><span class="text-brand">#</span>{t}</li>)}
+        </ul>
       )}
-    </p>
+    </div>
+  </PageHeader>
+  {series && (
+    <aside class="mb-8 flex items-start gap-3 rounded-lg border border-line bg-surface px-5 py-4 text-sm text-muted">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="mt-px shrink-0 fill-none stroke-current text-accent" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.74c.6.43 1 1.12 1 1.86V17h6v-.4c0-.74.4-1.43 1-1.86A7 7 0 0 0 12 2Z" />
+      </svg>
+      <p>
+        Part {series.part} of {series.total} in the
+        <span class="mono text-ink">{series.name}</span> series.
+        {series.part > 1 && (
+          <>
+            {' '}Start with
+            <a
+              href={`${base}/blog/${series.first.slug}`}
+              class="underline-offset-4"
+            >part 1, {series.first.title}</a>.
+          </>
+        )}
+      </p>
+    </aside>
   )}
   {banner && (
     <img
