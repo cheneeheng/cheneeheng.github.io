@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="Text flowing through a Malaysian PII detector into an anonymizer, with every decision written to a hash-chained evidence log beside it">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
+    <g transform="translate(56 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g transform="translate(30 34)"><rect width="240" height="24" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="120" y="16" font-size="10" fill="#86efac">MY_NRIC · MY_SSM</text></g>
+      <g transform="translate(30 66)"><rect width="240" height="24" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="120" y="16" font-size="10" fill="#86efac">MY_PHONE · MY_POSTCODE</text></g>
+      <text x="150" y="124" font-size="10" fill="#64748b">presidio-malaysia</text>
+      <text x="150" y="148">detect, locally</text>
+    </g>
+    <g transform="translate(450 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g transform="translate(30 34)"><rect width="240" height="24" rx="6" fill="#0b1120" stroke="#60a5fa" stroke-opacity="0.5"/><text x="120" y="16" font-size="10" fill="#93c5fd">encrypt · replace</text></g>
+      <g transform="translate(30 66)"><rect width="240" height="24" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.5"/><text x="120" y="16" font-size="10" fill="#94a3b8">source_ref=ticket-42</text></g>
+      <text x="150" y="124" font-size="10" fill="#64748b">anonymize</text>
+      <text x="150" y="148">nothing raw leaves</text>
+    </g>
+    <g transform="translate(844 70)">
+      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
+      <g transform="translate(30 34)"><rect width="240" height="24" rx="6" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.5"/><text x="120" y="16" font-size="10" fill="#c4b5fd">record · prev_hash</text></g>
+      <g transform="translate(30 66)"><rect width="240" height="24" rx="6" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.5"/><text x="120" y="16" font-size="10" fill="#c4b5fd">no raw values, ever</text></g>
+      <text x="150" y="124" font-size="10" fill="#64748b">presidio-audit</text>
+      <text x="150" y="148">evidence for the 72h clock</text>
+    </g>
+    <g transform="translate(370 130)">
+      <path d="M0 20 h40" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M40 20 l-12 -6 l0 12 z" fill="#34d399"/>
+      <text x="20" y="8" font-size="9" fill="#34d399">analyze</text>
+    </g>
+    <g transform="translate(764 130)">
+      <path d="M0 20 h40" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M40 20 l-12 -6 l0 12 z" fill="#34d399"/>
+      <text x="20" y="8" font-size="9" fill="#34d399">log</text>
+    </g>
+  </g>
+</svg>
