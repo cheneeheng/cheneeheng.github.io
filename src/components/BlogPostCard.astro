@@ -6,8 +6,10 @@ interface Props {
   date?: string;
   description?: string;
   url: string;
+  tag?: string;
+  part?: string;
 }
-const { title, date, description, url } = Astro.props;
+const { title, date, description, url, tag, part } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
@@ -19,4 +21,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     {date && <span class="eyebrow shrink-0">{formatDate(date)}</span>}
   </div>
   {description && <p class="mt-3 grow text-muted leading-relaxed">{description}</p>}
+  {tag && (
+    <p class="mono mt-4 text-xs text-subtle">
+      <span class="text-brand">#</span>{tag}{part && <span> · part {part}</span>}
+    </p>
+  )}
 </article>

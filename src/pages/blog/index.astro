@@ -3,11 +3,13 @@ import Layout from '../../layouts/Layout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
 import { formatDate } from '../../lib/date';
+import { seriesOf } from '../../lib/series';
 
 interface PostFrontmatter {
   title: string;
   date?: string;
   description?: string;
+  repo?: string;
 }
 
 const modules = import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>(
@@ -19,8 +21,22 @@ const posts = Object.values(modules)
   .map((m) => ({
     ...m.frontmatter,
     url: m.url ?? '',
+    tag: m.frontmatter.repo?.split('/').pop(),
+    series: seriesOf(m.frontmatter.repo, (m.url ?? '').split('/').pop() ?? ''),
   }))
   .sort((a, b) => formatDate(b.date).localeCompare(formatDate(a.date)));
+
+// Posts are already newest-first, so consecutive runs of the same YYYY-MM
+// are the month groups.
+const months: { label: string; posts: typeof posts }[] = [];
+for (const p of posts) {
+  const ym = formatDate(p.date).slice(0, 7);
+  const label = ym
+    ? new Date(`${ym}-01`).toLocaleString('en', { month: 'long', year: 'numeric', timeZone: 'UTC' })
+    : 'Undated';
+  if (months.at(-1)?.label !== label) months.push({ label, posts: [] });
+  months.at(-1)!.posts.push(p);
+}
 ---
 
 <Layout title="Blog — EE Heng Chen">
@@ -30,11 +46,6 @@ const posts = Object.values(modules)
     volume="07"
   />
 
-  <p class="mb-10 text-muted leading-relaxed">
-    I have no idea what I am doing, but this blog thing still interests me, so I guess
-    I will do something.
-  </p>
-
   <span class="eyebrow">Posts · {posts.length}</span>
 
   {posts.length === 0 ? (
@@ -42,12 +53,23 @@ const posts = Object.values(modules)
       Nothing published yet — the first post is still in the queue.
     </p>
   ) : (
-    <ul class="mt-4 space-y-4">
-      {posts.map((p) => (
-        <li>
-          <BlogPostCard title={p.title} date={p.date} description={p.description} url={p.url} />
-        </li>
+    <div class="mt-6 space-y-10">
+      {months.map((m) => (
+        <section>
+          <h2 class="mb-4 flex items-center gap-3">
+            <span class="font-serif text-lg font-semibold tracking-tight text-ink">{m.label}</span>
+            <span class="h-px grow bg-line"></span>
+            <span class="mono text-xs text-subtle">{m.posts.length} {m.posts.length === 1 ? 'post' : 'posts'}</span>
+          </h2>
+          <ul class="space-y-4">
+            {m.posts.map((p) => (
+              <li>
+                <BlogPostCard title={p.title} date={p.date} description={p.description} url={p.url} tag={p.tag} part={p.series && `${p.series.part}/${p.series.total}`} />
+              </li>
+            ))}
+          </ul>
+        </section>
       ))}
-    </ul>
+    </div>
   )}
 </Layout>

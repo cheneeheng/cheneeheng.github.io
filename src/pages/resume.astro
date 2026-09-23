@@ -3,44 +3,227 @@ import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const pdfHref = base + '/assets/docs/ResumeChen230423.pdf';
+const pdfHref = base + '/assets/docs/resume_chen_260922_2pager.pdf';
+
+// Mirrors the PDF above. Update both together.
+// Icons: GitHub and LinkedIn are the official marks (fill), pin and mail are
+// outline glyphs (stroke).
+const contacts = [
+  {
+    label: 'Munich, Germany',
+    stroke: true,
+    icon: 'M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
+  },
+  {
+    label: 'eeheng.chen@gmail.com',
+    href: 'mailto:eeheng.chen@gmail.com',
+    stroke: true,
+    icon: 'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z M22 6l-10 7L2 6',
+  },
+  {
+    label: 'cheneeheng',
+    href: 'https://github.com/cheneeheng',
+    icon: 'M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3',
+  },
+  {
+    label: 'ee-heng-chen-dr-ing',
+    href: 'https://www.linkedin.com/in/ee-heng-chen-dr-ing',
+    icon: 'M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z',
+  },
+];
+
+const summary = [
+  'Built Large Language Model (LLM) and Generative AI (GenAI) systems that turn unstructured regulatory and technical documents into structured, reviewable outputs, with Retrieval-Augmented Generation (RAG) and evaluation pipelines.',
+  'Rolled out n8n to production as the company-wide automation platform, now used by ~10 engineers across 40+ workflows.',
+  'Configured MLOps toolchains (DVC, MLflow, AWS) for reproducible and auditable ML workflows.',
+  'Personal projects across the AI agent stack (multi-agent orchestration, Model Context Protocol (MCP) tooling, replay testing) on one principle: the LLM classifies, a deterministic policy layer decides and writes the audit trail.',
+  'Dr.-Ing. in computer science, with delivery experience across automotive, clinical and industrial settings.',
+];
+
+const experience = [
+  {
+    org: 'VAIVA GmbH',
+    role: 'Machine Learning Engineer',
+    dates: '12/2023 – Present',
+    points: [
+      'Conceived and built an agentic GenAI application, working cross-functionally with the requirements engineering team, that ingests regulatory documents and drafts structured system requirements, so engineers review a draft instead of starting from a blank page. Designed the architecture, expert-authored agent skills, deterministic format checks and the Claude Code agent harness integration.',
+      'Deployed n8n to production as the company automation platform and led adoption across ~10 engineers, with 40+ workflows in use and a shared workflow library versioned in GitLab.',
+      'Designed and delivered an LLM-based internal testing tool using LangChain and Gradio, incorporating RAG, structured output parsing, prompt engineering and evaluation pipelines; led it from proof of concept to functional prototype.',
+      'Integrated AWS Bedrock as the LLM backend, giving applications API access to cloud-hosted foundation models.',
+      'Set up MLOps toolchains for model training (data versioning with DVC, experiment tracking with MLflow) and integrated them into the company cloud environment with the DevOps team.',
+    ],
+  },
+  {
+    org: 'Munich Institute of Robotics and Machine Intelligence',
+    role: 'Postdoctoral Researcher · Machine Learning',
+    dates: '04/2021 – 08/2023',
+    points: [
+      'Coordinated researchers and clinical stakeholders at the German Heart Center Munich, and authored two successful ethics proposals for patient data collection.',
+      'Modeled patient and clinician actions in intensive care unit (ICU) settings using graph convolutional networks (GCNs) in PyTorch.',
+      'Built the supporting data pipeline: an ICU data-capturing system on Raspberry Pi and Intel RealSense devices, plus a Django web application for visualization.',
+    ],
+  },
+  {
+    org: 'BMW Group',
+    role: 'Doctoral Researcher · Machine Learning / Computer Vision (ADAS)',
+    dates: '09/2017 – 03/2021',
+    points: [
+      'Developed a vision-based system determining whether a traffic junction is safe to cross for driver assistance and self-driving vehicles; trained and evaluated CNNs in TensorFlow.',
+      'Used Docker and Kubernetes to manage training and evaluation jobs on compute clusters, and maintained the compute infrastructure for research and prototyping.',
+      'Published 5 conference papers; supervised 2 interns and 4 student theses.',
+    ],
+  },
+];
+
+const projects = [
+  { name: 'pr-compliance-gate', tagline: 'Policy-driven risk classification pipeline', body: 'LLM classification and risk scoring feeding a deterministic policy table, producing auditable pass/fail decisions.', stack: 'Python' },
+  { name: 'mcp-cassette', tagline: 'Record-and-replay for agent testing', body: 'Deterministic capture and replay of Model Context Protocol interactions for reproducible agent tests. Published on PyPI.', stack: 'Python' },
+  { name: 'mlops-incident-commander', tagline: 'Automated model monitoring and remediation', body: 'Multi-agent system supervising a live ML model: monitoring, investigation, remediation and post-mortem generation.', stack: 'Python' },
+  { name: 'presidio-compliance-stack', tagline: 'Data-protection compliance layer', body: "PII detection, audit and redaction built to Malaysia's PDPA, packaged for SMEs running LLM tooling over customer data.", stack: 'Python · Microsoft Presidio' },
+];
+
+const education = [
+  { school: 'Technical University of Munich', degree: 'Dr.-Ing. (Ph.D.) Computer Science, Department of Informatics', dates: '09/2017 – 07/2022', note: 'Thesis: Development of Vision-based Driving Strategies for Traffic Junction Scenarios.' },
+  { school: 'Technical University of Munich', degree: 'M.Sc. Robotics, Cognition, and Intelligence, Department of Informatics', dates: '04/2015 – 08/2017' },
+  { school: 'Heilbronn University of Applied Sciences', degree: 'B.Eng. Mechatronics and Microsystems, Faculty of Mechanics and Electronics', dates: '04/2011 – 03/2015' },
+];
+
+const skills = [
+  { heading: 'Programming and tools', tags: ['Python (8+ yrs)', 'C++ (3+ yrs)', 'Django', 'Gradio', 'Docker', 'Kubernetes', 'Git / GitLab', 'Linux', 'n8n'] },
+  { heading: 'AI & machine learning', tags: ['Generative AI', 'LLMs', 'AI agents', 'Multi-agent orchestration', 'RAG', 'Prompt engineering', 'LLM evaluation', 'LangChain', 'AWS Bedrock', 'Claude Code / agent harnesses', 'Model Context Protocol', 'Agent replay testing', 'Presidio', 'PyTorch', 'TensorFlow', 'DVC', 'MLflow'] },
+  { heading: 'Computer vision', tags: ['OpenCV', 'Object detection', 'Semantic segmentation', 'Optical flow', 'Pose estimation'] },
+  { heading: 'Languages', tags: ['English (fluent)', 'German (C1)', 'Mandarin', 'Malay'] },
+];
 ---
 
-<Layout title="Resume — EE Heng Chen">
-  <PageHeader title="Resume" subtitle="The short version." volume="05" />
+<Layout title="Resume — EE Heng Chen" description="Resume of Dr.-Ing. Ee Heng Chen, Machine Learning / AI Engineer in Munich: agentic AI systems, LLM orchestration, MLOps.">
+  <PageHeader
+    title="Dr.-Ing. Ee Heng Chen"
+    subtitle="Machine Learning / AI Engineer · Agentic AI Systems, LLM Orchestration, MLOps"
+    volume="05"
+  />
 
-  <section class="space-y-6 leading-relaxed text-muted">
-    <p>
-      The resume layouts nowadays are getting really creative — sometimes too creative.
-      I like the layouts with a sidebar listing the author's information. But the layouts
-      that rate skills with bars or stars are, in my opinion, not very informative.
-      Is it for faster visual comprehension? If so, what stops the author from just
-      putting full stars?
-    </p>
-
-    <p>
-      In the meantime, here is my old-school resume:
-      <a class="font-medium" href={pdfHref} target="_blank" rel="noopener">
-        Resume (PDF) →
-      </a>
-    </p>
-
-    <div>
-      <h2 class="font-serif text-xl font-semibold tracking-tight text-ink mt-4 mb-3">In a nutshell</h2>
-      <ul class="list-disc marker:text-line-strong pl-6 space-y-2">
-        <li>~5 years of experience working in industry as a student and as a PhD candidate.</li>
-        <li>
-          7 years of computer-vision research experience. Worked with KinectV1 and
-          Realsense RGB-D cameras; used mainly OpenCV, TensorFlow, and PyTorch.
+  <section class="-mt-4 mb-12 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <ul class="space-y-2 text-sm text-muted">
+      {contacts.map((c) => (
+        <li class="flex items-center gap-3">
+          <svg
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            aria-hidden="true"
+            class:list={['shrink-0 text-subtle', c.stroke ? 'fill-none stroke-current' : 'fill-current']}
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d={c.icon} />
+          </svg>
+          {c.href ? <a href={c.href} class="underline-offset-4">{c.label}</a> : <span>{c.label}</span>}
         </li>
-        <li>Comfortable reading and debugging Python and C++.</li>
-        <li>
-          Experience with Kubernetes and Docker — enough to start on real tasks, and
-          I genuinely enjoy this side of the work.
+      ))}
+    </ul>
+    <a
+      href={pdfHref}
+      download
+      class="group flex shrink-0 items-center gap-4 rounded-lg border border-line bg-surface px-4 py-3 no-underline transition-colors hover:border-brand"
+    >
+      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" class="shrink-0 fill-none stroke-current text-brand" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z M14 2v6h6 M8 13h8 M8 17h5" />
+      </svg>
+      <span class="flex flex-col">
+        <span class="text-sm font-medium text-ink">Resume</span>
+        <span class="mono text-xs text-subtle">PDF · 2 pages · 302 KB</span>
+      </span>
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" class="ml-2 shrink-0 fill-none stroke-current text-muted transition-transform group-hover:translate-y-0.5 group-hover:text-brand" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3v12 M7 10l5 5 5-5 M5 21h14" />
+      </svg>
+      <span class="sr-only">Download resume PDF</span>
+    </a>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="eyebrow mb-4">Summary</h2>
+    <ul class="list-disc marker:text-line-strong pl-5 space-y-2 leading-relaxed text-muted">
+      {summary.map((s) => <li>{s}</li>)}
+    </ul>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="eyebrow mb-6">Experience</h2>
+    <ol class="space-y-10 border-l border-line pl-6">
+      {experience.map((job, i) => (
+        <li class="relative">
+          <span
+            class:list={[
+              'absolute -left-[29px] top-2 h-2.5 w-2.5 rounded-full border',
+              i === 0 ? 'bg-brand border-brand' : 'bg-page border-line-strong',
+            ]}
+          ></span>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-4">
+            <h3 class="font-serif text-xl font-semibold tracking-tight text-ink">{job.org}</h3>
+            <span class="mono text-sm text-subtle shrink-0">{job.dates}</span>
+          </div>
+          <p class="mt-0.5 text-sm font-medium text-muted">{job.role}</p>
+          <ul class="mt-3 list-disc marker:text-line-strong pl-5 space-y-1.5 leading-relaxed text-muted">
+            {job.points.map((p) => <li>{p}</li>)}
+          </ul>
         </li>
-        <li>Experience coordinating interdisciplinary projects.</li>
-        <li>Experience supervising student work.</li>
-      </ul>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="eyebrow mb-4">Projects</h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      {projects.map((p) => (
+        <article class="card relative">
+          <h3 class="mono text-sm font-semibold text-ink">
+            <a href={`https://github.com/cheneeheng/${p.name}`} class="stretched-link underline-offset-4">{p.name}</a>
+          </h3>
+          <p class="mt-1 text-sm font-medium text-muted">{p.tagline}</p>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{p.body}</p>
+          <span class="badge mt-3">{p.stack}</span>
+        </article>
+      ))}
     </div>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="eyebrow mb-4">Education</h2>
+    <ul class="space-y-5">
+      {education.map((e) => (
+        <li>
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-4">
+            <h3 class="font-serif text-lg font-semibold tracking-tight text-ink">{e.school}</h3>
+            <span class="mono text-sm text-subtle shrink-0">{e.dates}</span>
+          </div>
+          <p class="mt-0.5 text-sm text-muted">{e.degree}</p>
+          {e.note && <p class="mt-1 text-sm italic text-muted">{e.note}</p>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="eyebrow mb-4">Skills</h2>
+    <div class="space-y-5">
+      {skills.map((g) => (
+        <div>
+          <h3 class="text-sm font-medium text-ink">{g.heading}</h3>
+          <ul class="mt-2 flex flex-wrap gap-1.5">
+            {g.tags.map((t) => <li class="badge">{t}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2 class="eyebrow mb-4">Publications</h2>
+    <p class="leading-relaxed text-muted">
+      9 peer-reviewed conference papers (ITSC, ICRA, IROS). The full list is on the
+      <a href={base + '/research'} class="underline-offset-4">research page</a>.
+    </p>
   </section>
 </Layout>

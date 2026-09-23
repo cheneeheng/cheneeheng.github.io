@@ -1,20 +1,61 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import Timeline from '../components/Timeline.astro';
-import SkillTags from '../components/SkillTags.astro';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const postCount = Object.keys(import.meta.glob('./blog/*.md')).length;
+
+// Everything below is sourced from the resume PDF and published blog posts.
+// The resume page owns the dates and bullet points; this page tells the story.
+const route = [
+  { stop: 'Mechatronics', where: 'Heilbronn', line: 'Started with hardware: mechatronics and microsystems.' },
+  { stop: 'Robotics', where: 'TUM', line: 'Moved up a layer to robots that have to perceive and decide.' },
+  { stop: 'Cars', where: 'BMW Group', line: 'Taught cameras to judge whether a traffic junction is safe to cross.' },
+  { stop: 'Hospitals', where: 'German Heart Center', line: 'Pointed RealSense cameras at intensive care units to model how patients and clinicians move.' },
+  { stop: 'Agents', where: 'Now', line: 'Build LLM systems where the model classifies and plain code decides.' },
+];
+
+const habits = [
+  {
+    title: 'It starts with an annoyance',
+    body: 'Most of my tools begin as a small irritation I had stopped noticing: a plugin menu that does one thing at a time, sessions I cannot tell apart, plans scattered across ten repos.',
+    href: '/blog/claude-code-plugin-toggler--plugin-manager',
+  },
+  {
+    title: 'The model classifies, code decides',
+    body: 'I let an LLM do the fuzzy part and hand the final call to a deterministic layer I can read, test and audit. Routing is code.',
+    href: '/blog/pr-compliance-gate--routing-is-code',
+  },
+  {
+    title: 'Less of it is better',
+    body: 'The thing I am most pleased with in my browser wrapper for Claude Code is how little of it there is: the whole server is about seven files.',
+    href: '/blog/claude-code-html-wrapper--lessons',
+  },
+];
+
+const numbers = [
+  { value: '4', label: 'languages I speak', note: 'English, German, Mandarin, Malay' },
+  { value: '9', label: 'peer-reviewed papers', note: 'ITSC, ICRA, IROS' },
+  { value: String(postCount), label: 'blog posts', note: 'and more in the queue' },
+  { value: '0', label: 'lines I wrote', note: 'of my Claude Code plugin manager', href: '/blog/claude-code-plugin-toggler--claude-builds-it' },
+];
+
+const links = [
+  { label: 'What I am doing now', href: '/now' },
+  { label: 'Things I have built', href: '/projects' },
+  { label: 'The blog', href: '/blog' },
+  { label: 'The formal version', href: '/resume' },
+];
 ---
 
-<Layout title="About — EE Heng Chen">
+<Layout title="About — EE Heng Chen" description="Ee Heng Chen: ML engineer in Munich who went from mechatronics to self-driving research to hospital ICUs to building AI agents.">
   <PageHeader
     title="About"
-    subtitle="Part-time coder and computer-vision researcher, now working on AI agents."
+    subtitle="ML engineer in Munich. I build AI agents and the tooling around them, usually because something annoyed me first."
     volume="02"
   />
 
-  <section class="mb-10 flex flex-col sm:flex-row items-start gap-6">
+  <section class="mb-14 flex flex-col sm:flex-row items-start gap-8">
     <img
       src={base + '/assets/images/cropped-head-388.jpg'}
       alt="Chen Ee Heng"
@@ -22,16 +63,80 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       height="160"
       class="rounded-full border border-line shrink-0"
     />
-    <div class="text-muted leading-relaxed">
+    <div class="space-y-4 text-muted leading-relaxed">
+      <p class="text-lg text-ink">
+        Hi, I'm Ee Heng. My path into AI went through mechatronics, cars and hospital ICUs
+        before it reached language models.
+      </p>
       <p>
-        I'm Chen Ee Heng — based in Munich, Germany. I spent several years on
-        computer-vision research (traffic-junction perception, optical flow, binary
-        neural networks, patient-monitoring models) and am now focused on AI agents
-        that edit code with discipline.
+        These days I spend most of my time on agentic systems, at work and in side
+        projects. What I keep coming back to is the boundary between what a model should
+        decide and what it shouldn't, and I write about the tools I build along the way,
+        including the bugs that cost me an afternoon.
       </p>
     </div>
   </section>
 
-  <Timeline />
-  <SkillTags />
+  <section class="mb-14">
+    <h2 class="eyebrow mb-6">The route here</h2>
+    <ol class="grid gap-4 sm:grid-cols-5">
+      {route.map((r, i) => (
+        <li class="relative">
+          <div class="flex items-center gap-2">
+            <span
+              class:list={[
+                'h-2.5 w-2.5 shrink-0 rounded-full border',
+                i === route.length - 1 ? 'bg-brand border-brand' : 'bg-page border-line-strong',
+              ]}
+            ></span>
+            <span class="hidden h-px grow bg-line sm:block"></span>
+          </div>
+          <p class="mt-3 font-serif text-lg font-semibold tracking-tight text-ink">{r.stop}</p>
+          <p class="mono text-xs text-subtle">{r.where}</p>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{r.line}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="mb-14">
+    <h2 class="eyebrow mb-6">How I like to build</h2>
+    <div class="grid gap-4 sm:grid-cols-3">
+      {habits.map((h) => (
+        <article class="card relative has-edge">
+          <h3 class="font-serif text-base font-semibold tracking-tight text-ink">
+            <a href={base + h.href} class="stretched-link text-ink no-underline hover:text-brand">{h.title}</a>
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">{h.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="mb-14">
+    <h2 class="eyebrow mb-6">By the numbers</h2>
+    <dl class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      {numbers.map((n) => (
+        <div class="relative rounded-lg border border-line bg-surface p-4">
+          <dt class="sr-only">{n.label}</dt>
+          <dd class="font-serif text-4xl font-semibold tracking-tight text-ink">{n.value}</dd>
+          <dd class="mt-1 text-sm font-medium text-ink">
+            {n.href ? <a href={base + n.href} class="stretched-link text-ink no-underline hover:text-brand">{n.label}</a> : n.label}
+          </dd>
+          <dd class="mt-0.5 text-xs text-subtle">{n.note}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+
+  <section>
+    <h2 class="eyebrow mb-4">Keep reading</h2>
+    <ul class="flex flex-wrap gap-2">
+      {links.map((l) => (
+        <li>
+          <a href={base + l.href} class="btn btn-ghost no-underline">{l.label} →</a>
+        </li>
+      ))}
+    </ul>
+  </section>
 </Layout>
