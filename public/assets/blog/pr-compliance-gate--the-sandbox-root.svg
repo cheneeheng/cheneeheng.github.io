@@ -4,7 +4,7 @@
       <stop offset="0" stop-color="#0b1120"/>
       <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+    <radialGradient id="glow" cx="0.5" cy="0.2" r="0.7">
       <stop offset="0" stop-color="#a78bfa" stop-opacity="0.18"/>
       <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
     </radialGradient>
@@ -16,45 +16,32 @@
   <rect width="1200" height="300" fill="url(#bg)"/>
   <rect width="1200" height="300" fill="url(#dots)"/>
   <rect width="1200" height="300" fill="url(#glow)"/>
-
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
-
-    <!-- 1: the request body -->
-    <g transform="translate(90 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g transform="translate(40 44)">
-        <rect width="220" height="52" rx="8" fill="#0b1120" stroke="#f87171" stroke-opacity="0.5"/>
-        <text x="110" y="22" font-size="10" fill="#94a3b8">POST /api/reviews</text>
-        <text x="110" y="40" font-size="10" fill="#fca5a5">{ "pr_id": "../.." }</text>
-      </g>
-      <text x="150" y="122" font-size="10" fill="#64748b">joined, unvalidated</text>
-      <text x="150" y="150">the least trusted input</text>
-    </g>
-
-    <!-- 2: the guard is fine -->
-    <g transform="translate(450 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <rect x="44" y="36" width="212" height="72" rx="10" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5" stroke-dasharray="6 4"/>
-      <text x="150" y="60" font-size="10" fill="#86efac">resolve_in_sandbox</text>
-      <g font-size="9" fill="#64748b">
-        <text x="150" y="80">every path checked</text>
-        <text x="150" y="96">every call, correctly</text>
-      </g>
-      <text x="150" y="148">the guard was never wrong</text>
-    </g>
-
-    <!-- 3: the root moves -->
-    <g transform="translate(810 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <rect x="30" y="40" width="112" height="64" rx="9" fill="#0b1120" stroke="#334155" stroke-dasharray="5 4"/>
-      <text x="86" y="76" font-size="9" fill="#475569">intended root</text>
-      <rect x="164" y="40" width="112" height="64" rx="9" fill="#0b1120" stroke="#f87171" stroke-opacity="0.6"/>
-      <text x="220" y="70" font-size="9" fill="#fca5a5">actual root</text>
-      <text x="220" y="86" font-size="9" fill="#64748b">chosen by caller</text>
-      <path d="M148 72 h10" stroke="#f87171" stroke-width="2"/>
-      <path d="M162 72 l-10 -5 l0 10 z" fill="#f87171"/>
-      <text x="150" y="150">the boundary itself moved</text>
-    </g>
-
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <rect x="60" y="100" width="300" height="84" rx="12" fill="#0b1120" stroke="#f87171" stroke-opacity="0.6"/>
+    <text x="210" y="130" font-size="12" fill="#e2e8f0">POST /api/reviews</text>
+    <text x="210" y="158" font-size="12" fill="#fca5a5">{ "pr_id": "../.." }</text>
+    <text x="210" y="212" font-size="10" fill="#64748b">joined, unvalidated</text>
+    <line x1="366" y1="142" x2="462.0" y2="142.0" stroke="#f87171" stroke-width="2" stroke-linecap="round"/><path d="M470 142 L460.0 137.0 L460.0 147.0 z" fill="#f87171"/>
+    <rect x="514" y="62" width="14" height="11" rx="2" fill="#a78bfa" fill-opacity="0.4"/>
+    <text x="536" y="72" font-size="12" fill="#e2e8f0" text-anchor="start">/</text>
+    <path d="M536 92 V 118 H 562" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <rect x="564" y="108" width="14" height="11" rx="2" fill="#a78bfa" fill-opacity="0.4"/>
+    <text x="586" y="118" font-size="12" fill="#e2e8f0" text-anchor="start">.../</text>
+    <path d="M586 138 V 164 H 612" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <rect x="614" y="154" width="14" height="11" rx="2" fill="#a78bfa" fill-opacity="0.4"/>
+    <text x="636" y="164" font-size="12" fill="#e2e8f0" text-anchor="start">reviews/</text>
+    <path d="M636 184 V 210 H 662" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <rect x="664" y="200" width="14" height="11" rx="2" fill="#a78bfa" fill-opacity="0.4"/>
+    <text x="686" y="210" font-size="12" fill="#e2e8f0" text-anchor="start">&lt;pr_id&gt;/</text>
+    <rect x="648" y="196" width="160" height="34" rx="8" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="728" y="250" font-size="10" fill="#4ade80">intended root</text>
+    <rect x="490" y="44" width="340" height="196" rx="14" fill="none" stroke="#f87171" stroke-width="2"/>
+    <text x="660" y="266" font-size="11" fill="#f87171">actual root, chosen by caller</text>
+    <rect x="880" y="80" width="260" height="120" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-opacity="0.5"/>
+    <text x="1010" y="110" font-size="12" fill="#c4b5fd">resolve_in_sandbox</text>
+    <path d="M931 136 l3.5 3.5 l6.5 -7" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="950" y="140" font-size="10" fill="#94a3b8" text-anchor="start">every path checked,</text>
+    <text x="950" y="160" font-size="10" fill="#94a3b8" text-anchor="start">correctly</text>
+    <text x="1010" y="226" font-size="11" fill="#94a3b8">the guard was never wrong</text>
   </g>
 </svg>
