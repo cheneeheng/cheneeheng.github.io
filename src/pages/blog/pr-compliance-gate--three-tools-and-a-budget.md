@@ -1,4 +1,5 @@
 ---
+date: 2026-09-24
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/pr-compliance-gate
 title: Three read-only tools and a budget the model doesn't get to spend
