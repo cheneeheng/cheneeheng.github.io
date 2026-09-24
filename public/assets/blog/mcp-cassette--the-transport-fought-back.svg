@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A proxy stalled mid-stream on a buffered read, then shutting down by terminating its child and exiting with code 130">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A proxy stalled mid-stream on a buffered read, an argument parser swallowing flags after the first positional, and a shutdown that terminates its child and exits with code 130">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0b1120"/>
       <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+    <radialGradient id="glow" cx="0.3" cy="0.2" r="0.7">
       <stop offset="0" stop-color="#38bdf8" stop-opacity="0.18"/>
       <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
     </radialGradient>
@@ -16,43 +16,45 @@
   <rect width="1200" height="300" fill="url(#bg)"/>
   <rect width="1200" height="300" fill="url(#dots)"/>
   <rect width="1200" height="300" fill="url(#glow)"/>
-
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
-
-    <!-- 1: buffered read stalls -->
-    <g transform="translate(90 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <rect x="40" y="48" width="220" height="26" rx="6" fill="#0b1120" stroke="#475569"/>
-      <rect x="44" y="52" width="58" height="18" rx="4" fill="#38bdf8" fill-opacity="0.35"/>
-      <text x="150" y="94" font-size="10" fill="#f87171">read(n) waits for n bytes</text>
-      <g stroke="#f87171" stroke-width="2" stroke-linecap="round" opacity="0.8">
-        <line x1="132" y1="110" x2="132" y2="122"/>
-        <line x1="150" y1="110" x2="150" y2="122"/>
-        <line x1="168" y1="110" x2="168" y2="122"/>
-      </g>
-      <text x="150" y="148">one short line, then nothing</text>
-    </g>
-
-    <!-- 2: argparse swallows the flags -->
-    <g transform="translate(450 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="10">
-        <g transform="translate(30 48)"><rect width="240" height="24" rx="5" fill="#0b1120" stroke="#475569"/><text x="14" y="16" fill="#94a3b8" text-anchor="start">serve demo.json --faults f.json</text></g>
-        <g transform="translate(30 84)"><rect width="240" height="24" rx="5" fill="#0b1120" stroke="#475569"/><text x="14" y="16" fill="#64748b" text-anchor="start">REMAINDER: [--faults, f.json]</text></g>
-      </g>
-      <text x="150" y="148">split argv on the first --</text>
-    </g>
-
-    <!-- 3: the blunt exit -->
-    <g transform="translate(810 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="10" fill="#94a3b8">
-        <g transform="translate(40 40)"><rect width="220" height="20" rx="5" fill="#0b1120" stroke="#475569"/><text x="110" y="14">terminate child</text></g>
-        <g transform="translate(40 66)"><rect width="220" height="20" rx="5" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.5"/><text x="110" y="14" fill="#7dd3fc">_finalize() writes cassette</text></g>
-        <g transform="translate(40 92)"><rect width="220" height="20" rx="5" fill="#0b1120" stroke="#f87171" stroke-opacity="0.5"/><text x="110" y="14" fill="#fca5a5">os._exit(130)</text></g>
-      </g>
-      <text x="150" y="148">blunt, but the file is safe</text>
-    </g>
-
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <text x="60" y="86" font-size="11" fill="#64748b" text-anchor="start">stdin</text>
+    <text x="60" y="170" font-size="11" fill="#64748b" text-anchor="start">argv</text>
+    <text x="60" y="250" font-size="11" fill="#64748b" text-anchor="start">exit</text>
+    <rect x="140" y="66" width="1000" height="32" rx="8" fill="#0b1120" stroke="#334155"/>
+    <rect x="150" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="168" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="186" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="204" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="222" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="240" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="258" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="276" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="294" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="312" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="330" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="348" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="366" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="384" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="402" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="420" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="438" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="456" y="74" width="14" height="16" rx="3" fill="#38bdf8" fill-opacity="0.55"/>
+    <rect x="476" y="72" width="560" height="20" rx="4" fill="none" stroke="#475569" stroke-dasharray="4 4"/>
+    <path d="M150 58 V 52 H 1036 V 58" fill="none" stroke="#f87171" stroke-width="1.5"/>
+    <text x="593" y="46" font-size="11" fill="#f87171">read(n) waits for n bytes</text>
+    <text x="476" y="116" font-size="11" fill="#94a3b8" text-anchor="start">one short line, then nothing</text>
+    <rect x="140" y="152" width="80" height="28" rx="6" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.55"/><text x="180.0" y="170.0" font-size="11" fill="#7dd3fc">serve</text>
+    <rect x="232" y="152" width="120" height="28" rx="6" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.55"/><text x="292.0" y="170.0" font-size="11" fill="#7dd3fc">demo.json</text>
+    <rect x="364" y="152" width="110" height="28" rx="6" fill="#0b1120" stroke="#f87171" stroke-opacity="0.55"/><text x="419.0" y="170.0" font-size="11" fill="#fca5a5">--faults</text>
+    <rect x="486" y="152" width="90" height="28" rx="6" fill="#0b1120" stroke="#f87171" stroke-opacity="0.55"/><text x="531.0" y="170.0" font-size="11" fill="#fca5a5">f.json</text>
+    <path d="M354 186 V 192 H 576 V 186" fill="none" stroke="#f87171" stroke-width="1.5"/>
+    <text x="465" y="206" font-size="10" fill="#f87171">REMAINDER swallowed them</text>
+    <text x="620" y="170" font-size="11" fill="#94a3b8" text-anchor="start">fix: split argv on the first --</text>
+    <rect x="140" y="232" width="170" height="28" rx="6" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.55"/><text x="225.0" y="250.0" font-size="11" fill="#7dd3fc">terminate child</text>
+    <line x1="314" y1="246" x2="332.0" y2="246.0" stroke="#64748b" stroke-width="2" stroke-linecap="round"/><path d="M340 246 L330.0 241.0 L330.0 251.0 z" fill="#64748b"/>
+    <rect x="344" y="232" width="250" height="28" rx="6" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.55"/><text x="469.0" y="250.0" font-size="11" fill="#7dd3fc">_finalize() writes cassette</text>
+    <line x1="598" y1="246" x2="616.0" y2="246.0" stroke="#64748b" stroke-width="2" stroke-linecap="round"/><path d="M624 246 L614.0 241.0 L614.0 251.0 z" fill="#64748b"/>
+    <rect x="628" y="232" width="160" height="28" rx="6" fill="#0b1120" stroke="#fbbf24" stroke-opacity="0.55"/><text x="708.0" y="250.0" font-size="11" fill="#fcd34d">os._exit(130)</text>
+    <text x="806" y="250" font-size="11" fill="#94a3b8" text-anchor="start">blunt, but the file is safe</text>
   </g>
 </svg>

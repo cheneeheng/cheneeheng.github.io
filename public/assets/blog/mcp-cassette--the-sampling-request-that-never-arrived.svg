@@ -16,51 +16,24 @@
   <rect width="1200" height="300" fill="url(#bg)"/>
   <rect width="1200" height="300" fill="url(#dots)"/>
   <rect width="1200" height="300" fill="url(#glow)"/>
-
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
-
-    <!-- 1: proxy in front of a remote url -->
-    <g transform="translate(70 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="9">
-        <rect x="20" y="46" width="72" height="30" rx="6" fill="#0b1120" stroke="#475569"/>
-        <text x="56" y="65" fill="#94a3b8">agent</text>
-        <rect x="114" y="46" width="72" height="30" rx="6" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.55"/>
-        <text x="150" y="65" fill="#7dd3fc">proxy</text>
-        <rect x="208" y="46" width="72" height="30" rx="6" fill="#0b1120" stroke="#475569"/>
-        <text x="244" y="65" fill="#94a3b8">https</text>
-      </g>
-      <g stroke="#64748b" stroke-width="1.8" stroke-linecap="round">
-        <line x1="92" y1="61" x2="112" y2="61"/>
-        <line x1="186" y1="61" x2="206" y2="61"/>
-      </g>
-      <text x="150" y="100" font-size="10" fill="#64748b">Authorization forwarded, never stored</text>
-      <text x="150" y="148">h11 + hand-framed SSE</text>
-    </g>
-
-    <!-- 2: the request with no listener -->
-    <g transform="translate(430 70)">
-      <rect width="340" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="9">
-        <g transform="translate(28 40)"><rect width="130" height="24" rx="5" fill="#0b1120" stroke="#475569"/><text x="65" y="16" fill="#94a3b8">POST stream</text></g>
-        <g transform="translate(28 76)"><rect width="130" height="24" rx="5" fill="#0b1120" stroke="#334155" stroke-dasharray="4 3"/><text x="65" y="16" fill="#475569">GET stream</text></g>
-        <g transform="translate(196 58)"><rect width="116" height="24" rx="5" fill="#0b1120" stroke="#f87171" stroke-opacity="0.55"/><text x="58" y="16" fill="#fca5a5">create_message</text></g>
-      </g>
-      <path d="M196 88 L162 100" stroke="#f87171" stroke-width="1.8" stroke-dasharray="4 3" stroke-linecap="round"/>
-      <text x="170" y="128" font-size="10" fill="#f87171">no related_request_id -&gt; nobody home</text>
-      <text x="170" y="150">the recording just hung</text>
-    </g>
-
-    <!-- 3: checkpoint sidecar -->
-    <g transform="translate(830 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="9">
-        <g transform="translate(38 42)"><rect width="224" height="24" rx="5" fill="#0b1120" stroke="#38bdf8" stroke-opacity="0.5"/><text x="112" y="16" fill="#7dd3fc">cassette.json.partial</text></g>
-        <g transform="translate(38 74)"><rect width="224" height="24" rx="5" fill="#0b1120" stroke="#475569"/><text x="112" y="16" fill="#94a3b8">every 5 seconds</text></g>
-      </g>
-      <text x="150" y="122" font-size="10" fill="#64748b">never at the cassette path</text>
-      <text x="150" y="150">a hard kill costs 5 seconds</text>
-    </g>
-
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <rect x="90" y="36" width="180" height="30" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.55"/><text x="180.0" y="55.0" font-size="11" fill="#e2e8f0">agent</text>
+    <line x1="180" y1="70" x2="180" y2="270" stroke="#334155" stroke-width="2" stroke-dasharray="4 6"/>
+    <rect x="470" y="36" width="180" height="30" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.55"/><text x="560.0" y="55.0" font-size="11" fill="#e2e8f0">proxy · recording</text>
+    <line x1="560" y1="70" x2="560" y2="270" stroke="#334155" stroke-width="2" stroke-dasharray="4 6"/>
+    <rect x="850" y="36" width="180" height="30" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.55"/><text x="940.0" y="55.0" font-size="11" fill="#e2e8f0">server</text>
+    <line x1="940" y1="70" x2="940" y2="270" stroke="#334155" stroke-width="2" stroke-dasharray="4 6"/>
+    <line x1="180" y1="100" x2="548.0" y2="100.0" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/><path d="M556 100 L546.0 95.0 L546.0 105.0 z" fill="#38bdf8"/>
+    <text x="370" y="92" font-size="10" fill="#7dd3fc">POST tools/call</text>
+    <line x1="560" y1="100" x2="928.0" y2="100.0" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/><path d="M936 100 L926.0 95.0 L926.0 105.0 z" fill="#38bdf8"/>
+    <text x="750" y="92" font-size="10" fill="#7dd3fc">POST · h11 · hand-framed SSE</text>
+    <rect x="572" y="134" width="356" height="32" rx="8" fill="#0b1120" stroke="#475569" stroke-dasharray="4 4"/>
+    <text x="750" y="154" font-size="10" fill="#64748b">GET stream · nobody listening</text>
+    <line x1="940" y1="196" x2="608.0" y2="196.0" stroke="#f87171" stroke-width="2" stroke-linecap="round"/><path d="M600 196 L610.0 201.0 L610.0 191.0 z" fill="#f87171"/>
+    <text x="770" y="188" font-size="11" fill="#fca5a5">create_message</text>
+    <path d="M584 192 l8 8 M592 192 l-8 8" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+    <text x="770" y="216" font-size="10" fill="#f87171">no related_request_id -> nobody home</text>
+    <path d="M180 118 V 256" stroke="#fbbf24" stroke-width="3" stroke-opacity="0.6"/>
+    <text x="196" y="262" font-size="11" fill="#fbbf24" text-anchor="start">the recording just hung</text>
   </g>
 </svg>

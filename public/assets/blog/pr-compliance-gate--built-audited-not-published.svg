@@ -4,7 +4,7 @@
       <stop offset="0" stop-color="#0b1120"/>
       <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
+    <radialGradient id="glow" cx="0.2" cy="0.2" r="0.7">
       <stop offset="0" stop-color="#a78bfa" stop-opacity="0.18"/>
       <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
     </radialGradient>
@@ -16,45 +16,31 @@
   <rect width="1200" height="300" fill="url(#bg)"/>
   <rect width="1200" height="300" fill="url(#dots)"/>
   <rect width="1200" height="300" fill="url(#glow)"/>
-
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">
-
-    <!-- 1: the finished wheel -->
-    <g transform="translate(90 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="9" text-anchor="start">
-        <g transform="translate(30 34)"><rect width="240" height="18" rx="4" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="10" y="13" fill="#86efac">policy corpus bundled</text></g>
-        <g transform="translate(30 56)"><rect width="240" height="18" rx="4" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="10" y="13" fill="#86efac">fixtures + UI bundled</text></g>
-        <g transform="translate(30 78)"><rect width="240" height="18" rx="4" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="10" y="13" fill="#86efac">runs without a checkout</text></g>
-      </g>
-      <text x="150" y="124" font-size="10" fill="#64748b">uv build</text>
-      <text x="150" y="150">the wheel is real</text>
-    </g>
-
-    <!-- 2: the workflow, disabled -->
-    <g transform="translate(450 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g transform="translate(38 40)">
-        <rect width="224" height="60" rx="8" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.4"/>
-        <text x="112" y="22" font-size="9" fill="#c4b5fd">build · pip-audit · publish</text>
-        <text x="112" y="42" font-size="10" fill="#94a3b8">publish.yml.disabled</text>
-      </g>
-      <text x="150" y="122" font-size="10" fill="#64748b">github never registers it</text>
-      <text x="150" y="150">no trigger can fire</text>
-    </g>
-
-    <!-- 3: the gate -->
-    <g transform="translate(810 70)">
-      <rect width="300" height="160" rx="16" fill="#1e293b" stroke="#334155"/>
-      <g font-size="10">
-        <g transform="translate(38 40)"><rect width="224" height="24" rx="6" fill="#0b1120" stroke="#475569"/><text x="112" y="16" fill="#94a3b8">fixtures on disk</text></g>
-        <g transform="translate(38 72)"><rect width="224" height="24" rx="6" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.55"/><text x="112" y="16" fill="#c4b5fd">live github intake</text></g>
-      </g>
-      <path d="M150 66 v6" stroke="#a78bfa" stroke-width="2"/>
-      <path d="M150 74 l-5 -10 l10 0 z" fill="#a78bfa"/>
-      <text x="150" y="122" font-size="10" fill="#64748b">this lands, then it ships</text>
-      <text x="150" y="150">one door, both sides</text>
-    </g>
-
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <path d="M180 40 L 270 84 L 180 128 L 90 84 z" fill="#334155" stroke="#a78bfa" stroke-opacity="0.7"/>
+    <path d="M90 84 L 180 128 V 230 L 90 186 z" fill="#1e293b" stroke="#a78bfa" stroke-opacity="0.7"/>
+    <path d="M180 128 L 270 84 V 186 L 180 230 z" fill="#162033" stroke="#a78bfa" stroke-opacity="0.7"/>
+    <path d="M135 62 L 225 106" stroke="#a78bfa" stroke-opacity="0.5" stroke-width="6"/>
+    <text x="180" y="264" font-size="11" fill="#94a3b8">uv build · the wheel is real</text>
+    <path d="M325 58 l3.5 3.5 l6.5 -7" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="346" y="62" font-size="12" fill="#e2e8f0" text-anchor="start">policy corpus bundled</text>
+    <path d="M325 88 l3.5 3.5 l6.5 -7" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="346" y="92" font-size="12" fill="#e2e8f0" text-anchor="start">fixtures + UI bundled</text>
+    <path d="M325 118 l3.5 3.5 l6.5 -7" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="346" y="122" font-size="12" fill="#e2e8f0" text-anchor="start">runs without a checkout</text>
+    <path d="M325 148 l3.5 3.5 l6.5 -7" fill="none" stroke="#4ade80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="346" y="152" font-size="12" fill="#e2e8f0" text-anchor="start">pip-audit clean</text>
+    <rect x="320" y="190" width="820" height="68" rx="14" fill="#0b1120" stroke="#475569" stroke-dasharray="6 5"/>
+    <rect x="340" y="206" width="12" height="10" rx="2" fill="none" stroke="#fbbf24" stroke-width="1.5"/>
+    <rect x="336" y="214" width="20" height="16" rx="3" fill="#fbbf24" fill-opacity="0.7"/>
+    <text x="368" y="226" font-size="12" fill="#fcd34d" text-anchor="start">publish.yml.disabled</text>
+    <rect x="560" y="210" width="100" height="28" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.55"/><text x="610.0" y="228.0" font-size="11" fill="#64748b">build</text>
+    <line x1="662" y1="224" x2="672.0" y2="224.0" stroke="#475569" stroke-width="2" stroke-linecap="round"/><path d="M680 224 L670.0 219.0 L670.0 229.0 z" fill="#475569"/>
+    <rect x="684" y="210" width="100" height="28" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.55"/><text x="734.0" y="228.0" font-size="11" fill="#64748b">pip-audit</text>
+    <line x1="786" y1="224" x2="796.0" y2="224.0" stroke="#475569" stroke-width="2" stroke-linecap="round"/><path d="M804 224 L794.0 219.0 L794.0 229.0 z" fill="#475569"/>
+    <rect x="808" y="210" width="100" height="28" rx="6" fill="#0b1120" stroke="#475569" stroke-opacity="0.55"/><text x="858.0" y="228.0" font-size="11" fill="#64748b">publish</text>
+    <text x="1000" y="222" font-size="10" fill="#64748b">waiting on</text>
+    <text x="1000" y="240" font-size="11" fill="#c4b5fd">live github intake</text>
+    <text x="760" y="140" font-size="11" fill="#94a3b8" text-anchor="start">github never registers it, so no trigger can fire</text>
   </g>
 </svg>
