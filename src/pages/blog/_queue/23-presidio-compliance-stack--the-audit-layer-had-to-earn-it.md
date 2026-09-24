@@ -4,7 +4,7 @@ repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: Without the audit layer it was a recognizer pack with Malaysian regexes
 description: Before building a Malaysian PII pack for Presidio, I made the audit layer argue for its place in both directions. It survived, on a narrower reason than the one I started with.
 banner: /assets/blog/presidio-compliance-stack--the-audit-layer-had-to-earn-it.svg
-bannerAlt: Text flowing through a Malaysian PII detector into an anonymizer, with every decision written to a hash-chained evidence log beside it
+bannerAlt: A balance weighing a Malaysian recognizer pack against an audit layer that records what was redacted, from where, and when, tipped toward the audit layer
 ---
 
 I was scanning Presidio's regional recognizers for a gap, and the country I checked first was Malaysia, because that's where I'm from. The registry check was done on 9 July. Presidio, Microsoft's open-source PII engine, already had a well-worn slot for regional recognizers: a Philippines tax number and a German pack had merged that June alone, and a Singapore and a Russian pack had appeared on PyPI in May. Nothing for Malaysia. No MyKad number, no SSM company registration, no Malaysian phone formats, on PyPI, npm, or GitHub. The only near miss was `mykad`, a standalone NRIC validator with no Presidio integration at all.
