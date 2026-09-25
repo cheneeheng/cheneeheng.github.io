@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: I couldn't see the wall until I hit it
 description: My Claude Code status line started as a context gauge back in the 200k days, grew rate limits and a cost figure — and why I trust two of those three and squint at the third.
 banner: /assets/blog/claude-code-command-center--statusline.svg
+bannerMobile: /assets/blog/claude-code-command-center--statusline-mobile.svg
 bannerAlt: A Claude Code status line growing from a context-window bar, to 5-hour and 7-day rate-limit gauges, to a cost figure marked as one to squint at
 ---
 

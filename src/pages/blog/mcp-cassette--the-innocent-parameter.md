@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/mcp-cassette
 title: The parameter that looked completely innocent
 description: An echo tool grew a callback_url and lint had nothing to say about it — which is why the cassette gate has a second step that only asks whether the server's surface moved.
 banner: /assets/blog/mcp-cassette--the-innocent-parameter.svg
+bannerMobile: /assets/blog/mcp-cassette--the-innocent-parameter-mobile.svg
 bannerAlt: Two committed cassettes compared, where a poisoned description trips lint and a harmless-looking new parameter only trips diff
 ---
 

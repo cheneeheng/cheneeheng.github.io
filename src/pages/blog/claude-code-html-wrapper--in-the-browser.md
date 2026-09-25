@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-html-wrapper
 title: I put Claude Code in the browser
 description: A self-hosted web front end for Claude Code — one Docker container per user, sessions you can resume from a browser tab, and no cloud in the loop.
 banner: /assets/blog/claude-code-in-the-browser.svg
+bannerMobile: /assets/blog/claude-code-in-the-browser-mobile.svg
 bannerAlt: A browser terminal connected over a websocket to a Claude process running inside a Docker container with a persistent workspace volume
 ---
 

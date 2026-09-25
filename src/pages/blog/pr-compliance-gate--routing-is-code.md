@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/pr-compliance-gate
 title: Every investigation ended at a human, and a reducer was why
 description: Routing in the gate is a pure-Python rule ladder, not an LLM call — but the list reducer underneath it meant an investigation could never actually resolve anything.
 banner: /assets/blog/pr-compliance-gate--routing-is-code.svg
+bannerMobile: /assets/blog/pr-compliance-gate--routing-is-code-mobile.svg
 bannerAlt: A rule ladder routing a review to investigate, human, or verdict, with accumulated stale findings blocking the clean path
 ---
 

@@ -4,6 +4,7 @@ title: New blog, new direction
 date: 2026-05-18
 description: Resetting the blog. Expect short, occasional notes on building AI coding agents and the tooling around them.
 banner: /assets/blog/hello.svg
+bannerMobile: /assets/blog/hello-mobile.svg
 bannerAlt: A path leading toward a rising sun on the horizon
 ---
 

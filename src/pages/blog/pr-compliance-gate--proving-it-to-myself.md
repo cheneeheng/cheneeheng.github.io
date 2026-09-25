@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/pr-compliance-gate
 title: A pull-request reviewer I built to find out whether I could
 description: A portfolio piece, plainly — a LangGraph and Agent SDK pipeline that reviews PRs against policy, built around two cost gates that keep most traffic away from the expensive models.
 banner: /assets/blog/pr-compliance-gate--proving-it-to-myself.svg
+bannerMobile: /assets/blog/pr-compliance-gate--proving-it-to-myself-mobile.svg
 bannerAlt: A review pipeline split into a cheap green path and an expensive orange path, with two gates controlling which traffic reaches the expensive one
 ---
 

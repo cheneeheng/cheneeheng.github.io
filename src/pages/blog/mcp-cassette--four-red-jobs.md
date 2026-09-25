@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/mcp-cassette
 title: Four red jobs on my first CI run, and Windows was the one that passed
 description: The clean POSIX shutdown path had never run anywhere. CI ran it on four machines at once and found two bugs the blunt Windows path had already solved.
 banner: /assets/blog/mcp-cassette--four-red-jobs.svg
+bannerMobile: /assets/blog/mcp-cassette--four-red-jobs-mobile.svg
 bannerAlt: A CI matrix with four failing POSIX jobs and one passing Windows job, and a proxy blocked waiting on a child process that is still alive
 ---
 

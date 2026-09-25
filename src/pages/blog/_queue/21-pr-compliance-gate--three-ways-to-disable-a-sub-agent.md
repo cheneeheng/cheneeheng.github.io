@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/pr-compliance-gate
 title: Three unrelated bugs, one symptom, and a fully covered test suite
 description: The investigator was broken by an event loop, a missing environment variable, and a structured-output method that quietly stopped guaranteeing anything — none of which a 100%-covered suite could see.
 banner: /assets/blog/pr-compliance-gate--three-ways-to-disable-a-sub-agent.svg
+bannerMobile: /assets/blog/pr-compliance-gate--three-ways-to-disable-a-sub-agent-mobile.svg
 bannerAlt: Three separate faults — an event loop, a missing API key, and a lost structured-output guarantee — all producing the same silently broken sub-agent
 ---
 

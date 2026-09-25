@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/mcp-cassette
 title: I built a test fixture and it turned out to be a supply-chain artifact
 description: A cassette is a verbatim transcript of what a third-party server said, committed to your repository and fed to a model — so lint reads it for injection smells, and its rule packs are TOML on purpose.
 banner: /assets/blog/mcp-cassette--a-supply-chain-surface.svg
+bannerMobile: /assets/blog/mcp-cassette--a-supply-chain-surface-mobile.svg
 bannerAlt: A committed cassette scanned for injection smells in tool descriptions and results, with rule packs expressed as declarative TOML rather than code
 ---
 

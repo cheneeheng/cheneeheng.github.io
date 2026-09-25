@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: I couldn't tell which skill would fire
 description: Two skills, same name, no way to tell which one Claude Code fires — so I built a browser that lists every skill, agent, and hook on the machine, shows which one wins, and lets me read what each actually does.
 banner: /assets/blog/claude-code-command-center--component-browser.svg
+bannerMobile: /assets/blog/claude-code-command-center--component-browser-mobile.svg
 bannerAlt: Skills, agents and hooks scattered across plugins and loose folders, gathered into one searchable list, with a name collision resolved by striking through the shadowed loser
 ---
 

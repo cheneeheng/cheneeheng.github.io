@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: The Windows bug that came back three times
 description: I promised to write up the path problems once I understood them. It took three releases, a 29-line band-aid, and Claude Code finding the one character I couldn't see.
 banner: /assets/blog/plugin-toggler-lessons.svg
+bannerMobile: /assets/blog/plugin-toggler-lessons-mobile.svg
 bannerAlt: Two mirrored implementations writing to one shared file, with a lowercase c-drive vs uppercase C-drive path mismatch flagged
 ---
 

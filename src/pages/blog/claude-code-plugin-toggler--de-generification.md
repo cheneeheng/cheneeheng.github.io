@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: I asked Claude what made its design look generated
 description: The redesign looked AI-generated and I couldn't say why — so I asked the model that designed it to critique it. It listed its own tells, and iteration 19 became a subtraction pass.
 banner: /assets/blog/claude-code-plugin-toggler--de-generification.svg
+bannerMobile: /assets/blog/claude-code-plugin-toggler--de-generification-mobile.svg
 bannerAlt: A UI card crowded with glows, gradients and floating rows, an arrow, then a flat dense card whose only ornament is a terracotta enabled-edge
 ---
 

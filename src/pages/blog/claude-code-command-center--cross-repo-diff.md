@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: The same file, quietly different in every repo
 description: I'd copied the same CLAUDE.md and configs across a dozen repos and let them drift — Vantage is a single HTML file that surveys every repo, diffs any two files, and copies the good version across.
 banner: /assets/blog/claude-code-command-center--cross-repo-diff.svg
+bannerMobile: /assets/blog/claude-code-command-center--cross-repo-diff-mobile.svg
 bannerAlt: Many repos on one board, two files from two repos diffed line by line, and one copied over the other
 ---
 

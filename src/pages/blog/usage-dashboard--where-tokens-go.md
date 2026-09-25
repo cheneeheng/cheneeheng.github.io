@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: Where all my tokens actually went
 description: The Claude Code status line shows the moment; I wanted the story — so I built a dashboard that breaks token usage down by project, tool, and model, with a rate-limit trajectory that tells me when I'll hit the wall.
 banner: /assets/blog/usage-dashboard--where-tokens-go.svg
+bannerMobile: /assets/blog/usage-dashboard--where-tokens-go-mobile.svg
 bannerAlt: A usage dashboard with a by-project bar chart, an activity heatmap of when Claude Code gets used, and a rate-limit trajectory line climbing toward a cap
 ---
 

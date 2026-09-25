@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/mcp-cassette
 title: Streamable HTTP by hand, and a sampling request that never arrived
 description: Adding remote transport meant framing SSE myself to keep the dependency list short — and then a recording fixture hung because the server was talking on a stream nobody was listening to.
 banner: /assets/blog/mcp-cassette--the-sampling-request-that-never-arrived.svg
+bannerMobile: /assets/blog/mcp-cassette--the-sampling-request-that-never-arrived-mobile.svg
 bannerAlt: A recording proxy in front of a remote MCP server, with a server-initiated sampling request going to a stream that has no listener
 ---
 

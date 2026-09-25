@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-html-wrapper
 title: Three layers I refused to build
 description: My Claude Code wrapper has no database, no Docker SDK, and no permission prompts — each absence was a decision made in the spec, and each one is why the server fits in seven files.
 banner: /assets/blog/wrapping-claude-code-lessons.svg
+bannerMobile: /assets/blog/wrapping-claude-code-lessons-mobile.svg
 bannerAlt: Three design decisions — Claude's own JSONL transcripts as the source of truth, the docker CLI instead of an SDK, and the container as the security boundary
 ---
 

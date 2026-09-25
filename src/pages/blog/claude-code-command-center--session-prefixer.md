@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: The smallest thing in here, and I forgot it was running
 description: The smallest tool in my Claude Code monorepo — a wrapper that auto-names every unnamed session with its folder and a timestamp, so the session history is actually browsable.
 banner: /assets/blog/claude-code-command-center--session-prefixer.svg
+bannerMobile: /assets/blog/claude-code-command-center--session-prefixer-mobile.svg
 bannerAlt: A wall of identical unnamed sessions, a wrapper injecting a folder-and-timestamp name, and a browsable list of dated sessions
 ---
 

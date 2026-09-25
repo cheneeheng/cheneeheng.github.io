@@ -1,4 +1,5 @@
 ---
+import { readFileSync } from 'node:fs';
 import Layout from './Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { formatDate } from '../lib/date';
@@ -22,6 +23,11 @@ const { frontmatter } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const banner = frontmatter.banner ? base + frontmatter.banner : undefined;
 const bannerMobile = frontmatter.bannerMobile ? base + frontmatter.bannerMobile : undefined;
+// Phone banners vary in height, so read the intrinsic size from the SVG's viewBox
+// at build time; the <source> then reserves the right space and nothing jumps.
+const [mobileW, mobileH] = frontmatter.bannerMobile
+  ? readFileSync(`public${frontmatter.bannerMobile}`, 'utf8').match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)!.slice(1)
+  : [];
 const repo = frontmatter.repo;
 const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefined;
 
@@ -99,7 +105,7 @@ const schema = {
   )}
   {banner && (
     <picture class="mb-10 block overflow-hidden rounded-lg border border-line">
-      {bannerMobile && <source media="(max-width: 640px)" srcset={bannerMobile} width="400" height="340" />}
+      {bannerMobile && <source media="(max-width: 640px)" srcset={bannerMobile} width={mobileW} height={mobileH} />}
       {/* Banners are drawn dark; light mode flips them with a filter. The border sits on
           <picture> so the filter doesn't invert it. */}
       <img

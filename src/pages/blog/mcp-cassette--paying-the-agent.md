@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/mcp-cassette
 title: Testing an MCP server meant paying the agent every time
 description: I wanted to start a project with MCP and found there was no easy way to test the interaction without calling the agent over and over — so I built the vcrpy equivalent for it.
 banner: /assets/blog/mcp-cassette--paying-the-agent.svg
+bannerMobile: /assets/blog/mcp-cassette--paying-the-agent-mobile.svg
 bannerAlt: A live agent-to-server session being recorded to a cassette file, then the cassette replayed offline in place of the server
 ---
 

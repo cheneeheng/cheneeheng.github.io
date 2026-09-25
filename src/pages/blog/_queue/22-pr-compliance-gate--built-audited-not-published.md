@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/pr-compliance-gate
 title: The wheel is built, audited, and parked
 description: Packaging the gate for PyPI found four real bugs and produced a release workflow that has never run — committed as publish.yml.disabled, because a package on PyPI is a claim I can't make yet.
 banner: /assets/blog/pr-compliance-gate--built-audited-not-published.svg
+bannerMobile: /assets/blog/pr-compliance-gate--built-audited-not-published-mobile.svg
 bannerAlt: A finished wheel and a complete publish workflow sitting behind a disabled file extension, waiting on live GitHub intake
 ---
 
