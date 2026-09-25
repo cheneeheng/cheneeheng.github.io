@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: The monorepo I wouldn't have built before Claude Code
 description: Why I pulled a dozen standalone Claude Code tools into one monorepo called C4 — and why that would have been a maintenance trap before Claude Code could read the whole thing.
 banner: /assets/blog/claude-code-command-center--consolidation.svg
+bannerMobile: /assets/blog/claude-code-command-center--consolidation-mobile.svg
 bannerAlt: From scattered standalone repos, to one monorepo called C4 split into apps, tools and libs, to Claude Code reading the whole repo and surfacing duplication
 ---
 

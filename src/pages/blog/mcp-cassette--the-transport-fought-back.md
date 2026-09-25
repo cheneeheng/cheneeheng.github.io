@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/mcp-cassette
 title: A buffered read, a greedy argparse, and one line I'm not proud of
 description: Three things about stdio nearly stopped the recording proxy from working at all — and shutting it down cleanly on Windows ended in os._exit(130) after I gave up on the correct design.
 banner: /assets/blog/mcp-cassette--the-transport-fought-back.svg
+bannerMobile: /assets/blog/mcp-cassette--the-transport-fought-back-mobile.svg
 bannerAlt: A proxy stalled mid-stream on a buffered read, an argument parser swallowing flags after the first positional, and a shutdown that terminates its child and exits with code 130
 ---
 

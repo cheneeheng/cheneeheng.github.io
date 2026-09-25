@@ -1,4 +1,5 @@
 ---
+import { readFileSync } from 'node:fs';
 import Layout from './Layout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import { formatDate } from '../lib/date';
@@ -12,6 +13,7 @@ interface Props {
     description?: string;
     banner?: string;
     bannerAlt?: string;
+    bannerMobile?: string;
     repo?: string;
     schemaType?: string;
   };
@@ -20,6 +22,12 @@ interface Props {
 const { frontmatter } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const banner = frontmatter.banner ? base + frontmatter.banner : undefined;
+const bannerMobile = frontmatter.bannerMobile ? base + frontmatter.bannerMobile : undefined;
+// Phone banners vary in height, so read the intrinsic size from the SVG's viewBox
+// at build time; the <source> then reserves the right space and nothing jumps.
+const [mobileW, mobileH] = frontmatter.bannerMobile
+  ? readFileSync(`public${frontmatter.bannerMobile}`, 'utf8').match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/)!.slice(1)
+  : [];
 const repo = frontmatter.repo;
 const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefined;
 
@@ -96,14 +104,19 @@ const schema = {
     </aside>
   )}
   {banner && (
-    <img
-      src={banner}
-      alt={frontmatter.bannerAlt ?? `${frontmatter.title} — banner`}
-      width="1200"
-      height="300"
-      loading="eager"
-      class="mb-10 w-full rounded-lg border border-line"
-    />
+    <picture class="mb-10 block overflow-hidden rounded-lg border border-line">
+      {bannerMobile && <source media="(max-width: 640px)" srcset={bannerMobile} width={mobileW} height={mobileH} />}
+      {/* Banners are drawn dark; light mode flips them with a filter. The border sits on
+          <picture> so the filter doesn't invert it. */}
+      <img
+        src={banner}
+        alt={frontmatter.bannerAlt ?? `${frontmatter.title} — banner`}
+        width="1200"
+        height="300"
+        loading="eager"
+        class="block w-full invert hue-rotate-180 dark:invert-0 dark:hue-rotate-0"
+      />
+    </picture>
   )}
   <article class="prose max-w-none leading-relaxed">
     <slot />

@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: I let a copy win, and it ate my status line
 description: file-sync keeps my Claude config in step across two folders, newer wins either way — until a raw copy clobbered a machine-specific statusLine.command and taught me why settings.json needs a merge, not a copy.
 banner: /assets/blog/claude-code-command-center--file-sync.svg
+bannerMobile: /assets/blog/claude-code-command-center--file-sync-mobile.svg
 bannerAlt: Two folders kept in sync newer-wins in both directions, a raw copy clobbering a machine-specific settings key, and a merge that keeps that key while newer values win
 ---
 

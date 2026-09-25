@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: The plugin manager I didn't write
 description: Every line of my Claude Code plugin manager was written by Claude Code. What I actually did all those days — specs, sequencing, and being the first user — and where the model out-debugged me.
 banner: /assets/blog/claude-code-builds-plugin-manager.svg
+bannerMobile: /assets/blog/claude-code-builds-plugin-manager-mobile.svg
 bannerAlt: A direct-and-build feedback loop between a prompt and a shipped package, over a rising release timeline from 0.0.1 to 0.6.0
 ---
 

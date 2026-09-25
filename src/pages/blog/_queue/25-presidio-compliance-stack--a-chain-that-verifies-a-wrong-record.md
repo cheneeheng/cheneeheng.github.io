@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: The hash chain verifies, and the record is still wrong
 description: Measuring my own audit store turned up a concurrency claim that didn't hold, and a case where a record names a recognizer that found nothing while the chain still verifies.
 banner: /assets/blog/presidio-compliance-stack--a-chain-that-verifies-a-wrong-record.svg
+bannerMobile: /assets/blog/presidio-compliance-stack--a-chain-that-verifies-a-wrong-record-mobile.svg
 bannerAlt: A hash-chained audit log where every link verifies green while one record's recognizer label points at a detection that was discarded
 ---
 

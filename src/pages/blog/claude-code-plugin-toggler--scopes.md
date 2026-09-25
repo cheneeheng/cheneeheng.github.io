@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: The plugin scope I skipped was the repo's own stance
 description: Going from a two-tier local/global plugin model to three scopes — Local, Project, User — because the missing one lets a repo carry its own opinions to whoever works in it.
 banner: /assets/blog/claude-code-plugin-toggler--scopes.svg
+bannerMobile: /assets/blog/claude-code-plugin-toggler--scopes-mobile.svg
 bannerAlt: Three stacked settings files — local gitignored, project committed, user home-wide — feeding one plugin toggle list
 ---
 

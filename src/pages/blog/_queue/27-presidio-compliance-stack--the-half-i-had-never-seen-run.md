@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: The half of the audit store I had never seen run
 description: On release morning the Linux append path finally ran in CI and passed. Then both packages went to PyPI, and the question the project started with is still open.
 banner: /assets/blog/presidio-compliance-stack--the-half-i-had-never-seen-run.svg
+bannerMobile: /assets/blog/presidio-compliance-stack--the-half-i-had-never-seen-run-mobile.svg
 bannerAlt: The audit store's two append paths, Windows and POSIX, both running green in CI on the way to a PyPI release
 ---
 

@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: Planning got so easy I drowned in plans
 description: Planning got cheap enough to do from my phone, so plans piled up across ten repos — docket is the single board I run them all from, one at a time or batched by project.
 banner: /assets/blog/docket--drowning-in-plans.svg
+bannerMobile: /assets/blog/docket--drowning-in-plans-mobile.svg
 bannerAlt: Plans piled across many repos, gathered onto one board showing each plan's lifecycle status, then run as a batch grouped by project
 ---
 

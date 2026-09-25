@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: Five plugins, five round trips
 description: Setting up yet another project with my usual Claude Code plugins, I got annoyed enough to build a toggler — a browser UI and a VSCode panel over one JSON file.
 banner: /assets/blog/claude-code-plugin-manager.svg
+bannerMobile: /assets/blog/claude-code-plugin-manager-mobile.svg
 bannerAlt: Rows of plugin toggle switches, some on and some off, with a cursor flipping one
 ---
 

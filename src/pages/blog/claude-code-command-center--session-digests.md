@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: Harvesting lessons from sessions I'd never reopen
 description: Claude sessions are disposable, so I harvest their lessons into a weekly master file on a schedule — plus a hand-run skill I built for a separate credit pot Anthropic announced but never shipped.
 banner: /assets/blog/claude-code-command-center--session-digests.svg
+bannerMobile: /assets/blog/claude-code-command-center--session-digests-mobile.svg
 bannerAlt: Sessions processed on a nightly schedule, their lessons funnelled into one weekly master file, runnable as either an unattended cron or an on-demand skill
 ---
 

@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-command-center
 title: CLI is all the rage, so I made one
 description: I already had a usage dashboard; I built the terminal version out of pure "can I" curiosity — and it's what finally justified extracting the shared parsing into a library.
 banner: /assets/blog/claude-code-command-center--usage-report.svg
+bannerMobile: /assets/blog/claude-code-command-center--usage-report-mobile.svg
 bannerAlt: A terminal running usage-report, the claude-usage library feeding both the dashboard and the report as its second consumer, and a by-model breakdown
 ---
 

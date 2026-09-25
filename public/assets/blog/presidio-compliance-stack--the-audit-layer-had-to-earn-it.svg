@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A balance weighing a Malaysian recognizer pack against an audit layer that records what was redacted, from where, and when, tipped toward the audit layer">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0b1120"/>
-      <stop offset="1" stop-color="#0f172a"/>
+      <stop offset="0" stop-color="#0C1F1D"/>
+      <stop offset="1" stop-color="#122A27"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="0.12" r="0.7">
-      <stop offset="0" stop-color="#34d399" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="0" stop-color="#f472b6" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
     </radialGradient>
     <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
       <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
@@ -17,23 +17,23 @@
   <rect width="1200" height="300" fill="url(#dots)"/>
   <rect width="1200" height="300" fill="url(#glow)"/>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
-    <rect x="560" y="258" width="80" height="10" rx="4" fill="#1e293b" stroke="#334155"/>
-    <rect x="596" y="110" width="8" height="150" fill="#334155"/>
-    <line x1="330" y1="92" x2="870" y2="128" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
-    <circle cx="600" cy="110" r="9" fill="#0b1120" stroke="#34d399" stroke-width="3"/>
-    <line x1="330" y1="92" x2="230" y2="120" stroke="#475569" stroke-width="1.5"/>
-    <line x1="330" y1="92" x2="430" y2="120" stroke="#475569" stroke-width="1.5"/>
-    <rect x="200" y="120" width="260" height="120" rx="16" fill="#1e293b" stroke="#334155"/>
-    <text x="330" y="146" font-size="10" fill="#64748b">recognizer pack</text>
-    <rect x="220" y="158" width="106" height="22" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="273.0" y="173" font-size="10" fill="#86efac">MY_NRIC</text><rect x="334" y="158" width="106" height="22" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="387.0" y="173" font-size="10" fill="#86efac">MY_SSM</text>
-    <rect x="220" y="186" width="106" height="22" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="273.0" y="201" font-size="10" fill="#86efac">MY_PHONE</text><rect x="334" y="186" width="106" height="22" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/><text x="387.0" y="201" font-size="10" fill="#86efac">MY_POSTCODE</text>
-    <text x="330" y="228" font-size="11" fill="#94a3b8">same shape, new regexes</text>
-    <line x1="870" y1="128" x2="770" y2="156" stroke="#475569" stroke-width="1.5"/>
-    <line x1="870" y1="128" x2="970" y2="156" stroke="#475569" stroke-width="1.5"/>
-    <rect x="740" y="156" width="260" height="120" rx="16" fill="#1e293b" stroke="#34d399" stroke-opacity="0.6"/>
-    <text x="870" y="182" font-size="10" fill="#64748b">audit layer</text>
-    <rect x="760" y="194" width="220" height="22" rx="6" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.5"/><text x="870.0" y="209" font-size="10" fill="#c4b5fd">what was redacted</text>
-    <rect x="760" y="222" width="105" height="22" rx="6" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.5"/><text x="812.5" y="237" font-size="10" fill="#c4b5fd">from where</text><rect x="875" y="222" width="105" height="22" rx="6" fill="#0b1120" stroke="#a78bfa" stroke-opacity="0.5"/><text x="927.5" y="237" font-size="10" fill="#c4b5fd">when</text>
-    <text x="870" y="264" font-size="11" fill="#34d399">nobody kept a record</text>
+    <rect x="560" y="258" width="80" height="10" rx="4" fill="#163230" stroke="#203F3A"/>
+    <rect x="596" y="110" width="8" height="150" fill="#203F3A"/>
+    <line x1="330" y1="92" x2="870" y2="128" stroke="#2D544D" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="600" cy="110" r="9" fill="#0C1F1D" stroke="#f472b6" stroke-width="3"/>
+    <line x1="330" y1="92" x2="230" y2="120" stroke="#2D544D" stroke-width="1.5"/>
+    <line x1="330" y1="92" x2="430" y2="120" stroke="#2D544D" stroke-width="1.5"/>
+    <rect x="200" y="120" width="260" height="120" rx="16" fill="#163230" stroke="#203F3A"/>
+    <text x="330" y="146" font-size="10" fill="#6E8782">recognizer pack</text>
+    <rect x="220" y="158" width="106" height="22" rx="6" fill="#0C1F1D" stroke="#2D544D" stroke-opacity="0.5"/><text x="273.0" y="173" font-size="10" fill="#E7F1EE">MY_NRIC</text><rect x="334" y="158" width="106" height="22" rx="6" fill="#0C1F1D" stroke="#2D544D" stroke-opacity="0.5"/><text x="387.0" y="173" font-size="10" fill="#E7F1EE">MY_SSM</text>
+    <rect x="220" y="186" width="106" height="22" rx="6" fill="#0C1F1D" stroke="#2D544D" stroke-opacity="0.5"/><text x="273.0" y="201" font-size="10" fill="#E7F1EE">MY_PHONE</text><rect x="334" y="186" width="106" height="22" rx="6" fill="#0C1F1D" stroke="#2D544D" stroke-opacity="0.5"/><text x="387.0" y="201" font-size="10" fill="#E7F1EE">MY_POSTCODE</text>
+    <text x="330" y="228" font-size="11" fill="#7C9590">same shape, new regexes</text>
+    <line x1="870" y1="128" x2="770" y2="156" stroke="#2D544D" stroke-width="1.5"/>
+    <line x1="870" y1="128" x2="970" y2="156" stroke="#2D544D" stroke-width="1.5"/>
+    <rect x="740" y="156" width="260" height="120" rx="16" fill="#163230" stroke="#f472b6" stroke-opacity="0.6"/>
+    <text x="870" y="182" font-size="10" fill="#6E8782">audit layer</text>
+    <rect x="760" y="194" width="220" height="22" rx="6" fill="#0C1F1D" stroke="#f472b6" stroke-opacity="0.5"/><text x="870.0" y="209" font-size="10" fill="#f9a8d4">what was redacted</text>
+    <rect x="760" y="222" width="105" height="22" rx="6" fill="#0C1F1D" stroke="#f472b6" stroke-opacity="0.5"/><text x="812.5" y="237" font-size="10" fill="#f9a8d4">from where</text><rect x="875" y="222" width="105" height="22" rx="6" fill="#0C1F1D" stroke="#f472b6" stroke-opacity="0.5"/><text x="927.5" y="237" font-size="10" fill="#f9a8d4">when</text>
+    <text x="870" y="264" font-size="11" fill="#f472b6">nobody kept a record</text>
   </g>
 </svg>

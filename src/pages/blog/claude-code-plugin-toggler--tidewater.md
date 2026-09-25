@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/claude-code-plugin-toggler
 title: Teal, because of the orange
 description: Reskinning my Claude Code plugin manager around teal and terracotta — a palette that stays related to Claude without looking like an Anthropic product, and a VSCode panel that does the same trick against the editor.
 banner: /assets/blog/claude-code-plugin-toggler--tidewater.svg
+bannerMobile: /assets/blog/claude-code-plugin-toggler--tidewater-mobile.svg
 bannerAlt: A terracotta swatch and a complementary teal swatch feeding a UI card with teal controls and one terracotta enabled row
 ---
 

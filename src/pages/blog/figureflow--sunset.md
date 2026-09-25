@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/figureflow
 title: figureflow worked. I shut it down anyway.
 description: I built figureflow to answer two questions — can you wrap React Flow in Python, and can an LLM author interactive diagrams with it. Both got answered. The second answer is why I archived it.
 banner: /assets/blog/figureflow-sunset.svg
+bannerMobile: /assets/blog/figureflow-sunset-mobile.svg
 bannerAlt: Two questions answered — wrapping React Flow in Python (yes), and LLM-authored interactive diagrams (static mermaid wins), leading to a clean sunset
 ---
 

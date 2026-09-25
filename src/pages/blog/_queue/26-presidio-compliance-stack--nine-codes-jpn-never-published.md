@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: Nine birthplace codes the registration department never published
 description: The NRIC recognizer accepted a range of place-of-birth codes on a recall argument. Reading all 294 rows of the official table showed nine of them don't exist.
 banner: /assets/blog/presidio-compliance-stack--nine-codes-jpn-never-published.svg
+bannerMobile: /assets/blog/presidio-compliance-stack--nine-codes-jpn-never-published-mobile.svg
 bannerAlt: A grid of two-digit NRIC place-of-birth codes from 01 to 99, with the published ones lit and nine gaps inside the foreign-country range
 ---
 

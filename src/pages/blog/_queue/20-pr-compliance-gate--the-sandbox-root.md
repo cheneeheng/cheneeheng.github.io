@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/pr-compliance-gate
 title: The sandbox root came out of the request body
 description: Every path the investigator resolved was checked against its sandbox. The sandbox itself was located by an unvalidated id from the POST body — so the guard was fine and the ground under it moved.
 banner: /assets/blog/pr-compliance-gate--the-sandbox-root.svg
+bannerMobile: /assets/blog/pr-compliance-gate--the-sandbox-root-mobile.svg
 bannerAlt: A path check correctly guarding everything inside a sandbox whose root is chosen by an untrusted request field
 ---
 
