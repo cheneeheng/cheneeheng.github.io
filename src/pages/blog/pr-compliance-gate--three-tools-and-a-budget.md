@@ -5,6 +5,7 @@ repo: https://github.com/cheneeheng/pr-compliance-gate
 title: Three read-only tools and a budget the model doesn't get to spend
 description: The investigator is the only part of the gate that goes off and reads a repository by itself, so most of its design is a list of things it cannot do — including fail.
 banner: /assets/blog/pr-compliance-gate--three-tools-and-a-budget.svg
+bannerMobile: /assets/blog/pr-compliance-gate--three-tools-and-a-budget-mobile.svg
 bannerAlt: A sub-agent with three read-only tools inside a sandbox, its turn, tool-call, and byte budgets counted outside it by the harness
 ---
 

@@ -12,6 +12,7 @@ interface Props {
     description?: string;
     banner?: string;
     bannerAlt?: string;
+    bannerMobile?: string;
     repo?: string;
     schemaType?: string;
   };
@@ -20,6 +21,7 @@ interface Props {
 const { frontmatter } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const banner = frontmatter.banner ? base + frontmatter.banner : undefined;
+const bannerMobile = frontmatter.bannerMobile ? base + frontmatter.bannerMobile : undefined;
 const repo = frontmatter.repo;
 const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefined;
 
@@ -96,14 +98,19 @@ const schema = {
     </aside>
   )}
   {banner && (
-    <img
-      src={banner}
-      alt={frontmatter.bannerAlt ?? `${frontmatter.title} — banner`}
-      width="1200"
-      height="300"
-      loading="eager"
-      class="mb-10 w-full rounded-lg border border-line"
-    />
+    <picture class="mb-10 block overflow-hidden rounded-lg border border-line">
+      {bannerMobile && <source media="(max-width: 640px)" srcset={bannerMobile} width="400" height="340" />}
+      {/* Banners are drawn dark; light mode flips them with a filter. The border sits on
+          <picture> so the filter doesn't invert it. */}
+      <img
+        src={banner}
+        alt={frontmatter.bannerAlt ?? `${frontmatter.title} — banner`}
+        width="1200"
+        height="300"
+        loading="eager"
+        class="block w-full invert hue-rotate-180 dark:invert-0 dark:hue-rotate-0"
+      />
+    </picture>
   )}
   <article class="prose max-w-none leading-relaxed">
     <slot />
