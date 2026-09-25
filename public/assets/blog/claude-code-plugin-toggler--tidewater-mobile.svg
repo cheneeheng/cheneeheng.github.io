@@ -22,10 +22,10 @@
     </pattern>
   </defs>
 
-  <rect width="1200" height="300" fill="url(#bg)"/>
-  <rect width="1200" height="300" fill="url(#dots)"/>
-  <rect width="1200" height="300" fill="url(#glow)"/>
-  <rect width="1200" height="300" fill="url(#glow2)"/>
+  
+  
+  
+  
 
   <!-- complementary swatches: terracotta (Claude) + teal (lead) -->
   <g font-family="ui-sans-serif, system-ui, sans-serif">
@@ -99,10 +99,10 @@
     </pattern>
   </defs>
 
-  <rect width="1200" height="300" fill="url(#bg)"/>
-  <rect width="1200" height="300" fill="url(#dots)"/>
-  <rect width="1200" height="300" fill="url(#glow)"/>
-  <rect width="1200" height="300" fill="url(#glow2)"/>
+  
+  
+  
+  
 
   <!-- complementary swatches: terracotta (Claude) + teal (lead) -->
   <g font-family="ui-sans-serif, system-ui, sans-serif">

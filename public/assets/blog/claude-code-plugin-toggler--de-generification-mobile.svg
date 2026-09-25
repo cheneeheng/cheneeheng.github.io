@@ -26,9 +26,9 @@
     </linearGradient>
   </defs>
 
-  <rect width="1200" height="300" fill="url(#bg)"/>
-  <rect width="1200" height="300" fill="url(#dots)"/>
-  <rect width="1200" height="300" fill="url(#glow)"/>
+  
+  
+  
 
   <!-- BEFORE: the garnished card — glows, gradients, floating rows, big radii -->
   <g transform="translate(120 70)" font-family="ui-sans-serif, system-ui, sans-serif">
@@ -129,9 +129,9 @@
     </linearGradient>
   </defs>
 
-  <rect width="1200" height="300" fill="url(#bg)"/>
-  <rect width="1200" height="300" fill="url(#dots)"/>
-  <rect width="1200" height="300" fill="url(#glow)"/>
+  
+  
+  
 
   <!-- BEFORE: the garnished card — glows, gradients, floating rows, big radii -->
   <g transform="translate(120 70)" font-family="ui-sans-serif, system-ui, sans-serif">
