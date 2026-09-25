@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: Without the audit layer it was a recognizer pack with Malaysian regexes
 description: Before building a Malaysian PII pack for Presidio, I made the audit layer argue for its place in both directions. It survived, on a narrower reason than the one I started with.
 banner: /assets/blog/presidio-compliance-stack--the-audit-layer-had-to-earn-it.svg
+bannerMobile: /assets/blog/presidio-compliance-stack--the-audit-layer-had-to-earn-it-mobile.svg
 bannerAlt: A balance weighing a Malaysian recognizer pack against an audit layer that records what was redacted, from where, and when, tipped toward the audit layer
 ---
 

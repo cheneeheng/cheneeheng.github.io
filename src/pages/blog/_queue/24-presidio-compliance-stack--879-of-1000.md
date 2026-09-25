@@ -4,6 +4,7 @@ repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: 879 of 1000 records, and no torn line to notice
 description: Building the v1 plans for a Malaysian PII pack and its audit store surfaced four places the plans were wrong — the worst was an audit log that silently lost records on Windows.
 banner: /assets/blog/presidio-compliance-stack--879-of-1000.svg
+bannerMobile: /assets/blog/presidio-compliance-stack--879-of-1000-mobile.svg
 bannerAlt: Four concurrent writers appending to one audit file, with a gap where 121 of the 1000 records were silently overwritten
 ---
 
