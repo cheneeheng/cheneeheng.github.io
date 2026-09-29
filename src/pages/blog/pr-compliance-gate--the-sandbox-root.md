@@ -1,4 +1,5 @@
 ---
+date: 2026-09-29
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/pr-compliance-gate
 title: The sandbox root came out of the request body
