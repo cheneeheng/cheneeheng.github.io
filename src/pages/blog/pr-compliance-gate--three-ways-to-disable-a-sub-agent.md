@@ -1,4 +1,5 @@
 ---
+date: 2026-10-01
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/pr-compliance-gate
 title: Three unrelated bugs, one symptom, and a fully covered test suite
