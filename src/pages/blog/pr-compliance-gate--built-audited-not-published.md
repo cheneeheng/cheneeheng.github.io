@@ -1,4 +1,5 @@
 ---
+date: 2026-10-06
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/pr-compliance-gate
 title: The wheel is built, audited, and parked
