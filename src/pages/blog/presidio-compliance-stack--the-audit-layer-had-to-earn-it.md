@@ -1,4 +1,5 @@
 ---
+date: 2026-10-08
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: Without the audit layer it was a recognizer pack with Malaysian regexes
