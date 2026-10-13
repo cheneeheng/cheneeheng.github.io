@@ -1,4 +1,5 @@
 ---
+date: 2026-10-13
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: 879 of 1000 records, and no torn line to notice
