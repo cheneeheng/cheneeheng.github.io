@@ -1,4 +1,5 @@
 ---
+date: 2026-10-15
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: The hash chain verifies, and the record is still wrong
