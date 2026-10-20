@@ -2,11 +2,18 @@ import { formatDate } from './date';
 
 // Posts that share a `repo` are episodes of one series, ordered by date. The
 // series is derived rather than declared per post so a new queued post joins
-// its series on publish day with no frontmatter to remember.
+// its series on publish day with no frontmatter to remember. Posts with no
+// repo can name their series with `series:` instead.
 interface SeriesFrontmatter {
   title: string;
   date?: unknown;
   repo?: string;
+  series?: string;
+}
+
+/** The series a post belongs to: `series:` if set, else the repo's name. */
+export function seriesName(fm: { repo?: string; series?: string }): string | undefined {
+  return fm.series ?? fm.repo?.split('/').pop();
 }
 
 const modules = import.meta.glob<{ frontmatter: SeriesFrontmatter }>(
@@ -22,8 +29,8 @@ export interface Series {
 }
 
 /** Where `slug` sits in its series, or undefined if the post stands alone. */
-export function seriesOf(repo: string | undefined, slug: string): Series | undefined {
-  if (!repo) return undefined;
+export function seriesOf(name: string | undefined, slug: string): Series | undefined {
+  if (!name) return undefined;
   // Read frontmatter lazily: posts import the layout that calls this, so
   // touching it at module scope would trip the import cycle.
   const parts = Object.entries(modules)
@@ -31,14 +38,14 @@ export function seriesOf(repo: string | undefined, slug: string): Series | undef
       slug: path.split('/').pop()!.replace(/\.md$/, ''),
       title: m.frontmatter.title,
       date: formatDate(m.frontmatter.date),
-      repo: m.frontmatter.repo,
+      name: seriesName(m.frontmatter),
     }))
-    .filter((p) => p.repo === repo)
+    .filter((p) => p.name === name)
     .sort((a, b) => a.date.localeCompare(b.date));
   const index = parts.findIndex((p) => p.slug === slug);
   if (parts.length < 2 || index < 0) return undefined;
   return {
-    name: repo.split('/').pop()!,
+    name,
     part: index + 1,
     total: parts.length,
     first: parts[0],
