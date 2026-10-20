@@ -12,6 +12,8 @@ interface PostFrontmatter {
   repo?: string;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const modules = import.meta.glob<{ frontmatter: PostFrontmatter; url: string }>(
   './*.md',
   { eager: true },
@@ -28,15 +30,35 @@ const posts = Object.values(modules)
 
 // Posts are already newest-first, so consecutive runs of the same YYYY-MM
 // are the month groups.
-const months: { label: string; posts: typeof posts }[] = [];
+const months: { id: string; label: string; short: string; posts: typeof posts }[] = [];
 for (const p of posts) {
   const ym = formatDate(p.date).slice(0, 7);
+  const date = new Date(`${ym}-01`);
   const label = ym
-    ? new Date(`${ym}-01`).toLocaleString('en', { month: 'long', year: 'numeric', timeZone: 'UTC' })
+    ? date.toLocaleString('en', { month: 'long', year: 'numeric', timeZone: 'UTC' })
     : 'Undated';
-  if (months.at(-1)?.label !== label) months.push({ label, posts: [] });
+  if (months.at(-1)?.label !== label)
+    months.push({
+      id: ym ? `m-${ym}` : 'm-undated',
+      label,
+      // less-code: month only, since every post so far is from 2026. Add the year
+      // once the archive spans two years, or "Jan" becomes ambiguous.
+      short: ym ? date.toLocaleString('en', { month: 'short', timeZone: 'UTC' }) : 'Undated',
+      posts: [],
+    });
   months.at(-1)!.posts.push(p);
 }
+
+// Series in order of their latest episode, each listing its parts oldest first.
+const seriesList: { name: string; posts: typeof posts }[] = [];
+for (const p of posts) {
+  if (!p.series) continue;
+  let s = seriesList.find((x) => x.name === p.series!.name);
+  if (!s) seriesList.push((s = { name: p.series.name, posts: [] }));
+  s.posts.push(p);
+}
+// Order by part number, not position: same-day episodes would otherwise swap.
+for (const s of seriesList) s.posts.sort((a, b) => a.series!.part - b.series!.part);
 ---
 
 <Layout title="Blog — EE Heng Chen" description="EE Heng Chen's build logs: Claude Code plugins, MCP tooling and LLM compliance projects, each told as a series that follows the project.">
@@ -48,6 +70,29 @@ for (const p of posts) {
 
   <span class="eyebrow">Posts · {posts.length}</span>
 
+  {/* Pinned on wider screens only: wrapped series names would cover too much of a phone. */}
+  {posts.length > 0 && (
+    <nav aria-label="Jump to" class="z-10 -mx-4 mt-4 space-y-1.5 border-b border-line bg-page px-4 py-3 text-sm sm:sticky sm:top-0">
+      {[
+        { label: 'Months', links: months.map((m) => ({ href: `#${m.id}`, text: m.short, count: m.posts.length })) },
+        { label: 'Series', links: seriesList.map((s) => ({ href: `#series-${s.name}`, text: s.name, count: s.posts.length })) },
+      ].map((row) => (
+        <div class="flex items-baseline gap-3">
+          <span class="eyebrow w-14 shrink-0">{row.label}</span>
+          <ul class="flex flex-wrap gap-x-4 gap-y-1">
+            {row.links.map((l) => (
+              <li>
+                <a href={l.href} class="no-underline text-muted hover:text-brand">
+                  {l.text} <span class="mono text-xs text-subtle">{l.count}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+  )}
+
   {posts.length === 0 ? (
     <p class="mt-4 rounded-lg border border-dashed border-line-strong p-8 text-center text-muted">
       Nothing published yet — the first post is still in the queue.
@@ -55,7 +100,7 @@ for (const p of posts) {
   ) : (
     <div class="mt-6 space-y-10">
       {months.map((m) => (
-        <section>
+        <section id={m.id} class="scroll-mt-28">
           <h2 class="mb-4 flex items-center gap-3">
             <span class="font-serif text-lg font-semibold tracking-tight text-ink">{m.label}</span>
             <span class="h-px grow bg-line"></span>
@@ -70,6 +115,32 @@ for (const p of posts) {
           </ul>
         </section>
       ))}
+
+      {seriesList.length > 0 && (
+        <section class="border-t border-line pt-10">
+          <h2 class="mb-6 font-serif text-2xl font-semibold tracking-tight text-ink">By series</h2>
+          <div class="space-y-8">
+            {seriesList.map((s) => (
+              <section id={`series-${s.name}`} class="scroll-mt-28">
+                <h3 class="mb-3 flex items-center gap-3">
+                  <span class="mono text-ink"><span class="text-brand">#</span>{s.name}</span>
+                  <span class="h-px grow bg-line"></span>
+                  <span class="mono text-xs text-subtle">{s.posts.length} parts</span>
+                </h3>
+                <ol class="space-y-2">
+                  {s.posts.map((p, i) => (
+                    <li class="flex items-baseline gap-3">
+                      <span class="mono w-6 shrink-0 text-xs text-subtle">{i + 1}.</span>
+                      <a href={base + p.url} class="grow underline-offset-4">{p.title}</a>
+                      <span class="eyebrow shrink-0">{formatDate(p.date)}</span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )}
 </Layout>
