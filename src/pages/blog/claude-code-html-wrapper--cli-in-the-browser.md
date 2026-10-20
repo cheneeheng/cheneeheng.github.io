@@ -7,6 +7,9 @@ description: The generic recipe underneath my Claude Code wrapper — a WebSocke
 banner: /assets/blog/cli-in-the-browser.svg
 bannerMobile: /assets/blog/cli-in-the-browser-mobile.svg
 bannerAlt: A left-to-right pipeline from browser xterm.js through a websocket to node-pty to docker exec to a CLI process
+changelog:
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 When I peeled the Claude-specific parts off [the wrapper I built](/blog/claude-code-html-wrapper--in-the-browser), what was left turned out to be generic: a way to drive *any* interactive CLI from a browser tab, with the process sandboxed in a container. I went looking for a writeup like this before I built mine and didn't find one that included the failure modes, so this is the version I wish I'd had — the recipe, plus the five places I lost time.

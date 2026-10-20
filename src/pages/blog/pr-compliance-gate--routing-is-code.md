@@ -7,6 +7,9 @@ description: Routing in the gate is a pure-Python rule ladder, not an LLM call �
 banner: /assets/blog/pr-compliance-gate--routing-is-code.svg
 bannerMobile: /assets/blog/pr-compliance-gate--routing-is-code-mobile.svg
 bannerAlt: A rule ladder routing a review to investigate, human, or verdict, with accumulated stale findings blocking the clean path
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 [Last time](/blog/pr-compliance-gate--proving-it-to-myself) I said the machinery worked and left the harder question — whether the reviews are any good — alone. This post is about the one piece of that machinery I was never tempted to hand to a model, and about the bug that hid behind it for a while anyway.

@@ -7,6 +7,9 @@ description: A self-hosted web front end for Claude Code — one Docker containe
 banner: /assets/blog/claude-code-in-the-browser.svg
 bannerMobile: /assets/blog/claude-code-in-the-browser-mobile.svg
 bannerAlt: A browser terminal connected over a websocket to a Claude process running inside a Docker container with a persistent workspace volume
+changelog:
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 Claude Code lives in your terminal, and mostly that's the right place for it. But a terminal is tied to one machine — your laptop, your dotfiles, your local checkout — and I kept running into the edges of that. I wanted to open a browser tab on whatever device was in front of me and find Claude Code waiting there, with its own workspace, in whatever state I'd left it, regardless of whether my laptop was awake. No such thing existed in the shape I wanted, so I built it: [`claude-code-html-wrapper`](https://github.com/cheneeheng/claude-code-html-wrapper), a small self-hosted web front end that puts a real Claude Code terminal in the browser.

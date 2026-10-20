@@ -7,6 +7,9 @@ description: The Claude Code status line shows the moment; I wanted the story �
 banner: /assets/blog/usage-dashboard--where-tokens-go.svg
 bannerMobile: /assets/blog/usage-dashboard--where-tokens-go-mobile.svg
 bannerAlt: A usage dashboard with a by-project bar chart, an activity heatmap of when Claude Code gets used, and a rate-limit trajectory line climbing toward a cap
+changelog:
+  - date: 2026-08-01
+    note: Linked the status line post in the opening
 ---
 
 [The status line](/blog/claude-code-command-center--statusline) could tell me the moment I was in — how full the context was, how close the next reset — and nothing about the shape of any of it. It couldn't tell me that one project had quietly eaten most of my week, or that I burn tokens fastest on Sunday nights, or that a single runaway session cost more than the previous twenty combined. I wanted the story behind the live number, and one line was never going to hold a story.

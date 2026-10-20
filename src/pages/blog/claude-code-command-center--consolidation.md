@@ -7,6 +7,9 @@ description: Why I pulled a dozen standalone Claude Code tools into one monorepo
 banner: /assets/blog/claude-code-command-center--consolidation.svg
 bannerMobile: /assets/blog/claude-code-command-center--consolidation-mobile.svg
 bannerAlt: From scattered standalone repos, to one monorepo called C4 split into apps, tools and libs, to Claude Code reading the whole repo and surfacing duplication
+changelog:
+  - date: 2026-08-01
+    note: Added section headings
 ---
 
 Three things kept happening. I'd sit down to build some small Claude Code utility and realize I'd already written half of it somewhere else — the same transcript-reading loop, copied into another repo. I'd open a folder and genuinely not be sure what I'd built the week before. And when I wanted to run one of these on another machine, I'd have to remember how I'd set it up, which I never could. Hey, there are quite some duplications. Hey, I'm not sure what I built last week. Hey, how do I set that up again.

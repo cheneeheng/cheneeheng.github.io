@@ -7,6 +7,9 @@ description: My Claude Code wrapper has no database, no Docker SDK, and no permi
 banner: /assets/blog/wrapping-claude-code-lessons.svg
 bannerMobile: /assets/blog/wrapping-claude-code-lessons-mobile.svg
 bannerAlt: Three design decisions — Claude's own JSONL transcripts as the source of truth, the docker CLI instead of an SDK, and the container as the security boundary
+changelog:
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 The thing I'm most pleased with about [the browser wrapper](/blog/claude-code-html-wrapper--in-the-browser) isn't a feature — it's how little of it there is. The whole server is about seven files. Looking back at how that happened, it comes down to three moments where the obvious, "proper" approach would have added a database, a dependency, or a prompt, and where I talked myself out of the proper thing. All three calls were made in the iteration specs, before any code existed — which mattered, because "do we actually need this layer?" is a question that costs nothing to answer on paper and a refactor to answer afterwards.

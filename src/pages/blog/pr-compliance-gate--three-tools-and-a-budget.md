@@ -7,6 +7,9 @@ description: The investigator is the only part of the gate that goes off and rea
 banner: /assets/blog/pr-compliance-gate--three-tools-and-a-budget.svg
 bannerMobile: /assets/blog/pr-compliance-gate--three-tools-and-a-budget-mobile.svg
 bannerAlt: A sub-agent with three read-only tools inside a sandbox, its turn, tool-call, and byte budgets counted outside it by the harness
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 [Last time](/blog/pr-compliance-gate--routing-is-code) I said the expensive part of the pipeline was the sub-agent that goes off and reads the repository on its own, and that most of my design effort went into deciding what it was not allowed to do. This is that list.

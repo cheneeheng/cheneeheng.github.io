@@ -7,6 +7,9 @@ description: Three things about stdio nearly stopped the recording proxy from wo
 banner: /assets/blog/mcp-cassette--the-transport-fought-back.svg
 bannerMobile: /assets/blog/mcp-cassette--the-transport-fought-back-mobile.svg
 bannerAlt: A proxy stalled mid-stream on a buffered read, an argument parser swallowing flags after the first positional, and a shutdown that terminates its child and exits with code 130
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image and updated its description
 ---
 
 [Last time](/blog/mcp-cassette--paying-the-agent) I described the first working version as though it had arrived intact. It didn't. Two things about stdio nearly stopped the recording proxy from working at all, and a third — shutting the thing down cleanly on Windows — cost me most of an afternoon and ended in a line of code I'm still a little embarrassed by.

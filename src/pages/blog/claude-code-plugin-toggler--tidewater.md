@@ -7,6 +7,11 @@ description: Reskinning my Claude Code plugin manager around teal and terracotta
 banner: /assets/blog/claude-code-plugin-toggler--tidewater.svg
 bannerMobile: /assets/blog/claude-code-plugin-toggler--tidewater-mobile.svg
 bannerAlt: A terracotta swatch and a complementary teal swatch feeding a UI card with teal controls and one terracotta enabled row
+changelog:
+  - date: 2026-06-10
+    note: Rewrote the post as part of an ongoing series
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 With the [three-scope work](/blog/claude-code-plugin-toggler--scopes) done, the toggler was finally in the shape I'd wanted it to be. The toggles did what I needed, the scopes covered how I actually work, and for the first time there was no obvious next feature nagging at me. So the next thing I reached for wasn't a feature at all. I open this tool every day, and every day it looked flat. I wanted it to look nice.

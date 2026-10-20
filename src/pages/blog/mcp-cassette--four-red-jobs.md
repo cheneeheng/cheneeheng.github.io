@@ -7,6 +7,9 @@ description: The clean POSIX shutdown path had never run anywhere. CI ran it on 
 banner: /assets/blog/mcp-cassette--four-red-jobs.svg
 bannerMobile: /assets/blog/mcp-cassette--four-red-jobs-mobile.svg
 bannerAlt: A CI matrix with four failing POSIX jobs and one passing Windows job, and a proxy blocked waiting on a child process that is still alive
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 [Last time](/blog/mcp-cassette--the-transport-fought-back) I ended on the POSIX shutdown path — the clean, symmetric, cancel-the-task-group one I was rather fond of, and had never actually run. The first time it ran was in CI, on machines I didn't own, attached to a pull request, in front of nobody but still somehow in public.

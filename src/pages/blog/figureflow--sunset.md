@@ -7,6 +7,9 @@ description: I built figureflow to answer two questions — can you wrap React F
 banner: /assets/blog/figureflow-sunset.svg
 bannerMobile: /assets/blog/figureflow-sunset-mobile.svg
 bannerAlt: Two questions answered — wrapping React Flow in Python (yes), and LLM-authored interactive diagrams (static mermaid wins), leading to a clean sunset
+changelog:
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 The thing that ended figureflow was finishing it. I'd just shipped the v3 surface — a published JSON Schema, a single `validate()` funnel that collects every problem into one repair-friendly error, `from_mermaid()`, an MCP server so an agent and a human could edit the same canvas — the whole machinery for letting an LLM author a diagram coordinate-free. It was the most satisfying engineering in the project. And somewhere in the middle of writing the docs for it, I asked myself the question I'd been postponing: would I actually reach for this in any of my own projects? The answer was no, and once I'd said it plainly I couldn't un-say it.
