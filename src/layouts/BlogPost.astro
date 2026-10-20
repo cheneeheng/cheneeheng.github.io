@@ -36,6 +36,8 @@ const repoName = repo ? new URL(repo).pathname.replace(/^\/|\/$/g, '') : undefin
 // Markdown twin: same path with a .md suffix (see src/pages/blog/[slug].md.ts).
 const path = Astro.url.pathname.replace(/\/$/, '');
 const mdHref = path + '.md';
+// Social card: PNG twin of the banner (see src/pages/blog/[slug].png.ts).
+const ogImage = frontmatter.banner ? path + '.png' : undefined;
 
 const series = seriesOf(repo, path.split('/').pop() ?? '');
 
@@ -57,9 +59,7 @@ const schema = {
   ...(frontmatter.description ? { description: frontmatter.description } : {}),
   ...(published ? { datePublished: published } : {}),
   ...(modified ? { dateModified: modified } : {}),
-  ...(frontmatter.banner
-    ? { image: new URL(frontmatter.banner, Astro.site).href }
-    : {}),
+  ...(ogImage ? { image: new URL(ogImage, Astro.site).href } : {}),
   author: {
     '@type': 'Person',
     name: 'Chen Ee Heng',
@@ -72,7 +72,7 @@ const schema = {
 <Layout
   title={`${frontmatter.title} — EE Heng Chen`}
   description={frontmatter.description}
-  image={frontmatter.banner}
+  image={ogImage}
   ogType="article"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
