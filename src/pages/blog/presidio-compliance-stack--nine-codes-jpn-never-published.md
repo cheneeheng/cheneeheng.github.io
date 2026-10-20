@@ -1,4 +1,5 @@
 ---
+date: 2026-10-20
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: Nine birthplace codes the registration department never published
