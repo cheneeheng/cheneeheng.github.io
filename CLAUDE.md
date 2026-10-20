@@ -82,10 +82,12 @@ Each post lives in `src/pages/blog/<repo>--<detail>.md`, sets `layout: ../../lay
 
 The site is optimized to be both indexed by search engines and cited by AI systems. Preserve these when adding pages or posts:
 
-- **`src/components/BaseHead.astro`** emits `<title>`, meta description, canonical, Open Graph, and Twitter-card tags. It is included by `Layout.astro`; every page gets it for free. Pass `image` and `ogType` through `Layout` props to override (blog posts pass the banner and `ogType="article"`).
+- **`src/components/BaseHead.astro`** emits `<title>`, meta description, canonical, Open Graph, and Twitter-card tags. It is included by `Layout.astro`; every page gets it for free. Pass `image` and `ogType` through `Layout` props to override (blog posts pass their PNG social card and `ogType="article"`). Without an `image` the page falls back to the square headshot and a `summary` Twitter card. Every page passes its own `description` (≤155 chars); the `Layout` default is a generic fallback only.
+- **Social cards.** `src/pages/blog/[slug].png.ts` rasterizes each post's SVG banner with `sharp` into a 1200×630 PNG at `/blog/<slug>.png`, used for `og:image` and the JSON-LD `image`. Link-preview scrapers ignore SVG. Auto-covers new posts.
+- **Redirects.** A published post whose slug changes gets an entry in `redirects` in `astro.config.mjs` (meta-refresh + canonical, the best GitHub Pages allows).
 - **JSON-LD.** `BlogPost.astro` emits a `BlogPosting` per post from frontmatter (with `dateModified` falling back to `date`); `index.astro` emits a `Person` entity. Author is **Chen Ee Heng**.
 - **`@astrojs/sitemap`** (in `astro.config.mjs`) generates `/sitemap-index.xml`. `public/robots.txt` references it and explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.).
-- **`src/pages/llms.txt.ts`** generates `/llms.txt` from `import.meta.glob` of the posts — it stays in sync automatically; no manual edit needed when publishing.
+- **`src/pages/llms.txt.ts`** generates `/llms.txt` from `import.meta.glob` of the posts — it stays in sync automatically; no manual edit needed when publishing. Its `## Pages` list is hand-written: update it when a top-level page is added. It also fails the build if a post has no `description`.
 - **Markdown twins.** `src/pages/blog/[slug].md.ts` serves every post's raw Markdown at `/blog/<slug>.md` (frontmatter stripped, title + description prepended) for token-efficient agent consumption. `BlogPost.astro` links to it ("View as Markdown"). This auto-covers new posts.
 
 Optional post frontmatter for SEO: `updated:` (sets `dateModified` / freshness signal, overriding the latest `changelog:` date) and `schemaType:` (override `BlogPosting`, e.g. `HowTo`, `FAQPage`, `TechArticle`, `SoftwareSourceCode` to match the post's shape). These are read by `BlogPost.astro`; everything else about queuing/publishing is unchanged.
