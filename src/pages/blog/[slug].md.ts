@@ -1,4 +1,5 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
+import { formatDate } from '../../lib/date';
 import { seriesOf } from '../../lib/series';
 
 // Markdown twins: serve every post's raw Markdown at /blog/<slug>.md so AI
@@ -16,6 +17,7 @@ interface PostFrontmatter {
   title: string;
   description?: string;
   repo?: string;
+  changelog?: { date: string; note: string }[];
 }
 const metaModules = import.meta.glob<{ frontmatter: PostFrontmatter }>('./*.md', {
   eager: true,
@@ -36,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = () =>
 export const GET: APIRoute = ({ props }) => {
   const { path } = props as { path: string };
   const raw = rawModules[path];
-  const { title, description, repo } = metaModules[path].frontmatter;
+  const { title, description, repo, changelog = [] } = metaModules[path].frontmatter;
 
   const series = seriesOf(repo, slugFromPath(path));
   const seriesNote = series
@@ -47,7 +49,13 @@ export const GET: APIRoute = ({ props }) => {
       }\n\n`
     : '';
 
-  const body = `# ${title}\n\n${description ? `> ${description}\n\n` : ''}${seriesNote}${stripFrontmatter(raw)}\n`;
+  const changes = changelog.length
+    ? `\n\n## Edits since publishing\n\n${changelog
+        .map((c) => `- ${formatDate(c.date)}: ${c.note}`)
+        .join('\n')}`
+    : '';
+
+  const body = `# ${title}\n\n${description ? `> ${description}\n\n` : ''}${seriesNote}${stripFrontmatter(raw)}${changes}\n`;
 
   return new Response(body, {
     headers: { 'Content-Type': 'text/markdown; charset=utf-8' },

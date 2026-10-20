@@ -7,6 +7,11 @@ description: Going from a two-tier local/global plugin model to three scopes —
 banner: /assets/blog/claude-code-plugin-toggler--scopes.svg
 bannerMobile: /assets/blog/claude-code-plugin-toggler--scopes-mobile.svg
 bannerAlt: Three stacked settings files — local gitignored, project committed, user home-wide — feeding one plugin toggle list
+changelog:
+  - date: 2026-06-10
+    note: Rewrote the post as part of an ongoing series
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 A few weeks after shipping [the toggler](/blog/claude-code-plugin-toggler--plugin-manager), I built a skill that had nowhere to live. It encodes how commits should be written in one particular repo — the conventions, the format, the stance. I wanted it active for anyone who worked in that repo, not just for me on this laptop. And I realized, toggles hovering in front of me, that my own tool couldn't say that.

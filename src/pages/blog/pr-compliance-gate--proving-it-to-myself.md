@@ -7,6 +7,9 @@ description: A portfolio piece, plainly — a LangGraph and Agent SDK pipeline t
 banner: /assets/blog/pr-compliance-gate--proving-it-to-myself.svg
 bannerMobile: /assets/blog/pr-compliance-gate--proving-it-to-myself-mobile.svg
 bannerAlt: A review pipeline split into a cheap green path and an expensive orange path, with two gates controlling which traffic reaches the expensive one
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 The honest version is that I wanted to find out whether I could build one. Not a demo of an agent calling a tool — an actual orchestrated pipeline, with a cost gate deciding what's worth spending money on, specialists running in parallel, a sub-agent on a short leash, and a human who has to say yes before anything is final. I had read enough about production agent systems to have opinions about them. I hadn't built one end to end, and an opinion you haven't paid for isn't worth much.

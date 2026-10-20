@@ -16,6 +16,8 @@ interface Props {
     bannerMobile?: string;
     repo?: string;
     schemaType?: string;
+    // Edits made to this post after it was published, oldest first.
+    changelog?: { date: string; note: string }[];
   };
 }
 
@@ -41,12 +43,13 @@ const series = seriesOf(repo, path.split('/').pop() ?? '');
 const tags = repoName ? [repoName.split('/').pop()!] : [];
 
 // JSON-LD structured data — a freshness/authorship signal for search and AI
-// answer surfaces. dateModified falls back to date so it is always present.
+// answer surfaces. dateModified falls back to the latest changelog entry, then
+// to date, so it is always present.
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const changelog = frontmatter.changelog ?? [];
+const modifiedAt = frontmatter.updated ?? changelog.at(-1)?.date;
 const published = frontmatter.date ? new Date(frontmatter.date).toISOString() : undefined;
-const modified = frontmatter.updated
-  ? new Date(frontmatter.updated).toISOString()
-  : published;
+const modified = modifiedAt ? new Date(modifiedAt).toISOString() : published;
 const schema = {
   '@context': 'https://schema.org',
   '@type': frontmatter.schemaType ?? 'BlogPosting',
@@ -127,6 +130,21 @@ const schema = {
     </a>
     <span class="text-subtle"> — raw source for agents and LLMs</span>
   </p>
+  {changelog.length > 0 && (
+    <details class="mt-8 rounded-lg border border-line bg-surface px-5 py-4 text-sm text-muted">
+      <summary class="cursor-pointer">
+        Edited {changelog.length} {changelog.length === 1 ? 'time' : 'times'} since publishing
+      </summary>
+      <ul class="mt-3 space-y-1.5">
+        {changelog.map((c) => (
+          <li>
+            <time datetime={formatDate(c.date)} class="mono text-subtle">{formatDate(c.date)}</time>
+            {' '}{c.note}
+          </li>
+        ))}
+      </ul>
+    </details>
+  )}
   {repo && (
     <aside class="mt-12 flex items-center gap-3 rounded-lg border border-line bg-surface px-5 py-4">
       <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" class="shrink-0 fill-current text-muted">

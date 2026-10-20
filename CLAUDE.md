@@ -25,7 +25,7 @@ Content is split across three mechanisms; pick the right one:
 - **`src/content/now.md`** — single Markdown file imported directly by `NowContent.astro` (not a content collection). Frontmatter `updated:` is rendered as "Last updated".
 - **`src/pages/blog/*.md`** — blog posts as standalone Markdown pages. The blog index (`src/pages/blog/index.astro`) discovers them with `import.meta.glob('./*.md', { eager: true })` and sorts by frontmatter `date`. Each post must set `layout: ../../layouts/BlogPost.astro` so it renders inside the site shell.
 
-**Do not write new posts directly into `src/pages/blog/`.** New posts go into the **publish queue** at `src/pages/blog/_queue/` and CI publishes them on a schedule — see below. Edit a file in `src/pages/blog/` directly only to fix an *already-published* post. (The `_queue` glob is excluded by the leading-underscore directory, so queued posts don't render until moved out.)
+**Do not write new posts directly into `src/pages/blog/`.** New posts go into the **publish queue** at `src/pages/blog/_queue/` and CI publishes them on a schedule — see below. Edit a file in `src/pages/blog/` directly only to fix an *already-published* post, and append a `changelog:` entry (`- date: YYYY-MM-DD` / `note: <what changed, for readers>`, oldest first) to its frontmatter. `BlogPost.astro` renders the list as a collapsed "Edited N times since publishing" panel, `[slug].md.ts` appends it to the Markdown twin, and the latest entry becomes `dateModified`. Log only edits to that post itself (its text, its own banner, its URL), not site-wide rollouts such as layout changes or adding phone banners to every post. (The `_queue` glob is excluded by the leading-underscore directory, so queued posts don't render until moved out.)
 
 ### Blog publish queue
 
@@ -88,7 +88,7 @@ The site is optimized to be both indexed by search engines and cited by AI syste
 - **`src/pages/llms.txt.ts`** generates `/llms.txt` from `import.meta.glob` of the posts — it stays in sync automatically; no manual edit needed when publishing.
 - **Markdown twins.** `src/pages/blog/[slug].md.ts` serves every post's raw Markdown at `/blog/<slug>.md` (frontmatter stripped, title + description prepended) for token-efficient agent consumption. `BlogPost.astro` links to it ("View as Markdown"). This auto-covers new posts.
 
-Optional post frontmatter for SEO: `updated:` (sets `dateModified` / freshness signal) and `schemaType:` (override `BlogPosting`, e.g. `HowTo`, `FAQPage`, `TechArticle`, `SoftwareSourceCode` to match the post's shape). These are read by `BlogPost.astro`; everything else about queuing/publishing is unchanged.
+Optional post frontmatter for SEO: `updated:` (sets `dateModified` / freshness signal, overriding the latest `changelog:` date) and `schemaType:` (override `BlogPosting`, e.g. `HowTo`, `FAQPage`, `TechArticle`, `SoftwareSourceCode` to match the post's shape). These are read by `BlogPost.astro`; everything else about queuing/publishing is unchanged.
 
 The full visibility playbook (rationale, content-writing rules, known gaps, open checklist) is `.agents_workspace/blog-visibility-optimization-guide.md`. For any SEO/AEO work, start from its Section 9 checklist; its Section 3 content rules yield to the Blog voice section above for serial episodes.
 

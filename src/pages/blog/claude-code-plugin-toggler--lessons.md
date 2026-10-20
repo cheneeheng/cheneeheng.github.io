@@ -7,6 +7,13 @@ description: I promised to write up the path problems once I understood them. It
 banner: /assets/blog/plugin-toggler-lessons.svg
 bannerMobile: /assets/blog/plugin-toggler-lessons-mobile.svg
 bannerAlt: Two mirrored implementations writing to one shared file, with a lowercase c-drive vs uppercase C-drive path mismatch flagged
+changelog:
+  - date: 2026-06-07
+    note: Moved to a new URL (was /blog/plugin-toggler-lessons)
+  - date: 2026-06-10
+    note: Rewrote the post as part of an ongoing series
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 [Last time](/blog/claude-code-plugin-toggler--plugin-manager) I said Windows had opinions about file paths and that I'd write it up once I understood what was going on. It took three releases to get there, and the last step wasn't me understanding it — it was Claude Code finding the one character I'd been unable to see.

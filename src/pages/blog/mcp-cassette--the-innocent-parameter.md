@@ -7,6 +7,9 @@ description: An echo tool grew a callback_url and lint had nothing to say about 
 banner: /assets/blog/mcp-cassette--the-innocent-parameter.svg
 bannerMobile: /assets/blog/mcp-cassette--the-innocent-parameter-mobile.svg
 bannerAlt: Two committed cassettes compared, where a poisoned description trips lint and a harmless-looking new parameter only trips diff
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 [Last time](/blog/mcp-cassette--a-supply-chain-surface) I said I'd sat down and constructed an example that sails past every lint rule while doing something I would absolutely want to know about. It's committed in the repo now, as `examples/cassettes/tools-v2.mcp.json`, and it is the same example echo server one version later.

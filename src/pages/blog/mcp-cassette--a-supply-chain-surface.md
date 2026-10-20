@@ -7,6 +7,9 @@ description: A cassette is a verbatim transcript of what a third-party server sa
 banner: /assets/blog/mcp-cassette--a-supply-chain-surface.svg
 bannerMobile: /assets/blog/mcp-cassette--a-supply-chain-surface-mobile.svg
 bannerAlt: A committed cassette scanned for injection smells in tool descriptions and results, with rule packs expressed as declarative TOML rather than code
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 [Last time](/blog/mcp-cassette--the-sampling-request-that-never-arrived) I left the other half of the v2 plan sitting there — the half that isn't about testing. It had been written down since before any of this existed, and it took until v2 to build because it kept feeling like a different project.

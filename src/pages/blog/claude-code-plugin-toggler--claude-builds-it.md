@@ -7,6 +7,11 @@ description: Every line of my Claude Code plugin manager was written by Claude C
 banner: /assets/blog/claude-code-builds-plugin-manager.svg
 bannerMobile: /assets/blog/claude-code-builds-plugin-manager-mobile.svg
 bannerAlt: A direct-and-build feedback loop between a prompt and a shipped package, over a rising release timeline from 0.0.1 to 0.6.0
+changelog:
+  - date: 2026-06-10
+    note: Rewrote the post as part of an ongoing series
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 There's a fact about [`claude-code-plugin-toggler`](https://github.com/cheneeheng/claude-code-plugin-toggler) that I've mentioned in passing across these posts but never actually looked at straight on: I haven't written a line of it. Every line of application code — the Python server, the VSCode extension, the CSS, the tests — came out of Claude Code. A plugin manager for Claude Code, written by Claude Code. At some point the recursion stops being a joke and becomes just how the project works, and I wanted to write down what my job in it actually was.

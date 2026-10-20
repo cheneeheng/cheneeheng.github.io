@@ -7,6 +7,9 @@ description: The redesign looked AI-generated and I couldn't say why — so I as
 banner: /assets/blog/claude-code-plugin-toggler--de-generification.svg
 bannerMobile: /assets/blog/claude-code-plugin-toggler--de-generification-mobile.svg
 bannerAlt: A UI card crowded with glows, gradients and floating rows, an arrow, then a flat dense card whose only ornament is a terracotta enabled-edge
+changelog:
+  - date: 2026-08-01
+    note: Added section headings and split long paragraphs
 ---
 
 [Last time](/blog/claude-code-plugin-toggler--tidewater) I ended on a question I couldn't answer: the redesigned toggler looked coherent, but it had a faint AI-generated quality I couldn't name, and I wondered whether a real designer would name it in five seconds. I don't have a real designer. What I have is the thing that designed it.

@@ -7,6 +7,9 @@ description: I already had a usage dashboard; I built the terminal version out o
 banner: /assets/blog/claude-code-command-center--usage-report.svg
 bannerMobile: /assets/blog/claude-code-command-center--usage-report-mobile.svg
 bannerAlt: A terminal running usage-report, the claude-usage library feeding both the dashboard and the report as its second consumer, and a by-model breakdown
+changelog:
+  - date: 2026-08-01
+    note: Linked the usage dashboard post in the opening
 ---
 
 [The dashboard](/blog/usage-dashboard--where-tokens-go) already did everything I needed. The report tool exists because I wanted to know whether I could do it in the terminal instead — no browser, no server, just a command that prints the same summary and exits. CLI is all the rage nowadays, and I was curious whether the same numbers would feel different coming out of a shell.

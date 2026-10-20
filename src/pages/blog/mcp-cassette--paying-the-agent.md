@@ -7,6 +7,9 @@ description: I wanted to start a project with MCP and found there was no easy wa
 banner: /assets/blog/mcp-cassette--paying-the-agent.svg
 bannerMobile: /assets/blog/mcp-cassette--paying-the-agent-mobile.svg
 bannerAlt: A live agent-to-server session being recorded to a cassette file, then the cassette replayed offline in place of the server
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 I was looking to start a project with MCP, and ran into the thing that stopped me before I really started: there is no easy way to test the MCP interaction with an AI agent without calling the AI agent. Over and over. Every assertion I wanted to make about how my server behaved cost a real model call, waited on a real model call, and carried a real model's freedom to answer slightly differently the second time.

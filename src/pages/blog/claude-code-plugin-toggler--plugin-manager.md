@@ -7,6 +7,13 @@ description: Setting up yet another project with my usual Claude Code plugins, I
 banner: /assets/blog/claude-code-plugin-manager.svg
 bannerMobile: /assets/blog/claude-code-plugin-manager-mobile.svg
 bannerAlt: Rows of plugin toggle switches, some on and some off, with a cursor flipping one
+changelog:
+  - date: 2026-05-28
+    note: Added a banner image
+  - date: 2026-06-07
+    note: Moved to a new URL (was /blog/claude-code-plugin-manager)
+  - date: 2026-06-10
+    note: Rewrote the post as part of an ongoing series
 ---
 
 This started, like most tools I end up building, with a small annoyance I'd stopped noticing. I was setting up a new project and wanted my usual set of Claude Code plugins in it — the coding contract, the git workflow, a few others. Claude Code's plugin interface does everything one operation at a time: open the plugin view, enable one, get dropped back to the terminal, navigate back in, do the next. Five plugins, five round trips. I'd done this dance on every project for weeks before it occurred to me to be annoyed properly.

@@ -7,6 +7,9 @@ description: Adding remote transport meant framing SSE myself to keep the depend
 banner: /assets/blog/mcp-cassette--the-sampling-request-that-never-arrived.svg
 bannerMobile: /assets/blog/mcp-cassette--the-sampling-request-that-never-arrived-mobile.svg
 bannerAlt: A recording proxy in front of a remote MCP server, with a server-initiated sampling request going to a stream that has no listener
+changelog:
+  - date: 2026-09-24
+    note: Redrew the banner image
 ---
 
 [Last time](/blog/mcp-cassette--four-red-jobs) I said MCP also runs over the network and that network servers can talk back first. Both halves of that turned out to be work.

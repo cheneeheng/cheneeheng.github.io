@@ -6,6 +6,9 @@ description: Resetting the blog. Expect short, occasional notes on building AI c
 banner: /assets/blog/hello.svg
 bannerMobile: /assets/blog/hello-mobile.svg
 bannerAlt: A path leading toward a rising sun on the horizon
+changelog:
+  - date: 2026-05-28
+    note: Added a banner image
 ---
 
 The old posts here were from another era — terse CMake notes and git scratchpads
