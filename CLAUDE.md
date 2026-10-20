@@ -88,6 +88,7 @@ The site is optimized to be both indexed by search engines and cited by AI syste
 - **JSON-LD.** `BlogPost.astro` emits a `BlogPosting` per post from frontmatter (with `dateModified` falling back to `date`); `index.astro` emits a `Person` entity. Author is **Chen Ee Heng**.
 - **`@astrojs/sitemap`** (in `astro.config.mjs`) generates `/sitemap-index.xml`. `public/robots.txt` references it and explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.).
 - **`src/pages/llms.txt.ts`** generates `/llms.txt` from `import.meta.glob` of the posts — it stays in sync automatically; no manual edit needed when publishing. Its `## Pages` list is hand-written: update it when a top-level page is added. It also fails the build if a post has no `description`.
+- **RSS.** `src/pages/rss.xml.ts` (`@astrojs/rss`) serves `/rss.xml` from the same post glob; `BaseHead.astro` advertises it and the footer links it. Auto-covers new posts.
 - **Markdown twins.** `src/pages/blog/[slug].md.ts` serves every post's raw Markdown at `/blog/<slug>.md` (frontmatter stripped, title + description prepended) for token-efficient agent consumption. `BlogPost.astro` links to it ("View as Markdown"). This auto-covers new posts.
 
 Optional post frontmatter for SEO: `updated:` (sets `dateModified` / freshness signal, overriding the latest `changelog:` date) and `schemaType:` (override `BlogPosting`, e.g. `HowTo`, `FAQPage`, `TechArticle`, `SoftwareSourceCode` to match the post's shape). These are read by `BlogPost.astro`; everything else about queuing/publishing is unchanged.
