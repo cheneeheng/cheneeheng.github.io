@@ -6,6 +6,7 @@ description: Six months with Claude Code, from usage paranoia and a code tsunami
 banner: /assets/blog/agentic-ai-journal--the-beginnings.svg
 bannerMobile: /assets/blog/agentic-ai-journal--the-beginnings-mobile.svg
 bannerAlt: An open journal, with lines of writing on the left page and a small neural network on the right page
+series: journal
 ---
 
 It has been almost 6 months now since I first started using Claude Code (CC from here on). Until then I had heard so much about CC, especially how CC is so much better than GitHub Copilot. GitHub Copilot was already quite impressive for me, and now you are telling me there is something even better? I was very hesitant to use CC, since CC requires either a Claude subscription or paid API usage. But boy, so much has happened in the past 6 months!

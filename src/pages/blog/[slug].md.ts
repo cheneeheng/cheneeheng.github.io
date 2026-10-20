@@ -1,6 +1,6 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { formatDate } from '../../lib/date';
-import { seriesOf } from '../../lib/series';
+import { seriesName, seriesOf } from '../../lib/series';
 
 // Markdown twins: serve every post's raw Markdown at /blog/<slug>.md so AI
 // coding agents can consume plain Markdown instead of the HTML page (cleaner
@@ -17,6 +17,7 @@ interface PostFrontmatter {
   title: string;
   description?: string;
   repo?: string;
+  series?: string;
   changelog?: { date: string; note: string }[];
 }
 const metaModules = import.meta.glob<{ frontmatter: PostFrontmatter }>('./*.md', {
@@ -38,9 +39,10 @@ export const getStaticPaths: GetStaticPaths = () =>
 export const GET: APIRoute = ({ props }) => {
   const { path } = props as { path: string };
   const raw = rawModules[path];
-  const { title, description, repo, changelog = [] } = metaModules[path].frontmatter;
+  const fm = metaModules[path].frontmatter;
+  const { title, description, changelog = [] } = fm;
 
-  const series = seriesOf(repo, slugFromPath(path));
+  const series = seriesOf(seriesName(fm), slugFromPath(path));
   const seriesNote = series
     ? `_Part ${series.part} of ${series.total} in the ${series.name} series.${
         series.part > 1
