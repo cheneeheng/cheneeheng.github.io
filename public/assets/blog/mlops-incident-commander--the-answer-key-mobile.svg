@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" role="img" aria-label="A scorecard fed by hidden ground truth, with a dashed path where postmortem memory quietly carries the answer back to the diagnosis agent">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.8" r="0.7">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="340" fill="url(#bg)"/>
+  <rect width="400" height="340" fill="url(#dots)"/>
+  <rect width="400" height="340" fill="url(#glow)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <rect x="20" y="20" width="160" height="60" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="100" y="46" font-size="12" fill="#e2e8f0">injection</text>
+    <text x="100" y="64" font-size="10" fill="#fcd34d">ground truth</text>
+    <rect x="220" y="20" width="160" height="60" rx="12" fill="#1e293b" stroke="#4ade80" stroke-opacity="0.5"/>
+    <text x="300" y="46" font-size="12" fill="#e2e8f0">scorecard</text>
+    <text x="300" y="64" font-size="10" fill="#94a3b8">13 cases</text>
+    <path d="M180 50 H 220" stroke="#4ade80" stroke-opacity="0.5" stroke-width="2"/>
+
+    <rect x="120" y="128" width="160" height="60" rx="12" fill="#1e293b" stroke="#475569"/>
+    <text x="200" y="154" font-size="12" fill="#e2e8f0">diagnosis</text>
+    <text x="200" y="172" font-size="10" fill="#64748b">is_faulty omitted</text>
+    <path d="M100 80 V 158 H 120" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="4 6"/>
+    <circle cx="100" cy="118" r="11" fill="#0b1120" stroke="#f87171" stroke-width="2"/>
+    <path d="M95 113 l10 10 M105 113 l-10 10" stroke="#f87171" stroke-width="2" stroke-linecap="round"/>
+
+    <rect x="60" y="236" width="280" height="64" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-opacity="0.7"/>
+    <text x="200" y="262" font-size="12" fill="#fcd34d">postmortem memory</text>
+    <text x="200" y="282" font-size="10" fill="#94a3b8">## Ground truth vs diagnosis</text>
+    <path d="M300 236 C 330 210, 320 190, 280 172" fill="none" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3 7" stroke-linecap="round"/>
+    <text x="330" y="222" font-size="10" fill="#fcd34d">leak</text>
+    <text x="200" y="324" font-size="11" fill="#cbd5e1">strip_ground_truth()</text>
+  </g>
+</svg>

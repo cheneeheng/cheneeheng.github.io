@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="Three concentric rings, a simulated world on the outside, a sensing layer in the middle, and the reasoning agents at the centre">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.25" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <circle cx="260" cy="150" r="130" fill="#1e293b" fill-opacity="0.5" stroke="#334155" stroke-width="2" stroke-dasharray="6 6"/>
+    <circle cx="260" cy="150" r="86" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <circle cx="260" cy="150" r="44" fill="#0b1120" stroke="#fbbf24" stroke-width="2"/>
+    <text x="260" y="52" font-size="11" fill="#64748b">3 · simulated</text>
+    <text x="260" y="80" font-size="11" fill="#94a3b8">2 · sensing</text>
+    <text x="260" y="148" font-size="12" fill="#fcd34d">1 · reason</text>
+    <text x="260" y="164" font-size="10" fill="#94a3b8">agents</text>
+
+    <rect x="480" y="40" width="660" height="62" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="810" y="66" font-size="12" fill="#cbd5e1">traffic · injected faults · cifar-10 cnn · deploy rows</text>
+    <text x="810" y="86" font-size="10" fill="#64748b">scaffolding, so the loop has something to watch and something to break</text>
+
+    <rect x="480" y="119" width="660" height="62" rx="12" fill="#1e293b" stroke="#475569"/>
+    <text x="810" y="145" font-size="12" fill="#e2e8f0">30s windows · psi · latency · entropy · 4 mcp servers</text>
+    <text x="810" y="165" font-size="10" fill="#94a3b8">only what a real operator's telemetry would show</text>
+
+    <rect x="480" y="198" width="660" height="62" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-opacity="0.6"/>
+    <text x="810" y="224" font-size="12" fill="#fcd34d">monitor → diagnosis → adjudicator → policy → postmortem</text>
+    <text x="810" y="244" font-size="10" fill="#94a3b8">written as if it were production</text>
+
+    <path d="M390 71 H 470" stroke="#334155" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <path d="M346 150 H 470" stroke="#475569" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <path d="M304 160 C 360 200, 400 229, 470 229" fill="none" stroke="#fbbf24" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+  </g>
+</svg>

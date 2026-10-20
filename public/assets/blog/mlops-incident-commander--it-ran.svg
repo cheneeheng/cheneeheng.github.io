@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A stack of audit passes marked compiled and inspected, above a control plane that has finally been switched on">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#4ade80" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#4ade80" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <g text-anchor="start">
+      <rect x="50" y="40" width="440" height="44" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="70" y="67" font-size="11" fill="#64748b">24 jul</text><text x="150" y="67" font-size="11" fill="#cbd5e1">agents wired</text><text x="320" y="67" font-size="11" fill="#fcd34d">compile-checked</text>
+      <rect x="50" y="94" width="440" height="44" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="70" y="121" font-size="11" fill="#64748b">24 jul</text><text x="150" y="121" font-size="11" fill="#cbd5e1">event names</text><text x="320" y="121" font-size="11" fill="#fcd34d">strings compared</text>
+      <rect x="50" y="148" width="440" height="44" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="70" y="175" font-size="11" fill="#64748b">26 aug</text><text x="150" y="175" font-size="11" fill="#cbd5e1">answer key</text><text x="320" y="175" font-size="11" fill="#fcd34d">sql inspected</text>
+      <rect x="50" y="202" width="440" height="44" rx="10" fill="#1e293b" stroke="#334155"/>
+      <text x="70" y="229" font-size="11" fill="#64748b">27 aug</text><text x="150" y="229" font-size="11" fill="#cbd5e1">user guide</text><text x="320" y="229" font-size="11" fill="#fcd34d">read from source</text>
+    </g>
+    <text x="270" y="276" font-size="10" fill="#64748b">nothing executed</text>
+    <path d="M490 143 H 560" stroke="#475569" stroke-width="2"/>
+    <path d="M560 143 C 600 143, 600 150, 640 150" fill="none" stroke="#475569" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+    <text x="600" y="132" font-size="10" fill="#64748b">september</text>
+    <rect x="640" y="90" width="260" height="120" rx="16" fill="#1e293b" stroke="#4ade80" stroke-opacity="0.6"/>
+    <text x="770" y="116" font-size="10" fill="#94a3b8">early october</text>
+    <circle cx="770" cy="150" r="16" fill="#0b1120" stroke="#4ade80" stroke-width="2"/>
+    <path d="M763 150 l5 5 l9 -10" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="770" y="192" font-size="12" fill="#86efac">demos ran · no edits</text>
+    <path d="M900 150 H 950" stroke="#334155" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"/>
+    <g font-size="10" fill="#94a3b8">
+      <rect x="950" y="86" width="200" height="34" rx="8" fill="#0b1120" stroke="#334155" stroke-dasharray="4 4"/><text x="1050" y="107">cli for ci/cd</text>
+      <rect x="950" y="133" width="200" height="34" rx="8" fill="#0b1120" stroke="#334155" stroke-dasharray="4 4"/><text x="1050" y="154">better dashboards</text>
+      <rect x="950" y="180" width="200" height="34" rx="8" fill="#0b1120" stroke="#334155" stroke-dasharray="4 4"/><text x="1050" y="201">more ml frameworks</text>
+    </g>
+    <text x="1050" y="240" font-size="10" fill="#64748b">which first?</text>
+  </g>
+</svg>

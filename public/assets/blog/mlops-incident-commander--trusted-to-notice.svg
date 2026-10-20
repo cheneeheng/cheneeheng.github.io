@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="A model's judgement feeding the monitor on the left, and a fixed policy table gating the remediation on the right">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="1.2" cy="1.2" r="1.2" fill="#f8fafc" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="300" fill="url(#dots)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="600" text-anchor="middle">
+    <rect x="50" y="110" width="150" height="80" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="125" y="140" font-size="12" fill="#e2e8f0">30s window</text>
+    <text x="125" y="160" font-size="10" fill="#64748b">p95 · conf · psi</text>
+    <text x="125" y="176" font-size="10" fill="#64748b">entropy</text>
+    <path d="M200 150 H 250" stroke="#475569" stroke-width="2"/>
+    <rect x="250" y="90" width="200" height="120" rx="14" fill="#1e293b" stroke="#fbbf24" stroke-opacity="0.6"/>
+    <text x="350" y="120" font-size="12" fill="#fcd34d">monitor · haiku</text>
+    <text x="350" y="146" font-size="10" fill="#94a3b8">no thresholds</text>
+    <text x="350" y="164" font-size="10" fill="#94a3b8">model judgement</text>
+    <text x="350" y="190" font-size="11" fill="#e2e8f0">open_incident?</text>
+    <text x="350" y="240" font-size="11" fill="#fbbf24">trusted to notice</text>
+    <path d="M450 150 H 500" stroke="#475569" stroke-width="2"/>
+    <rect x="500" y="110" width="170" height="80" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="585" y="140" font-size="12" fill="#e2e8f0">diagnosis</text>
+    <text x="585" y="164" font-size="11" fill="#fcd34d">confidence 0.87</text>
+    <text x="585" y="180" font-size="10" fill="#64748b">self-reported</text>
+    <path d="M670 150 H 720" stroke="#475569" stroke-width="2"/>
+    <rect x="720" y="44" width="430" height="212" rx="14" fill="#1e293b" stroke="#475569"/>
+    <text x="935" y="70" font-size="12" fill="#e2e8f0">policy.py · the model is not asked</text>
+    <g font-size="11" text-anchor="start">
+      <text x="745" y="100" fill="#94a3b8">bad_deploy</text><text x="905" y="100" fill="#cbd5e1">rollback</text><text x="1060" y="100" fill="#4ade80">low</text>
+      <text x="745" y="124" fill="#94a3b8">feature_drift</text><text x="905" y="124" fill="#cbd5e1">retrain</text><text x="1060" y="124" fill="#fbbf24">medium</text>
+      <text x="745" y="148" fill="#94a3b8">label_skew</text><text x="905" y="148" fill="#cbd5e1">pipeline_fix</text><text x="1060" y="148" fill="#fbbf24">medium</text>
+      <text x="745" y="172" fill="#94a3b8">latency</text><text x="905" y="172" fill="#cbd5e1">pipeline_fix</text><text x="1060" y="172" fill="#fbbf24">medium</text>
+      <text x="745" y="196" fill="#94a3b8">unknown</text><text x="905" y="196" fill="#cbd5e1">pipeline_fix</text><text x="1060" y="196" fill="#f87171">high</text>
+    </g>
+    <rect x="745" y="212" width="380" height="26" rx="6" fill="#0b1120" stroke="#4ade80" stroke-opacity="0.5"/>
+    <text x="935" y="229" font-size="10" fill="#86efac">auto-execute only if low and confidence ≥ 0.85</text>
+  </g>
+</svg>
