@@ -1,4 +1,5 @@
 ---
+date: 2026-10-22
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/presidio-compliance-stack
 title: The half of the audit store I had never seen run
