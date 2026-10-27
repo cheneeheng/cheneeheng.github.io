@@ -1,4 +1,5 @@
 ---
+date: 2026-10-27
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mlops-incident-commander
 title: An on-call engineer for a model, and the scaffolding I built so it had something to watch
