@@ -1,4 +1,5 @@
 ---
+date: 2026-10-29
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mlops-incident-commander
 title: The model decides there's an incident, and a lookup table decides what to do about it
