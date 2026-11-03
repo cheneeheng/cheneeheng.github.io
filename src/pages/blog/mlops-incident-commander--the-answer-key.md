@@ -1,4 +1,5 @@
 ---
+date: 2026-11-03
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mlops-incident-commander
 title: My agents weren't allowed to see the answer key, so I wrote it into their memory
