@@ -1,4 +1,5 @@
 ---
+date: 2026-11-05
 layout: ../../layouts/BlogPost.astro
 repo: https://github.com/cheneeheng/mlops-incident-commander
 title: Two months of fixes checked against the source, and then the loop finally ran
