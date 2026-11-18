@@ -10,6 +10,7 @@ export default defineConfig({
   redirects: {
     '/blog/plugin-toggler-lessons': '/blog/claude-code-plugin-toggler--lessons',
     '/blog/claude-code-plugin-manager': '/blog/claude-code-plugin-toggler--plugin-manager',
+    '/blog/agentic-ai-journal--the-beginnings': '/blog/claude-code-journal--the-beginnings',
   },
   vite: {
     plugins: [tailwindcss()],
